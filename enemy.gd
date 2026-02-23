@@ -4,20 +4,20 @@ extends CharacterBody3D
 var player: CharacterBody3D = null
 
 func _ready() -> void:
-	# This finds the player node in your main scene. 
-	# Ensure your player node is actually named "Player"!
-	player = get_tree().root.find_child("Player", true, false)
+	# This finds the player node in the player group.
+	# Faster than finding the child node.
+	player = get_tree().get_first_node_in_group("player")
 
 func _physics_process(_delta: float) -> void:
 	if player:
-		# 1. Calculate direction (Target Position - My Position)
+		# Calculate direction (Target Position - My Position)
 		var direction = (player.global_position - global_position).normalized()
 		
-		# 2. Apply movement (ignoring Y so they don't fly)
+		# Apply movement 
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 		
-		# 3. Flip the sprite based on direction
+		# Flip the sprite based on direction
 		if direction.x != 0:
 			$Sprite3D.flip_h = direction.x < 0
 		
