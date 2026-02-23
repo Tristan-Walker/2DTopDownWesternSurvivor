@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export var speed: float = 3.0
+@export var speed: float = 2.0
 var player: CharacterBody3D = null
 
 func _ready() -> void:
