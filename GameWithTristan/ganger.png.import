@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyn6ayech1hk4"
-path.s3tc="res://.godot/imported/Chicken.jpg-27d1e8d4cd1b72277e3f501b852e2892.s3tc.ctex"
+uid="uid://dysj0oadjmbwr"
+path.s3tc="res://.godot/imported/ganger.png-e629604607ed0e3fd1d19ead498e40fe.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Chicken.jpg"
-dest_files=["res://.godot/imported/Chicken.jpg-27d1e8d4cd1b72277e3f501b852e2892.s3tc.ctex"]
+source_file="res://GameWithTristan/ganger.png"
+dest_files=["res://.godot/imported/ganger.png-e629604607ed0e3fd1d19ead498e40fe.s3tc.ctex"]
 
 [params]
 

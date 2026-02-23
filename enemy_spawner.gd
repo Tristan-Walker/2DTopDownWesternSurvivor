@@ -1,0 +1,13 @@
+extends Node3D
+
+# Drag your Enemy.tscn file into this slot in the Inspector
+@export var enemy_scene: PackedScene 
+
+func _on_timer_timeout() -> void:
+	var enemy = enemy_scene.instantiate()
+	
+	# Spawn them at a random position away from the center
+	var spawn_pos = Vector3(randf_range(-10, 10), 0, randf_range(-10, 10))
+	enemy.position = spawn_pos
+	
+	add_child(enemy)
