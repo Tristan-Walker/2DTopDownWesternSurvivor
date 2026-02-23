@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyn6ayech1hk4"
-path.s3tc="res://.godot/imported/Chicken.jpg-27d1e8d4cd1b72277e3f501b852e2892.s3tc.ctex"
+uid="uid://cws7uwxq8arl5"
+path="res://.godot/imported/2D Top Down Survivor, JL_ProjectIdea.png-87646118751d8f5235d431b134338f87.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Chicken.jpg"
-dest_files=["res://.godot/imported/Chicken.jpg-27d1e8d4cd1b72277e3f501b852e2892.s3tc.ctex"]
+source_file="res://GameWithTristan/2D Top Down Survivor, JL_ProjectIdea.png"
+dest_files=["res://.godot/imported/2D Top Down Survivor, JL_ProjectIdea.png-87646118751d8f5235d431b134338f87.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
