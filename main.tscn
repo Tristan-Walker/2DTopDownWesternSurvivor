@@ -1,38 +1,43 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1k627sgou3di"]
+[gd_scene format=3 uid="uid://d1k627sgou3di"]
 
 [ext_resource type="Script" uid="uid://bvktr8tyt8h1h" path="res://character_body_3d.gd" id="1_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://dyn6ayech1hk4" path="res://Chicken.jpg" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://db4kkdcg616wq" path="res://Jebidiah Levideous.jpg" id="2_1bvp3"]
 [ext_resource type="Script" uid="uid://dkxsimqsxj842" path="res://enemy.gd" id="3_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://ueemnb8v1t3k" path="res://ASalas2.jpg" id="3_h2yge"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0xm2m"]
 
-[node name="Main" type="Node3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_1bvp3"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Main" type="Node3D" unique_id=705217086]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=185474831]
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
 mesh = SubResource("PlaneMesh_0xm2m")
 
-[node name="Player" type="CharacterBody3D" parent="."]
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1208040698]
 script = ExtResource("1_0xm2m")
 
-[node name="Sprite3D" type="Sprite3D" parent="Player"]
+[node name="Sprite3D" type="Sprite3D" parent="Player" unique_id=540387607]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+offset = Vector2(0, 90)
 billboard = 1
-texture = ExtResource("1_ig7tw")
+texture = ExtResource("2_1bvp3")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=1425293295]
+shape = SubResource("SphereShape3D_1bvp3")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2097954543]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 5, 8)
 fov = 40.0
 
-[node name="Enemy" type="CharacterBody3D" parent="."]
+[node name="Enemy" type="CharacterBody3D" parent="." unique_id=2015950953]
 script = ExtResource("3_1bvp3")
 
-[node name="Sprite3D" type="Sprite3D" parent="Enemy"]
+[node name="Sprite3D" type="Sprite3D" parent="Enemy" unique_id=953677105]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+offset = Vector2(0, 200)
 billboard = 1
 texture = ExtResource("3_h2yge")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy" unique_id=1303830200]
