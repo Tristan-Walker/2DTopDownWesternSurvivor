@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ip106v34k67g"]
+
+[ext_resource type="Texture2D" uid="uid://bdh8jw0myldg" path="res://GameWithTristan/Hut.png" id="1_y0vf6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_blsi2"]
+size = Vector3(0.9182892, 1.3182373, 0.39172363)
+
+[node name="HutBuilding" type="StaticBody3D" unique_id=171309140]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1944412745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026374817, 0.71964186, 0)
+shape = SubResource("BoxShape3D_blsi2")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=953795537]
+transform = Transform3D(0.9999978, 3.3882374e-05, -0.0020934008, -3.259608e-05, 0.9999998, 0.00061335816, 0.0020934213, -0.00061328843, 0.9999976, -0.013663352, 0.72512233, 0.0076913834)
+billboard = 1
+texture = ExtResource("1_y0vf6")
