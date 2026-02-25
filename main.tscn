@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ueemnb8v1t3k" path="res://GameWithTristan/ASalas2.jpg" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://chyybxqu7een1" path="res://enemy_spawner.gd" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://c7cd6i3sa71mb" path="res://enemy.tscn" id="6_7mycd"]
-[ext_resource type="PackedScene" path="res://hut_building.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://ip106v34k67g" path="res://hut_building.tscn" id="7_272bh"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0xm2m"]
 
