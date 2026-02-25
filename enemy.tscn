@@ -5,7 +5,9 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7xaro"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" unique_id=605996981]
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=605996981 groups=["enemy"]]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+collision_layer = 3
 script = ExtResource("1_4gyqm")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1107318596]
@@ -13,3 +15,4 @@ texture = ExtResource("1_7k104")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1007515544]
 shape = SubResource("CylinderShape3D_7xaro")
+debug_color = Color(0, 0.6138149, 0.61446595, 0.41960785)

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://lpwi414jmpl5"]
+
+[ext_resource type="Texture2D" uid="uid://dy3y4r7tn3qaj" path="res://GameWithTristan/bullet.png" id="1_v7oki"]
+[ext_resource type="Script" uid="uid://brhv6qa86lrwm" path="res://bullet.gd" id="1_v8qja"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v7oki"]
+
+[node name="Area3D" type="Area3D" unique_id=90942507]
+collision_mask = 3
+script = ExtResource("1_v8qja")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1059067889]
+billboard = 1
+texture = ExtResource("1_v7oki")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=488062979]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+shape = SubResource("SphereShape3D_v7oki")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="." unique_id=129893554]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

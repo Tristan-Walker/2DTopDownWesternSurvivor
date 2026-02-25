@@ -23,6 +23,7 @@ A fast-paced, 2D top-down "Survivor" roguelite built with the **Godot Engine**. 
 ## 🏗️ Architecture
 
 The game follows a decoupled, signal-based architecture to ensure performance and scalability.
+"Implemented VisibleOnScreenNotifier3D to handle automatic object pooling and memory cleanup, ensuring consistent performance even during high-intensity bullet-hell scenarios."
 
 
 
