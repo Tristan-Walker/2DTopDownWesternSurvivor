@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bvktr8tyt8h1h" path="res://character_body_3d.gd" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://db4kkdcg616wq" path="res://GameWithTristan/Jebidiah Levideous.jpg" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://lpwi414jmpl5" path="res://bullet.tscn" id="2_5vw27"]
 [ext_resource type="Script" uid="uid://dkxsimqsxj842" path="res://enemy.gd" id="3_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://ueemnb8v1t3k" path="res://GameWithTristan/ASalas2.jpg" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://chyybxqu7een1" path="res://enemy_spawner.gd" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://c7cd6i3sa71mb" path="res://enemy.tscn" id="6_7mycd"]
-[ext_resource type="PackedScene" uid="uid://ip106v34k67g" path="res://hut_building.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" path="res://hut_building.tscn" id="7_272bh"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0xm2m"]
 
@@ -23,6 +24,7 @@ mesh = SubResource("PlaneMesh_0xm2m")
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1208040698 groups=["player"]]
 script = ExtResource("1_0xm2m")
+bullet_scene = ExtResource("2_5vw27")
 
 [node name="Sprite3D" type="Sprite3D" parent="Player" unique_id=540387607]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
