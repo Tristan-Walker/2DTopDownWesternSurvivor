@@ -7,7 +7,7 @@
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=605996981 groups=["enemy"]]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-collision_layer = 3
+collision_layer = 2
 script = ExtResource("1_4gyqm")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1107318596]

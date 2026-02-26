@@ -3,12 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://bdh8jw0myldg" path="res://GameWithTristan/Hut.png" id="1_y0vf6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_blsi2"]
-size = Vector3(0.9182892, 1.3182373, 0.39172363)
+size = Vector3(0.96012115, 1.3182373, 0.546875)
 
 [node name="HutBuilding" type="StaticBody3D" unique_id=171309140]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1944412745]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026374817, 0.71964186, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.67, 0)
 shape = SubResource("BoxShape3D_blsi2")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=953795537]

@@ -1,10 +1,16 @@
 extends CharacterBody3D
 @export var bullet_scene: PackedScene
-var fire_rate := 0.3
+const SPEED = 5.0                #player speed
+
+var health := 100.0              #max health
+var damage_cooldown := 1.0       #i-frame time
+var damage_timer := 0.0	
+const damage_rate = 25.0         #damage delt by enemies
+signal health_depleted
+
+var fire_rate := 0.3             #bullet fire rate
 var fire_timer := 0.0
 var last_shoot_dir: Vector3 = Vector3.RIGHT   # Default direction
-
-const SPEED = 5.0
 
 func _physics_process(_delta: float) -> void:
 	
@@ -24,6 +30,19 @@ func _physics_process(_delta: float) -> void:
 	
 	move_and_slide()
 	
+	#Player health
+	damage_timer -= _delta
+	%ProgressBar.step = damage_rate
+	var overlapping_mobs = %Hurtbox.get_overlapping_bodies()
+	
+	if overlapping_mobs.size() > 0 and damage_timer <= 0:
+		health -= damage_rate * overlapping_mobs.size()
+		%ProgressBar.value = health
+		damage_timer = damage_cooldown
+
+		if health <= 0.0:
+			health_depleted.emit()
+	
 	#Shooting 
 	fire_timer -= _delta
 	var shoot_dir = Vector3.ZERO
@@ -33,9 +52,9 @@ func _physics_process(_delta: float) -> void:
 	elif Input.is_action_pressed("shoot_left"):
 		shoot_dir = Vector3.LEFT
 	elif Input.is_action_pressed("shoot_up"):
-		shoot_dir = Vector3(0, 0, -1)
+		shoot_dir = Vector3.FORWARD
 	elif Input.is_action_pressed("shoot_down"):
-		shoot_dir = Vector3(0, 0, 1)
+		shoot_dir = Vector3.BACK
 
 	if shoot_dir != Vector3.ZERO:
 		last_shoot_dir = shoot_dir

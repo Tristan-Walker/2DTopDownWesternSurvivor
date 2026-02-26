@@ -8,10 +8,10 @@ func _physics_process(delta: float) -> void:
 	global_position += direction * speed * delta
 
 func _on_body_entered(body: Node3D) -> void:
-	# If it hits an enemy, kill the enemy and the bullet
-	if body.is_in_group("enemy"):
-		body.queue_free() # Deletes the enemy
-		queue_free()      # Deletes the bullet
+	queue_free()      # Deletes the bullet when hitting another entity
+	
+	if body.has_method("take_damage"):
+		body.take_damage()
 
 func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 	queue_free()
