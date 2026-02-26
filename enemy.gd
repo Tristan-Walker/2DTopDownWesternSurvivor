@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @export var speed: float = 2.0
 var player: CharacterBody3D = null
+var health = 3
 
 func _ready() -> void:
 	# This finds the player node in the player group.
@@ -22,3 +23,9 @@ func _physics_process(_delta: float) -> void:
 			$Sprite3D.flip_h = direction.x < 0
 		
 		move_and_slide()
+
+func take_damage():
+	health -= 1
+	
+	if health == 0:
+		queue_free()
