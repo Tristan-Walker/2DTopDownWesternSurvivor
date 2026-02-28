@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
+@export var damage_amount: int = 20
 @export var speed: float = 2.0
+var player_in_range: CharacterBody3D = null
 var player: CharacterBody3D = null
 var health = 3
 
@@ -29,3 +31,19 @@ func take_damage():
 	
 	if health == 0:
 		queue_free()
+
+func _on_attack_area_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		if body.has_method("take_damage"):
+			body.take_damage(damage_amount)
+
+
+func _on_timer_timeout() -> void:
+	if player_in_range:
+		player_in_range.take_damage(damage_amount)
+
+
+func _on_attack_area_body_exited(body: Node3D) -> void:
+	if body == player_in_range:
+		player_in_range = null
+		$DamageTimer.stop()
