@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dwe6sw47pmg2c"]
+
+[ext_resource type="Texture2D" uid="uid://ueemnb8v1t3k" path="res://GameWithTristan/ASalas2.jpg" id="1_kenku"]
+
+[node name="InGameUI" type="Control" unique_id=999760388]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PopupMenu" type="MarginContainer" parent="." unique_id=1558623505]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupMenu" unique_id=764380445]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 40
+
+[node name="BaseMenuScreen" type="MarginContainer" parent="PopupMenu/VBoxContainer" unique_id=171185834]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PopupMenu/VBoxContainer/BaseMenuScreen" unique_id=579233375]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+texture = ExtResource("1_kenku")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="PopupMenu/VBoxContainer/BaseMenuScreen/NinePatchRect" unique_id=2122245891]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 15
+
+[node name="Button" type="Button" parent="PopupMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer" unique_id=2098322841]
+layout_mode = 2
+
+[node name="serperator" type="Control" parent="PopupMenu/VBoxContainer" unique_id=1450598917]
+layout_mode = 2
+
+[node name="MainMenu" type="MarginContainer" parent="." unique_id=648092069]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
