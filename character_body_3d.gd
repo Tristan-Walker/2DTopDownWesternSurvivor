@@ -4,7 +4,7 @@ const SPEED = 5.0                #player speed
 
 var health := 100.0              #max health
 var damage_cooldown := 1.0       #i-frame time
-var damage_timer := 0.0	
+var damage_timer := 0.0
 const damage_rate = 25.0         #damage delt by enemies
 signal health_depleted
 
