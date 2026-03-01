@@ -1,6 +1,31 @@
 [gd_scene format=3 uid="uid://dwe6sw47pmg2c"]
 
 [ext_resource type="Texture2D" uid="uid://ueemnb8v1t3k" path="res://GameWithTristan/ASalas2.jpg" id="1_kenku"]
+[ext_resource type="Texture2D" uid="uid://cghr4ho4xs66k" path="res://Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_onc8m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e6quo"]
+texture = ExtResource("2_onc8m")
+region_rect = Rect2(709, 164, 22, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cwbuu"]
+texture = ExtResource("2_onc8m")
+region_rect = Rect2(741, 166, 22, 22)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onc8m"]
+texture = ExtResource("2_onc8m")
+region_rect = Rect2(710, 165, 20, 22)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4v80v"]
+texture = ExtResource("2_onc8m")
+region_rect = Rect2(772, 163, 22, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0qsvx"]
+texture = ExtResource("2_onc8m")
+region_rect = Rect2(804, 165, 22, 22)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uusyb"]
+texture = ExtResource("2_onc8m")
+region_rect = Rect2(773, 164, 20, 22)
 
 [node name="InGameUI" type="Control" unique_id=999760388]
 layout_mode = 3
@@ -50,13 +75,52 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 15
 
-[node name="Button" type="Button" parent="PopupMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer" unique_id=2098322841]
+[node name="ButtonContainer" type="VBoxContainer" parent="PopupMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer" unique_id=1953060972]
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="TopButtonContainer" type="HBoxContainer" parent="PopupMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer/ButtonContainer" unique_id=2018125352]
+layout_mode = 2
+
+[node name="HelpButton" type="Button" parent="PopupMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer/ButtonContainer/TopButtonContainer" unique_id=2098322841]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_e6quo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cwbuu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_onc8m")
+
+[node name="HelpButton2" type="Button" parent="PopupMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer/ButtonContainer/TopButtonContainer" unique_id=1430015320]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_e6quo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cwbuu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_onc8m")
+
+[node name="BottomButtonContainer2" type="HBoxContainer" parent="PopupMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer/ButtonContainer" unique_id=70972863]
+layout_mode = 2
+
+[node name="HelpButton" type="Button" parent="PopupMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer/ButtonContainer/BottomButtonContainer2" unique_id=214785672]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_e6quo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cwbuu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_onc8m")
+
+[node name="QuitButton" type="Button" parent="PopupMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MarginContainer/ButtonContainer/BottomButtonContainer2" unique_id=1084423165]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_4v80v")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0qsvx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_uusyb")
 
 [node name="serperator" type="Control" parent="PopupMenu/VBoxContainer" unique_id=1450598917]
 layout_mode = 2
-
-[node name="MainMenu" type="MarginContainer" parent="." unique_id=648092069]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
