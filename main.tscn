@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://chyybxqu7een1" path="res://enemy_spawner.gd" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://c7cd6i3sa71mb" path="res://enemy.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://ip106v34k67g" path="res://hut_building.tscn" id="7_272bh"]
+[ext_resource type="Script" uid="uid://dquouji2s5l61" path="res://pause_menu.gd" id="8_4c57u"]
+[ext_resource type="PackedScene" uid="uid://dwe6sw47pmg2c" path="res://in_game_ui.tscn" id="8_kek77"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0xm2m"]
 
@@ -126,6 +128,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 156
 text = "Game Over"
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1033225146]
+process_mode = 3
+script = ExtResource("8_4c57u")
+
+[node name="InGameUI" parent="PauseMenu" unique_id=999760388 instance=ExtResource("8_kek77")]
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]
