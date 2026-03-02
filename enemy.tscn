@@ -25,8 +25,8 @@ debug_color = Color(0, 0.6138149, 0.61446595, 0.41960785)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackArea" unique_id=1744902086]
 shape = SubResource("CylinderShape3D_4gyqm")
 
-[node name="Timer" type="Timer" parent="." unique_id=1572745435]
+[node name="DamageTimer" type="Timer" parent="." unique_id=1572745435]
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_timer_timeout"]

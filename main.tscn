@@ -40,6 +40,7 @@ script = ExtResource("1_kek77")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=185474831]
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+layers = 513
 mesh = SubResource("PlaneMesh_0xm2m")
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=1208040698 groups=["player"]]
@@ -86,6 +87,10 @@ show_percentage = false
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.25, 0)
 billboard = 1
 texture = SubResource("ViewportTexture_4c57u")
+
+[node name="ShotTimer" type="Timer" parent="Player" unique_id=96856578]
+wait_time = 0.3
+one_shot = true
 
 [node name="EnemySpawner" type="Node3D" parent="." unique_id=1823574857]
 script = ExtResource("5_lquwl")
