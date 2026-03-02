@@ -14,7 +14,7 @@ var last_shoot_dir: Vector3 = Vector3.RIGHT   # Default direction
 
 func _physics_process(_delta: float) -> void:
 	
-	# Player Movement
+	# PLAYER MOVEMENT
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
 	var direction := Vector3(input_dir.x, 0, input_dir.y)
@@ -30,26 +30,46 @@ func _physics_process(_delta: float) -> void:
 		$Sprite3D.flip_h = input_dir.x < 0
 	
 	move_and_slide()
-	
-	# Player Shooting 
-	fire_timer -= _delta
-	var shoot_dir = Vector3.ZERO
-	
-	if Input.is_action_pressed("shoot_right"):
-		shoot_dir = Vector3.RIGHT
-	elif Input.is_action_pressed("shoot_left"):
-		shoot_dir = Vector3.LEFT
-	elif Input.is_action_pressed("shoot_up"):
-		shoot_dir = Vector3.FORWARD
-	elif Input.is_action_pressed("shoot_down"):
-		shoot_dir = Vector3.BACK
 
-	if shoot_dir != Vector3.ZERO:
-		last_shoot_dir = shoot_dir
+	# PLAYER SHOOTING
+	# Check for left-click 
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		if $ShotTimer.is_stopped():
+			# 1. Get where the mouse is on the floor
+			var target_pos = get_mouse_world_position()
+	
+			# 2. Calculate direction (Target - Start)
+			var shoot_dir = (target_pos - global_position).normalized()
+			shoot_dir.y = 0             # We set Y to 0 so the bullet doesn't fly into the sky or floor
+	
+			# 3. Shoot in the direction
+			shoot(shoot_dir)
+	
+			# 4. Restart timer
+			$ShotTimer.start(fire_rate) 
+	
+			# 5. Flip the player sprite based on mouse position
+			if target_pos.x < global_position.x:
+				$Sprite3D.flip_h = true
+			else:
+				$Sprite3D.flip_h = false
 
-	if shoot_dir != Vector3.ZERO and fire_timer <= 0:
-		shoot(last_shoot_dir)
-		fire_timer = fire_rate
+func get_mouse_world_position() -> Vector3:
+	var mouse_pos = get_viewport().get_mouse_position()
+	var camera = get_viewport().get_camera_3d()
+	
+	# Create a ray from the camera through the mouse position
+	var ray_origin = camera.project_ray_origin(mouse_pos)
+	var ray_direction = camera.project_ray_normal(mouse_pos)
+	
+	# Find where that ray hits the horizontal plane (Y=0, where your floor is)
+	# This math finds the intersection point on the flat 3D floor
+	var plane = Plane(Vector3.UP, 0) 
+	var intersection = plane.intersects_ray(ray_origin, ray_direction)
+	
+	if intersection:
+		return intersection
+	return global_position # Fallback if mouse is off-screen
 
 # Spawning the bullets
 func shoot(dir: Vector3) -> void:
