@@ -33,15 +33,14 @@ func take_damage():
 		queue_free()
 
 func _on_attack_area_body_entered(body: Node3D) -> void:
-	# 1. Store the player so the timer knows who to hit
-	player_in_range = body
 	
-	# 2. Deal first hit of damage
+	# 1. Deal first hit of damage & save player
 	if body.is_in_group("player"):
+		player_in_range = body
 		if body.has_method("take_damage"):
 			body.take_damage(damage_amount)
 			
-	# 3. Start the repeating clock for the next hits
+	# 2. Start the repeating clock for the next hits
 	$DamageTimer.start()
 
 func _on_timer_timeout() -> void:
