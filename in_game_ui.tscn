@@ -1,32 +1,9 @@
 [gd_scene format=3 uid="uid://dwe6sw47pmg2c"]
 
+[ext_resource type="Script" uid="uid://cyndp4gu0pm5k" path="res://pause_menu.gd" id="1_cwbuu"]
 [ext_resource type="Script" uid="uid://8v5g5fej5vj2" path="res://stat_display.gd" id="2_e6quo"]
 [ext_resource type="Texture2D" uid="uid://cghr4ho4xs66k" path="res://Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_onc8m"]
 [ext_resource type="FontFile" uid="uid://bjw8t4e0afrto" path="res://Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf" id="3_cwbuu"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ep3pr"]
-texture = ExtResource("2_onc8m")
-region_rect = Rect2(645, 68, 22, 24)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dpq86"]
-texture = ExtResource("2_onc8m")
-region_rect = Rect2(677, 70, 22, 22)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l8h7b"]
-texture = ExtResource("2_onc8m")
-region_rect = Rect2(646, 69, 20, 22)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ukwlx"]
-texture = ExtResource("2_onc8m")
-region_rect = Rect2(645, 100, 22, 24)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h3j15"]
-texture = ExtResource("2_onc8m")
-region_rect = Rect2(677, 102, 22, 22)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tjjbm"]
-texture = ExtResource("2_onc8m")
-region_rect = Rect2(646, 101, 20, 22)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e6quo"]
 texture = ExtResource("2_onc8m")
@@ -40,22 +17,49 @@ region_rect = Rect2(741, 166, 22, 22)
 texture = ExtResource("2_onc8m")
 region_rect = Rect2(710, 165, 20, 22)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ukwlx"]
+texture = ExtResource("2_onc8m")
+region_rect = Rect2(645, 164, 22, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h3j15"]
+texture = ExtResource("2_onc8m")
+region_rect = Rect2(677, 166, 22, 22)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tjjbm"]
+texture = ExtResource("2_onc8m")
+region_rect = Rect2(646, 165, 20, 22)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ep3pr"]
+texture = ExtResource("2_onc8m")
+region_rect = Rect2(645, 68, 22, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dpq86"]
+texture = ExtResource("2_onc8m")
+region_rect = Rect2(677, 70, 22, 22)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l8h7b"]
+texture = ExtResource("2_onc8m")
+region_rect = Rect2(646, 69, 20, 22)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4v80v"]
 texture = ExtResource("2_onc8m")
-region_rect = Rect2(772, 163, 22, 24)
+region_rect = Rect2(773, 68, 22, 24)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0qsvx"]
 texture = ExtResource("2_onc8m")
-region_rect = Rect2(804, 165, 22, 22)
+region_rect = Rect2(805, 70, 22, 22)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uusyb"]
 texture = ExtResource("2_onc8m")
-region_rect = Rect2(773, 164, 20, 22)
+region_rect = Rect2(774, 69, 20, 22)
 
 [sub_resource type="FontVariation" id="FontVariation_4v80v"]
 base_font = ExtResource("3_cwbuu")
 
 [sub_resource type="FontVariation" id="FontVariation_0qsvx"]
+base_font = ExtResource("3_cwbuu")
+
+[sub_resource type="FontVariation" id="FontVariation_e6quo"]
 base_font = ExtResource("3_cwbuu")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nw3uw"]
@@ -70,9 +74,6 @@ region_rect = Rect2(869, 102, 22, 22)
 texture = ExtResource("2_onc8m")
 region_rect = Rect2(838, 101, 20, 22)
 
-[sub_resource type="FontVariation" id="FontVariation_e6quo"]
-base_font = ExtResource("3_cwbuu")
-
 [node name="InGameUI" type="Control" unique_id=999760388]
 layout_mode = 3
 anchors_preset = 15
@@ -81,13 +82,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PauseMenu" type="MarginContainer" parent="." unique_id=1558623505]
+[node name="PauseMenu" type="MarginContainer" parent="." unique_id=1558623505 node_paths=PackedStringArray("menu_screen", "help_menu_screen", "settings_menu_screen", "bestiary_menu_screen")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_cwbuu")
+menu_screen = NodePath("PauseMenuContainer")
+help_menu_screen = NodePath("HelpMenuContainer")
+settings_menu_screen = NodePath("SettingsMenuContainer")
+bestiary_menu_screen = NodePath("BestiaryContainer")
 
 [node name="PauseMenuContainer" type="VBoxContainer" parent="PauseMenu" unique_id=764380445]
 layout_mode = 2
@@ -132,16 +138,16 @@ theme_override_constants/separation = 6
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="SettingsButton" type="Button" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer" unique_id=2098322841]
+[node name="ToggleHelpMenuButton" type="Button" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer" unique_id=214785672]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_ep3pr")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_dpq86")
-theme_override_styles/hover = SubResource("StyleBoxTexture_l8h7b")
+theme_override_styles/normal = SubResource("StyleBoxTexture_e6quo")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cwbuu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_onc8m")
 
-[node name="ResumeButton" type="Button" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer" unique_id=1430015320]
+[node name="ToggleBestiaryMenuButton" type="Button" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer" unique_id=1430015320]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -154,14 +160,14 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_tjjbm")
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="ToggleHelpMenuButton" type="Button" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/BottomButtonContainer" unique_id=214785672]
+[node name="ToggleSettingsMenuButton" type="Button" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/BottomButtonContainer" unique_id=2098322841]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_e6quo")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_cwbuu")
-theme_override_styles/hover = SubResource("StyleBoxTexture_onc8m")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ep3pr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dpq86")
+theme_override_styles/hover = SubResource("StyleBoxTexture_l8h7b")
 
 [node name="QuitButton" type="Button" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/BottomButtonContainer" unique_id=1084423165]
 custom_minimum_size = Vector2(60, 60)
@@ -200,6 +206,88 @@ text = "SCORE:"
 [node name="serperator" type="Control" parent="PauseMenu/PauseMenuContainer" unique_id=1450598917]
 layout_mode = 2
 
+[node name="SettingsMenuContainer" type="MarginContainer" parent="PauseMenu" unique_id=291692107]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PauseMenu/SettingsMenuContainer" unique_id=267014743]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_onc8m")
+region_rect = Rect2(741, 38, 22, 22)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/SettingsMenuContainer" unique_id=1789411963]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 70
+
+[node name="Title" type="MarginContainer" parent="PauseMenu/SettingsMenuContainer/HBoxContainer" unique_id=281986232]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_top = 10
+
+[node name="SettingsDisplay" type="Label" parent="PauseMenu/SettingsMenuContainer/HBoxContainer/Title" unique_id=25811480]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9529412, 0.8980392, 0.7607843, 1)
+theme_override_colors/font_outline_color = Color(0.5686275, 0.3882353, 0.36862746, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = SubResource("FontVariation_4v80v")
+theme_override_font_sizes/font_size = 30
+text = "Settings "
+
+[node name="BodyText" type="MarginContainer" parent="PauseMenu/SettingsMenuContainer" unique_id=1175675745]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Text" type="RichTextLabel" parent="PauseMenu/SettingsMenuContainer/BodyText" unique_id=1807737357]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_e6quo")
+text = "master Volume:
+
+Sound effects:
+
+Music:
+
+Resolution:
+
+
+
+
+"
+
+[node name="ExitButton" type="VBoxContainer" parent="PauseMenu/SettingsMenuContainer" unique_id=1552951709]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ExitButton" type="MarginContainer" parent="PauseMenu/SettingsMenuContainer/ExitButton" unique_id=1865403690]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+
+[node name="ToggleSettingsMenuButton" type="Button" parent="PauseMenu/SettingsMenuContainer/ExitButton/ExitButton" unique_id=1249989598]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_nw3uw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_u4etj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pabwj")
+
 [node name="HelpMenuContainer" type="MarginContainer" parent="PauseMenu" unique_id=1401157958]
 visible = false
 layout_mode = 2
@@ -213,34 +301,24 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_onc8m")
 region_rect = Rect2(741, 38, 22, 22)
-patch_margin_left = 4
-patch_margin_top = 4
-patch_margin_right = 4
-patch_margin_bottom = 4
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
 
-[node name="ExitButton" type="MarginContainer" parent="PauseMenu/HelpMenuContainer" unique_id=1648918489]
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/HelpMenuContainer" unique_id=1911351547]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_constants/margin_top = 7
-theme_override_constants/margin_right = 7
+theme_override_constants/separation = 70
 
-[node name="ToggleHelpMenuButton" type="Button" parent="PauseMenu/HelpMenuContainer/ExitButton" unique_id=1327683891]
-custom_minimum_size = Vector2(30, 30)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
-theme_override_styles/normal = SubResource("StyleBoxTexture_nw3uw")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_u4etj")
-theme_override_styles/hover = SubResource("StyleBoxTexture_pabwj")
-
-[node name="Title" type="MarginContainer" parent="PauseMenu/HelpMenuContainer" unique_id=2064273805]
+[node name="Title" type="MarginContainer" parent="PauseMenu/HelpMenuContainer/HBoxContainer" unique_id=2064273805]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_constants/margin_top = 10
 
-[node name="ControlsDisplay" type="Label" parent="PauseMenu/HelpMenuContainer/Title" unique_id=125747121]
+[node name="ControlsDisplay" type="Label" parent="PauseMenu/HelpMenuContainer/HBoxContainer/Title" unique_id=125747121]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9529412, 0.8980392, 0.7607843, 1)
 theme_override_colors/font_outline_color = Color(0.5686275, 0.3882353, 0.36862746, 1)
@@ -264,3 +342,126 @@ text = "Movement (WASD)
 Shoot (Arrow Keys)
 
 Menu (ESC)"
+
+[node name="ExitButton" type="VBoxContainer" parent="PauseMenu/HelpMenuContainer" unique_id=705286154]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ExitButton" type="MarginContainer" parent="PauseMenu/HelpMenuContainer/ExitButton" unique_id=1648918489]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+
+[node name="ToggleHelpMenuButton" type="Button" parent="PauseMenu/HelpMenuContainer/ExitButton/ExitButton" unique_id=1327683891]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_nw3uw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_u4etj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pabwj")
+
+[node name="BestiaryContainer" type="MarginContainer" parent="PauseMenu" unique_id=1748007034]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PauseMenu/BestiaryContainer" unique_id=1026678081]
+custom_minimum_size = Vector2(800, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_onc8m")
+region_rect = Rect2(741, 38, 22, 22)
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/BestiaryContainer" unique_id=1652431147]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 70
+
+[node name="Title" type="MarginContainer" parent="PauseMenu/BestiaryContainer/HBoxContainer" unique_id=2116553250]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_top = 10
+
+[node name="BestiaryDisplay" type="Label" parent="PauseMenu/BestiaryContainer/HBoxContainer/Title" unique_id=863107367]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9529412, 0.8980392, 0.7607843, 1)
+theme_override_colors/font_outline_color = Color(0.5686275, 0.3882353, 0.36862746, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = SubResource("FontVariation_4v80v")
+theme_override_font_sizes/font_size = 30
+text = "bestiary "
+
+[node name="BodyText" type="MarginContainer" parent="PauseMenu/BestiaryContainer" unique_id=2139819736]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Text" type="RichTextLabel" parent="PauseMenu/BestiaryContainer/BodyText" unique_id=91238818]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_e6quo")
+text = "enemy 1: discription/lore
+immage of enemy
+
+enemy 2: discription/lore
+immage of enemy
+
+enemy 3: discription/lore
+immage of enemy
+
+npc 1: discription/lore
+immage of enemy
+
+npc 2: discription/lore
+immage of enemy
+
+npc 3: discription/lore
+immage of enemy
+
+animal 1: discription/lore
+immage of enemy
+
+animal 2: discription/lore
+immage of enemy
+
+animal 3: discription/lore
+immage of enemy"
+
+[node name="ExitButton" type="VBoxContainer" parent="PauseMenu/BestiaryContainer" unique_id=514427493]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ExitButton" type="MarginContainer" parent="PauseMenu/BestiaryContainer/ExitButton" unique_id=2030037595]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+
+[node name="ToggleBestiaryMenuButton" type="Button" parent="PauseMenu/BestiaryContainer/ExitButton/ExitButton" unique_id=1300493855]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_nw3uw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_u4etj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pabwj")
+
+[connection signal="pressed" from="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer/ToggleHelpMenuButton" to="PauseMenu" method="_on_toggle_help_menu_button_pressed"]
+[connection signal="pressed" from="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer/ToggleBestiaryMenuButton" to="PauseMenu" method="_on_toggle_bestiary_menu_button_pressed"]
+[connection signal="pressed" from="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/BottomButtonContainer/ToggleSettingsMenuButton" to="PauseMenu" method="_on_toggle_settings_menu_button_pressed"]
+[connection signal="pressed" from="PauseMenu/SettingsMenuContainer/ExitButton/ExitButton/ToggleSettingsMenuButton" to="PauseMenu" method="_on_toggle_settings_menu_button_pressed"]
+[connection signal="pressed" from="PauseMenu/HelpMenuContainer/ExitButton/ExitButton/ToggleHelpMenuButton" to="PauseMenu" method="_on_toggle_help_menu_button_pressed"]
+[connection signal="pressed" from="PauseMenu/BestiaryContainer/ExitButton/ExitButton/ToggleBestiaryMenuButton" to="PauseMenu" method="_on_toggle_bestiary_menu_button_pressed"]
