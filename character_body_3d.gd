@@ -32,8 +32,8 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 	# PLAYER SHOOTING
-	# Check for left-click 
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	# Check for input 
+	if Input.is_action_pressed("shoot"):
 		if $ShotTimer.is_stopped():
 			# 1. Get where the mouse is on the floor
 			var target_pos = get_mouse_world_position()

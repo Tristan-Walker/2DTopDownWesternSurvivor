@@ -13,6 +13,7 @@ collision_layer = 2
 script = ExtResource("1_4gyqm")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1107318596]
+billboard = 1
 texture = ExtResource("1_7k104")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1007515544]
