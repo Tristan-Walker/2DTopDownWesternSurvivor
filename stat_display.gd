@@ -6,7 +6,7 @@ extends VBoxContainer
 var coins: int = 69
 var score: int = 420
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#coins = str(global.coins)
 	#score = str(global.current_score)
 	update_text()
