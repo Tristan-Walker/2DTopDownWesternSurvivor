@@ -459,6 +459,9 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_nw3uw")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_u4etj")
 theme_override_styles/hover = SubResource("StyleBoxTexture_pabwj")
 
+[node name="InventoryContainer" type="VBoxContainer" parent="PauseMenu" unique_id=1567085753]
+layout_mode = 2
+
 [connection signal="pressed" from="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer/ToggleHelpMenuButton" to="PauseMenu" method="_on_toggle_help_menu_button_pressed"]
 [connection signal="pressed" from="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer/ToggleBestiaryMenuButton" to="PauseMenu" method="_on_toggle_bestiary_menu_button_pressed"]
 [connection signal="pressed" from="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/BottomButtonContainer/ToggleSettingsMenuButton" to="PauseMenu" method="_on_toggle_settings_menu_button_pressed"]
