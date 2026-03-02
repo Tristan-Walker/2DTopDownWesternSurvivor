@@ -58,6 +58,21 @@ base_font = ExtResource("3_cwbuu")
 [sub_resource type="FontVariation" id="FontVariation_0qsvx"]
 base_font = ExtResource("3_cwbuu")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nw3uw"]
+texture = ExtResource("2_onc8m")
+region_rect = Rect2(837, 100, 22, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u4etj"]
+texture = ExtResource("2_onc8m")
+region_rect = Rect2(869, 102, 22, 22)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pabwj"]
+texture = ExtResource("2_onc8m")
+region_rect = Rect2(838, 101, 20, 22)
+
+[sub_resource type="FontVariation" id="FontVariation_e6quo"]
+base_font = ExtResource("3_cwbuu")
+
 [node name="InGameUI" type="Control" unique_id=999760388]
 layout_mode = 3
 anchors_preset = 15
@@ -67,7 +82,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PauseMenu" type="MarginContainer" parent="." unique_id=1558623505]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -75,18 +89,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu" unique_id=764380445]
+[node name="PauseMenuContainer" type="VBoxContainer" parent="PauseMenu" unique_id=764380445]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 40
 
-[node name="BaseMenuScreen" type="MarginContainer" parent="PauseMenu/VBoxContainer" unique_id=171185834]
+[node name="BaseMenuScreen" type="MarginContainer" parent="PauseMenu/PauseMenuContainer" unique_id=171185834]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="NinePatchRect" type="NinePatchRect" parent="PauseMenu/VBoxContainer/BaseMenuScreen" unique_id=579233375]
+[node name="NinePatchRect" type="NinePatchRect" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen" unique_id=579233375]
 custom_minimum_size = Vector2(350, 170)
 layout_mode = 2
 texture = ExtResource("2_onc8m")
@@ -96,7 +110,7 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="MenuScreen" type="MarginContainer" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect" unique_id=2122245891]
+[node name="MenuScreen" type="MarginContainer" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect" unique_id=2122245891]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -108,17 +122,17 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 21
 theme_override_constants/margin_bottom = 15
 
-[node name="ButtonContainer" type="VBoxContainer" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MenuScreen" unique_id=1953060972]
+[node name="ButtonContainer" type="VBoxContainer" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen" unique_id=1953060972]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_constants/separation = 6
 
-[node name="TopButtonContainer" type="HBoxContainer" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer" unique_id=2018125352]
+[node name="TopButtonContainer" type="HBoxContainer" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer" unique_id=2018125352]
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="SettingsButton" type="Button" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer" unique_id=2098322841]
+[node name="SettingsButton" type="Button" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer" unique_id=2098322841]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -127,7 +141,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_ep3pr")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_dpq86")
 theme_override_styles/hover = SubResource("StyleBoxTexture_l8h7b")
 
-[node name="ResumeButton" type="Button" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer" unique_id=1430015320]
+[node name="ResumeButton" type="Button" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer" unique_id=1430015320]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -136,11 +150,11 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_ukwlx")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_h3j15")
 theme_override_styles/hover = SubResource("StyleBoxTexture_tjjbm")
 
-[node name="BottomButtonContainer2" type="HBoxContainer" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer" unique_id=70972863]
+[node name="BottomButtonContainer" type="HBoxContainer" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer" unique_id=70972863]
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="HelpButton" type="Button" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/BottomButtonContainer2" unique_id=214785672]
+[node name="ToggleHelpMenuButton" type="Button" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/BottomButtonContainer" unique_id=214785672]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -149,7 +163,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_e6quo")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_cwbuu")
 theme_override_styles/hover = SubResource("StyleBoxTexture_onc8m")
 
-[node name="QuitButton" type="Button" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/BottomButtonContainer2" unique_id=1084423165]
+[node name="QuitButton" type="Button" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/BottomButtonContainer" unique_id=1084423165]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -158,14 +172,14 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_4v80v")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_0qsvx")
 theme_override_styles/hover = SubResource("StyleBoxTexture_uusyb")
 
-[node name="StatDisplayContainer" type="VBoxContainer" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MenuScreen" unique_id=1802822677]
+[node name="StatDisplayContainer" type="VBoxContainer" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen" unique_id=1802822677]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_constants/separation = 30
 script = ExtResource("2_e6quo")
 
-[node name="CurrencyDisplay" type="Label" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MenuScreen/StatDisplayContainer" unique_id=893723660]
+[node name="CurrencyDisplay" type="Label" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/StatDisplayContainer" unique_id=893723660]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9529412, 0.8980392, 0.7607843, 1)
 theme_override_colors/font_outline_color = Color(0.5686275, 0.3882353, 0.36862746, 1)
@@ -174,7 +188,7 @@ theme_override_fonts/font = SubResource("FontVariation_4v80v")
 theme_override_font_sizes/font_size = 30
 text = "COINS: "
 
-[node name="ScoreDisplay" type="Label" parent="PauseMenu/VBoxContainer/BaseMenuScreen/NinePatchRect/MenuScreen/StatDisplayContainer" unique_id=1562968014]
+[node name="ScoreDisplay" type="Label" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/StatDisplayContainer" unique_id=1562968014]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9529412, 0.8980392, 0.7607843, 1)
 theme_override_colors/font_outline_color = Color(0.5686275, 0.3882353, 0.36862746, 1)
@@ -183,5 +197,70 @@ theme_override_fonts/font = SubResource("FontVariation_0qsvx")
 theme_override_font_sizes/font_size = 30
 text = "SCORE:"
 
-[node name="serperator" type="Control" parent="PauseMenu/VBoxContainer" unique_id=1450598917]
+[node name="serperator" type="Control" parent="PauseMenu/PauseMenuContainer" unique_id=1450598917]
 layout_mode = 2
+
+[node name="HelpMenuContainer" type="MarginContainer" parent="PauseMenu" unique_id=1401157958]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PauseMenu/HelpMenuContainer" unique_id=1956099587]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_onc8m")
+region_rect = Rect2(741, 38, 22, 22)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="ExitButton" type="MarginContainer" parent="PauseMenu/HelpMenuContainer" unique_id=1648918489]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 7
+
+[node name="ToggleHelpMenuButton" type="Button" parent="PauseMenu/HelpMenuContainer/ExitButton" unique_id=1327683891]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_nw3uw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_u4etj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_pabwj")
+
+[node name="Title" type="MarginContainer" parent="PauseMenu/HelpMenuContainer" unique_id=2064273805]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_top = 10
+
+[node name="ControlsDisplay" type="Label" parent="PauseMenu/HelpMenuContainer/Title" unique_id=125747121]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9529412, 0.8980392, 0.7607843, 1)
+theme_override_colors/font_outline_color = Color(0.5686275, 0.3882353, 0.36862746, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = SubResource("FontVariation_4v80v")
+theme_override_font_sizes/font_size = 30
+text = "Controls "
+
+[node name="BodyText" type="MarginContainer" parent="PauseMenu/HelpMenuContainer" unique_id=471524016]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Text" type="RichTextLabel" parent="PauseMenu/HelpMenuContainer/BodyText" unique_id=404456694]
+layout_mode = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_e6quo")
+text = "Movement (WASD)
+
+Shoot (Arrow Keys)
+
+Menu (ESC)"
