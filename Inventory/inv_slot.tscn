@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bojawxikeg8vo"]
+
+[ext_resource type="Script" uid="uid://dhu6640cb4unt" path="res://Inventory/inv_slot.gd" id="1_fs7gj"]
+[ext_resource type="Texture2D" uid="uid://cghr4ho4xs66k" path="res://Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_l0omc"]
+
+[node name="InvSlot" type="Panel" unique_id=1052993475]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(60, 60)
+script = ExtResource("1_fs7gj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=398685874]
+scale = Vector2(2, 2)
+texture = ExtResource("1_l0omc")
+centered = false
+region_enabled = true
+region_rect = Rect2(153, 105, 30, 30)
+
+[node name="ItemDisplay" type="Sprite2D" parent="." unique_id=170377653]
