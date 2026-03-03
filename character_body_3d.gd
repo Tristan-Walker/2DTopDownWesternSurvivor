@@ -12,6 +12,8 @@ var fire_rate := 0.3             # bullet fire rate
 var fire_timer := 0.0            # 
 var last_shoot_dir: Vector3 = Vector3.RIGHT   # Default direction
 
+@export var inv: Inv
+
 func _physics_process(_delta: float) -> void:
 	
 	# PLAYER MOVEMENT
