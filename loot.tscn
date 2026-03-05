@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cigysd6r5ghfv"]
+
+[ext_resource type="Script" uid="uid://3v641881p2yf" path="res://loot.gd" id="1_joivg"]
+
+[node name="Node3D" type="Node3D" unique_id=487794999]
+script = ExtResource("1_joivg")
