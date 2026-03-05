@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c7cd6i3sa71mb" path="res://enemy.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://ip106v34k67g" path="res://hut_building.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://dwe6sw47pmg2c" path="res://in_game_ui.tscn" id="8_kek77"]
+[ext_resource type="PackedScene" uid="uid://cigysd6r5ghfv" path="res://loot.tscn" id="10_4c57u"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0xm2m"]
 
@@ -143,6 +144,9 @@ offset_left = 7.0
 offset_top = 3.0
 offset_right = 7.0
 offset_bottom = 3.0
+
+[node name="Node3D" parent="." unique_id=487794999 instance=ExtResource("10_4c57u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1632204, 0, 1.6655946)
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]

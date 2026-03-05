@@ -1,6 +1,26 @@
 [gd_scene format=3 uid="uid://cigysd6r5ghfv"]
 
 [ext_resource type="Script" uid="uid://3v641881p2yf" path="res://loot.gd" id="1_joivg"]
+[ext_resource type="Texture2D" uid="uid://d4m4sjl751cek" path="res://GameWithTristan/lootBagBrown.png" id="2_l44s4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_llsbq"]
+radius = 0.4946289
+height = 1.0058823
 
 [node name="Node3D" type="Node3D" unique_id=487794999]
 script = ExtResource("1_joivg")
+
+[node name="lootBagBrownBody3D" type="StaticBody3D" parent="." unique_id=876718726]
+
+[node name="lootBagBrown_Sprite3D" type="Sprite3D" parent="lootBagBrownBody3D" unique_id=1373726725]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0.25, 0)
+billboard = 1
+texture = ExtResource("2_l44s4")
+
+[node name="Area3D" type="Area3D" parent="lootBagBrownBody3D" unique_id=468924071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.283, 0)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lootBagBrownBody3D/Area3D" unique_id=300792619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00032687187, 0)
+shape = SubResource("CapsuleShape3D_llsbq")
