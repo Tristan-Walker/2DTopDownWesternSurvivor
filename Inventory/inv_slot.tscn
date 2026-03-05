@@ -15,4 +15,13 @@ centered = false
 region_enabled = true
 region_rect = Rect2(153, 105, 30, 30)
 
-[node name="ItemDisplay" type="Sprite2D" parent="." unique_id=170377653]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1533445194]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+
+[node name="Panel" type="Panel" parent="CenterContainer" unique_id=813866216]
+layout_mode = 2
+
+[node name="ItemDisplay" type="Sprite2D" parent="CenterContainer/Panel" unique_id=170377653]
