@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://8v5g5fej5vj2" path="res://stat_display.gd" id="2_e6quo"]
 [ext_resource type="Texture2D" uid="uid://cghr4ho4xs66k" path="res://Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_onc8m"]
 [ext_resource type="FontFile" uid="uid://bjw8t4e0afrto" path="res://Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf" id="3_cwbuu"]
+[ext_resource type="Script" uid="uid://dncft5x254pm8" path="res://Inventory/inv_ui.gd" id="5_4v80v"]
+[ext_resource type="PackedScene" uid="uid://bojawxikeg8vo" path="res://Inventory/inv_slot.tscn" id="6_0qsvx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e6quo"]
 texture = ExtResource("2_onc8m")
@@ -82,7 +84,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PauseMenu" type="MarginContainer" parent="." unique_id=1558623505 node_paths=PackedStringArray("menu_screen", "help_menu_screen", "settings_menu_screen", "bestiary_menu_screen")]
+[node name="PauseMenu" type="MarginContainer" parent="." unique_id=1558623505 node_paths=PackedStringArray("menu_screen", "settings_menu_screen", "help_menu_screen", "bestiary_menu_screen")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -91,8 +93,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cwbuu")
 menu_screen = NodePath("PauseMenuContainer")
-help_menu_screen = NodePath("HelpMenuContainer")
 settings_menu_screen = NodePath("SettingsMenuContainer")
+help_menu_screen = NodePath("HelpMenuContainer")
 bestiary_menu_screen = NodePath("BestiaryContainer")
 
 [node name="PauseMenuContainer" type="VBoxContainer" parent="PauseMenu" unique_id=764380445]
@@ -458,6 +460,83 @@ size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_nw3uw")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_u4etj")
 theme_override_styles/hover = SubResource("StyleBoxTexture_pabwj")
+
+[node name="Inventory" type="MarginContainer" parent="." unique_id=705806847]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 400.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_top = 150
+script = ExtResource("5_4v80v")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Inventory" unique_id=181349729]
+layout_mode = 2
+texture = ExtResource("2_onc8m")
+region_rect = Rect2(107, 107, 26, 26)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="Inventory/NinePatchRect" unique_id=2094788426]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -252.0
+offset_top = -94.0
+offset_bottom = 94.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 25
+
+[node name="GridContainer" type="GridContainer" parent="Inventory/NinePatchRect/MarginContainer" unique_id=515683100]
+layout_mode = 2
+columns = 4
+
+[node name="InvSlot1" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=1052993475 instance=ExtResource("6_0qsvx")]
+layout_mode = 2
+
+[node name="InvSlot2" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=1457574392 instance=ExtResource("6_0qsvx")]
+layout_mode = 2
+
+[node name="InvSlot3" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=403702287 instance=ExtResource("6_0qsvx")]
+layout_mode = 2
+
+[node name="InvSlot4" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=711103614 instance=ExtResource("6_0qsvx")]
+layout_mode = 2
+
+[node name="InvSlot5" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=943734706 instance=ExtResource("6_0qsvx")]
+layout_mode = 2
+
+[node name="InvSlot6" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=1396815797 instance=ExtResource("6_0qsvx")]
+layout_mode = 2
+
+[node name="InvSlot7" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=1128622914 instance=ExtResource("6_0qsvx")]
+layout_mode = 2
+
+[node name="InvSlot8" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=1951061601 instance=ExtResource("6_0qsvx")]
+layout_mode = 2
+
+[node name="InvSlot9" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=463418785 instance=ExtResource("6_0qsvx")]
+layout_mode = 2
+
+[node name="InvSlot10" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=143803148 instance=ExtResource("6_0qsvx")]
+layout_mode = 2
+
+[node name="InvSlot11" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=402071638 instance=ExtResource("6_0qsvx")]
+layout_mode = 2
+
+[node name="InvSlot12" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=638660573 instance=ExtResource("6_0qsvx")]
+layout_mode = 2
 
 [connection signal="pressed" from="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer/ToggleHelpMenuButton" to="PauseMenu" method="_on_toggle_help_menu_button_pressed"]
 [connection signal="pressed" from="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer/ToggleBestiaryMenuButton" to="PauseMenu" method="_on_toggle_bestiary_menu_button_pressed"]

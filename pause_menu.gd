@@ -1,8 +1,8 @@
 extends MarginContainer
 
 @export var menu_screen: VBoxContainer
-@export var help_menu_screen: MarginContainer
 @export var settings_menu_screen: MarginContainer
+@export var help_menu_screen: MarginContainer
 @export var bestiary_menu_screen: MarginContainer
 
 
@@ -14,8 +14,27 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("pause"):
-		toggle_visibility(menu_screen)
-		get_tree().paused = menu_screen.visible
+		handle_pause_pressed()
+
+func handle_pause_pressed():
+# If help menu open: close it
+	if help_menu_screen.visible:
+		help_menu_screen.visible = false
+		menu_screen.visible = true
+		return
+# If settings open: close it
+	if settings_menu_screen.visible:
+		settings_menu_screen.visible = false
+		menu_screen.visible = true
+		return
+# If bestiary open: close it
+	if bestiary_menu_screen.visible:
+		bestiary_menu_screen.visible = false
+		menu_screen.visible = true
+		return
+# else toggle main pause menu
+	menu_screen.visible = !menu_screen.visible
+	get_tree().paused = menu_screen.visible
 
 func toggle_visibility(object):
 	object.visible = !object.visible

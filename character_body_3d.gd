@@ -11,6 +11,7 @@ signal health_depleted           # call game over screen
 var fire_rate := 0.3             # bullet fire rate
 var fire_timer := 0.0            # 
 var last_shoot_dir: Vector3 = Vector3.RIGHT   # Default direction
+@export var inv: Inv
 
 # Reloading
 @onready var pooler = get_node("./BulletPool")
@@ -37,10 +38,10 @@ func _physics_process(_delta: float) -> void:
 		$Sprite3D.flip_h = input_dir.x < 0
 	
 	move_and_slide()
-
+	
 	# PLAYER SHOOTING
-	# Check for left-click 
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	# Check for input 
+	if Input.is_action_pressed("shoot"):
 		if $ShotTimer.is_stopped():
 			# 1. Get where the mouse is on the floor
 			var target_pos = get_mouse_world_position()
@@ -123,3 +124,7 @@ func start_i_frames():
 		await get_tree().create_timer(0.05).timeout
 	
 	is_invincible = false
+
+# ITEM COLLECTION
+func collect(item):
+	inv.insert(item)
