@@ -14,6 +14,7 @@ var last_shoot_dir: Vector3 = Vector3.RIGHT   # Default direction
 
 @export var inv: Inv
 
+
 func _physics_process(_delta: float) -> void:
 	
 	# PLAYER MOVEMENT
@@ -32,7 +33,7 @@ func _physics_process(_delta: float) -> void:
 		$Sprite3D.flip_h = input_dir.x < 0
 	
 	move_and_slide()
-
+	
 	# PLAYER SHOOTING
 	# Check for input 
 	if Input.is_action_pressed("shoot"):
@@ -109,3 +110,7 @@ func start_i_frames():
 		await get_tree().create_timer(0.05).timeout
 	
 	is_invincible = false
+
+# ITEM COLLECTION
+func collect(item):
+	inv.insert(item)

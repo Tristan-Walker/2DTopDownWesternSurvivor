@@ -1,11 +1,9 @@
 [gd_resource type="Resource" script_class="InvItem" format=3 uid="uid://bkw5iljvh2u2l"]
 
 [ext_resource type="Script" uid="uid://ujj5r6mqddei" path="res://Inventory/inventory_item.gd" id="1_smihj"]
-
-[sub_resource type="PlaceholderTexture3D" id="PlaceholderTexture3D_4sapo"]
+[ext_resource type="Texture2D" uid="uid://dy3y4r7tn3qaj" path="res://GameWithTristan/bullet.png" id="2_4sapo"]
 
 [resource]
 script = ExtResource("1_smihj")
-name = "Currency"
-texture = SubResource("PlaceholderTexture3D_4sapo")
+texture = ExtResource("2_4sapo")
 metadata/_custom_type_script = "uid://ujj5r6mqddei"
