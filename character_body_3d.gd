@@ -11,8 +11,13 @@ signal health_depleted           # call game over screen
 var fire_rate := 0.3             # bullet fire rate
 var fire_timer := 0.0            # 
 var last_shoot_dir: Vector3 = Vector3.RIGHT   # Default direction
-
 @export var inv: Inv
+
+# Reloading
+@onready var pooler = get_node("./BulletPool")
+@export var max_ammo: int = 6
+var current_ammo: int = max_ammo
+var is_reloading: bool = false
 
 
 func _physics_process(_delta: float) -> void:
@@ -74,14 +79,23 @@ func get_mouse_world_position() -> Vector3:
 		return intersection
 	return global_position # Fallback if mouse is off-screen
 
+func start_reload():
+	is_reloading = true
+	await get_tree().create_timer(1.5).timeout # reload happens
+	current_ammo = max_ammo
+	is_reloading = false
+
 # Spawning the bullets
 func shoot(dir: Vector3) -> void:
-
-	var bullet = bullet_scene.instantiate()
-	get_tree().root.add_child(bullet)
-
-	bullet.global_position = global_position + Vector3(0, 0.5, 0)
-	bullet.direction = dir
+	if is_reloading or current_ammo <= 0:
+		return
+	var bullet = pooler.get_bullet()
+	if bullet:
+		bullet.activate(global_position + Vector3(0, 0.5, 0), dir)
+		current_ammo -= 1
+		
+		if current_ammo <= 0:
+			start_reload()
 
 # Player health
 func take_damage(amount: int):

@@ -4,7 +4,7 @@ extends CharacterBody3D
 @export var speed: float = 2.0
 var player_in_range: CharacterBody3D = null
 var player: CharacterBody3D = null
-var health = 3
+var health: float = 3
 
 func _ready() -> void:
 	# This finds the player node in the player group.
@@ -26,8 +26,8 @@ func _physics_process(_delta: float) -> void:
 		
 		move_and_slide()
 
-func take_damage():
-	health -= 1
+func take_damage(damage: float):
+	health -= damage
 	
 	if health == 0:
 		queue_free()
