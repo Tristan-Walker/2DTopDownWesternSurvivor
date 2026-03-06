@@ -1,13 +1,12 @@
 extends CharacterBody3D
-@export var bullet_scene: PackedScene
+@export var bullet_scene: PackedScene         # Import bullet scene
 
 var speed = 5.0                  # player speed
-@export var max_health: int = 100        # Maximum possible health of character.
+@export var max_health: int = 100             # Maximum possible health of character.
 var current_health := 100.0      # The health that the player currently has.
 var is_invincible: bool = false  # Is the character currently invincible?
-@export var i_frame_duration: float = 0.5 # Half a second of invincibility
-signal health_depleted           # call game over screen
-@onready var health_bar = $SubViewport/ProgressBar         # Load in health bar
+@export var i_frame_duration: float = 0.5     # Half a second of invincibility
+@onready var health_bar = $HealthBar/ProgressBar         # Load in health bar
 var fire_rate := 0.3             # bullet fire rate
 var fire_timer := 0.0            # 
 var last_shoot_dir: Vector3 = Vector3.RIGHT   # Default direction
@@ -93,6 +92,7 @@ func shoot(dir: Vector3) -> void:
 	if bullet:
 		bullet.activate(global_position + Vector3(0, 0.5, 0), dir)
 		current_ammo -= 1
+		SignalBus.ammo_updated.emit(current_ammo)
 		
 		if current_ammo <= 0:
 			start_reload()
@@ -109,7 +109,7 @@ func take_damage(amount: int):
 	
 	# Did damage kill?
 	if current_health <= 0.0:
-		health_depleted.emit()
+		SignalBus.player_died.emit()
 	else:
 		start_i_frames()
 
