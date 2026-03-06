@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://m0olggqixkkn" path="res://main.gd" id="1_kek77"]
 [ext_resource type="Texture2D" uid="uid://db4kkdcg616wq" path="res://GameWithTristan/Jebidiah Levideous.jpg" id="2_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://lpwi414jmpl5" path="res://bullet.tscn" id="2_5vw27"]
+[ext_resource type="Script" uid="uid://dqqf38occa0jr" path="res://bullet_pool.gd" id="5_kek77"]
 [ext_resource type="Script" uid="uid://chyybxqu7een1" path="res://enemy_spawner.gd" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://c7cd6i3sa71mb" path="res://enemy.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://ip106v34k67g" path="res://hut_building.tscn" id="7_272bh"]
@@ -90,6 +91,10 @@ texture = SubResource("ViewportTexture_4c57u")
 [node name="ShotTimer" type="Timer" parent="Player" unique_id=96856578]
 wait_time = 0.3
 one_shot = true
+
+[node name="BulletPool" type="Node3D" parent="Player" unique_id=1755980397]
+script = ExtResource("5_kek77")
+bullet_scene = ExtResource("2_5vw27")
 
 [node name="EnemySpawner" type="Node3D" parent="." unique_id=1823574857]
 script = ExtResource("5_lquwl")
