@@ -9,7 +9,7 @@ func activate(pos: Vector3, dir: Vector3):
 	global_position = pos
 	direction = dir
 	self.show()
-	self.process_mode = Node.PROCESS_MODE_INHERIT
+	set_deferred("process_mode", Node.PROCESS_MODE_INHERIT)
 
 # Deactivates active bullet
 func deactivate():
