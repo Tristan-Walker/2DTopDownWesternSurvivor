@@ -14,7 +14,7 @@ func activate(pos: Vector3, dir: Vector3):
 # Deactivates active bullet
 func deactivate():
 	self.hide()
-	self.process_mode = Node.PROCESS_MODE_DISABLED
+	set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 
 func _physics_process(delta: float) -> void:
 	# Move the bullet in the direction it was fired
