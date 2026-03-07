@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c3w08jf7pnfj5" path="res://player.tscn" id="2_7mycd"]
 [ext_resource type="Script" uid="uid://chyybxqu7een1" path="res://enemy_spawner.gd" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://c7cd6i3sa71mb" path="res://enemy.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://beamnr7uvr5e" path="res://Inventory/currency_collectable.tscn" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://ip106v34k67g" path="res://hut_building.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://dwe6sw47pmg2c" path="res://in_game_ui.tscn" id="8_kek77"]
 
@@ -13,7 +14,7 @@
 script = ExtResource("1_kek77")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=185474831]
-transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, -0.019995213, 0, 0)
 layers = 513
 mesh = SubResource("PlaneMesh_0xm2m")
 
@@ -69,5 +70,20 @@ offset_left = 7.0
 offset_top = 3.0
 offset_right = 7.0
 offset_bottom = 3.0
+
+[node name="CurrencyCollectable" parent="." unique_id=2034975112 instance=ExtResource("7_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5522224, 0.09913504, 0.3935454)
+
+[node name="CurrencyCollectable2" parent="." unique_id=883329034 instance=ExtResource("7_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6271267, 0, 0.35962272)
+
+[node name="CurrencyCollectable3" parent="." unique_id=723615016 instance=ExtResource("7_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3955101, 2.3841858e-07, 2.1136308)
+
+[node name="CurrencyCollectable4" parent="." unique_id=1553803583 instance=ExtResource("7_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.395278, -2.3841858e-07, -2.306507)
+
+[node name="CurrencyCollectable5" parent="." unique_id=369871081 instance=ExtResource("7_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4902217, 0, -2.377397)
 
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]

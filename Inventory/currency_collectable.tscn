@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://beamnr7uvr5e"]
+
+[ext_resource type="Script" uid="uid://0qu3vonxhepf" path="res://currency_collectable.gd" id="1_aa60f"]
+[ext_resource type="Resource" uid="uid://bkw5iljvh2u2l" path="res://Inventory/Currency.tres" id="2_1t7j4"]
+[ext_resource type="Texture2D" uid="uid://dg3u3emnke7e7" path="res://Sprout Lands - UI Pack - Basic pack/Sprite sheets/Icons/white icons.png" id="2_fvd56"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fvd56"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1t7j4"]
+radius = 0.11028596
+
+[node name="CurrencyCollectable" type="StaticBody3D" unique_id=2034975112]
+script = ExtResource("1_aa60f")
+item = ExtResource("2_1t7j4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=898160360]
+shape = SubResource("SphereShape3D_fvd56")
+disabled = true
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1612183915]
+billboard = 1
+texture = ExtResource("2_fvd56")
+region_enabled = true
+region_rect = Rect2(17, 16, 14, 17)
+
+[node name="InteractableArea" type="Area3D" parent="." unique_id=150598769]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableArea" unique_id=1515752077]
+shape = SubResource("SphereShape3D_1t7j4")
+
+[connection signal="body_entered" from="InteractableArea" to="." method="_on_interactable_area_body_entered"]
