@@ -34,7 +34,7 @@ func handle_pause_pressed():
 		return
 # else toggle main pause menu
 	menu_screen.visible = !menu_screen.visible
-	get_tree().paused = menu_screen.visible
+	get_tree().paused = menu_screen.visible #comment out for in scene testing
 
 func toggle_visibility(object):
 	object.visible = !object.visible

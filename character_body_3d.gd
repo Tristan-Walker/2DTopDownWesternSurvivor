@@ -10,7 +10,9 @@ var is_invincible: bool = false  # Is the character currently invincible?
 var fire_rate := 0.3             # bullet fire rate
 var fire_timer := 0.0            # 
 var last_shoot_dir: Vector3 = Vector3.RIGHT   # Default direction
-@export var inv: Inv
+@export var inventory_data: InventoryData    # Inventory data
+
+signal toggle_inventory()
 
 # Reloading
 @onready var pooler = get_node("./BulletPool")
@@ -18,6 +20,9 @@ var last_shoot_dir: Vector3 = Vector3.RIGHT   # Default direction
 var current_ammo: int = max_ammo
 var is_reloading: bool = false
 
+func _unhandled_input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("inventory"):
+		toggle_inventory.emit()
 
 func _physics_process(_delta: float) -> void:
 	
@@ -124,7 +129,3 @@ func start_i_frames():
 		await get_tree().create_timer(0.05).timeout
 	
 	is_invincible = false
-
-# ITEM COLLECTION
-func collect(item):
-	inv.insert(item)
