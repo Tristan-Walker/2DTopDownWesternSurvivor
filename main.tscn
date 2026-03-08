@@ -2,11 +2,14 @@
 
 [ext_resource type="Script" uid="uid://m0olggqixkkn" path="res://main.gd" id="1_kek77"]
 [ext_resource type="PackedScene" uid="uid://c3w08jf7pnfj5" path="res://player.tscn" id="2_7mycd"]
+[ext_resource type="Resource" uid="uid://636fdf1rxu4i" path="res://test_inv.tres" id="3_4c57u"]
 [ext_resource type="Script" uid="uid://chyybxqu7een1" path="res://enemy_spawner.gd" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://dhe3nflyaw7ig" path="res://pause_ui.tscn" id="6_5vw27"]
 [ext_resource type="PackedScene" uid="uid://c7cd6i3sa71mb" path="res://enemy.tscn" id="6_7mycd"]
-[ext_resource type="PackedScene" uid="uid://beamnr7uvr5e" path="res://Inventory/currency_collectable.tscn" id="7_5vw27"]
+[ext_resource type="Script" uid="uid://bgg65ycncfv50" path="res://Inventory/inventory_interface.gd" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://ip106v34k67g" path="res://hut_building.tscn" id="7_272bh"]
-[ext_resource type="PackedScene" uid="uid://dwe6sw47pmg2c" path="res://in_game_ui.tscn" id="8_kek77"]
+[ext_resource type="PackedScene" uid="uid://ba7cvrip8fu0q" path="res://Inventory/inventory.tscn" id="7_kek77"]
+[ext_resource type="PackedScene" uid="uid://8mu0oaj58r74" path="res://Inventory/slot.tscn" id="9_kek77"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0xm2m"]
 
@@ -19,6 +22,7 @@ layers = 513
 mesh = SubResource("PlaneMesh_0xm2m")
 
 [node name="Player" parent="." unique_id=1362463066 instance=ExtResource("2_7mycd")]
+inventory_data = ExtResource("3_4c57u")
 
 [node name="EnemySpawner" type="Node3D" parent="." unique_id=1823574857]
 script = ExtResource("5_lquwl")
@@ -62,28 +66,33 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 156
 text = "Game Over"
 
-[node name="PauseMenuScreen" type="CanvasLayer" parent="." unique_id=1033225146]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1033225146]
 process_mode = 3
 
-[node name="InGameUI" parent="PauseMenuScreen" unique_id=999760388 instance=ExtResource("8_kek77")]
-offset_left = 7.0
-offset_top = 3.0
-offset_right = 7.0
-offset_bottom = 3.0
+[node name="PauseUI" parent="UI" unique_id=999760388 instance=ExtResource("6_5vw27")]
+metadata/_edit_use_anchors_ = true
 
-[node name="CurrencyCollectable" parent="." unique_id=2034975112 instance=ExtResource("7_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5522224, 0.09913504, 0.3935454)
+[node name="InventoryInterface" type="Control" parent="UI" unique_id=1793691731]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_5vw27")
 
-[node name="CurrencyCollectable2" parent="." unique_id=883329034 instance=ExtResource("7_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6271267, 0, 0.35962272)
+[node name="PlayerInventory" parent="UI/InventoryInterface" unique_id=2097941703 instance=ExtResource("7_kek77")]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 26.0
+offset_bottom = 26.0
 
-[node name="CurrencyCollectable3" parent="." unique_id=723615016 instance=ExtResource("7_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3955101, 2.3841858e-07, 2.1136308)
-
-[node name="CurrencyCollectable4" parent="." unique_id=1553803583 instance=ExtResource("7_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.395278, -2.3841858e-07, -2.306507)
-
-[node name="CurrencyCollectable5" parent="." unique_id=369871081 instance=ExtResource("7_5vw27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4902217, 0, -2.377397)
+[node name="GrabbedSlot" parent="UI/InventoryInterface" unique_id=638968086 instance=ExtResource("9_kek77")]
+visible = false
+modulate = Color(1, 1, 1, 0.52156866)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
 
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]

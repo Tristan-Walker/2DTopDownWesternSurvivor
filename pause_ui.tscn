@@ -1,78 +1,77 @@
-[gd_scene format=3 uid="uid://dwe6sw47pmg2c"]
+[gd_scene format=3 uid="uid://dhe3nflyaw7ig"]
 
-[ext_resource type="Script" uid="uid://cyndp4gu0pm5k" path="res://pause_menu.gd" id="1_cwbuu"]
-[ext_resource type="Script" uid="uid://8v5g5fej5vj2" path="res://stat_display.gd" id="2_e6quo"]
-[ext_resource type="Texture2D" uid="uid://cghr4ho4xs66k" path="res://Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_onc8m"]
-[ext_resource type="FontFile" uid="uid://bjw8t4e0afrto" path="res://Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf" id="3_cwbuu"]
-[ext_resource type="PackedScene" uid="uid://bojawxikeg8vo" path="res://Inventory/inv_slot.tscn" id="6_0qsvx"]
+[ext_resource type="Script" uid="uid://cyndp4gu0pm5k" path="res://pause_menu.gd" id="1_5w4hl"]
+[ext_resource type="Texture2D" uid="uid://cghr4ho4xs66k" path="res://Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_cd4je"]
+[ext_resource type="Script" uid="uid://8v5g5fej5vj2" path="res://stat_display.gd" id="3_tce7n"]
+[ext_resource type="FontFile" uid="uid://bjw8t4e0afrto" path="res://Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf" id="4_nehuh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e6quo"]
-texture = ExtResource("2_onc8m")
+texture = ExtResource("2_cd4je")
 region_rect = Rect2(709, 164, 22, 24)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cwbuu"]
-texture = ExtResource("2_onc8m")
+texture = ExtResource("2_cd4je")
 region_rect = Rect2(741, 166, 22, 22)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onc8m"]
-texture = ExtResource("2_onc8m")
+texture = ExtResource("2_cd4je")
 region_rect = Rect2(710, 165, 20, 22)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ukwlx"]
-texture = ExtResource("2_onc8m")
+texture = ExtResource("2_cd4je")
 region_rect = Rect2(645, 164, 22, 24)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h3j15"]
-texture = ExtResource("2_onc8m")
+texture = ExtResource("2_cd4je")
 region_rect = Rect2(677, 166, 22, 22)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tjjbm"]
-texture = ExtResource("2_onc8m")
+texture = ExtResource("2_cd4je")
 region_rect = Rect2(646, 165, 20, 22)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ep3pr"]
-texture = ExtResource("2_onc8m")
+texture = ExtResource("2_cd4je")
 region_rect = Rect2(645, 68, 22, 24)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dpq86"]
-texture = ExtResource("2_onc8m")
+texture = ExtResource("2_cd4je")
 region_rect = Rect2(677, 70, 22, 22)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l8h7b"]
-texture = ExtResource("2_onc8m")
+texture = ExtResource("2_cd4je")
 region_rect = Rect2(646, 69, 20, 22)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4v80v"]
-texture = ExtResource("2_onc8m")
+texture = ExtResource("2_cd4je")
 region_rect = Rect2(773, 68, 22, 24)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0qsvx"]
-texture = ExtResource("2_onc8m")
+texture = ExtResource("2_cd4je")
 region_rect = Rect2(805, 70, 22, 22)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uusyb"]
-texture = ExtResource("2_onc8m")
+texture = ExtResource("2_cd4je")
 region_rect = Rect2(774, 69, 20, 22)
 
 [sub_resource type="FontVariation" id="FontVariation_4v80v"]
-base_font = ExtResource("3_cwbuu")
+base_font = ExtResource("4_nehuh")
 
 [sub_resource type="FontVariation" id="FontVariation_0qsvx"]
-base_font = ExtResource("3_cwbuu")
+base_font = ExtResource("4_nehuh")
 
 [sub_resource type="FontVariation" id="FontVariation_e6quo"]
-base_font = ExtResource("3_cwbuu")
+base_font = ExtResource("4_nehuh")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nw3uw"]
-texture = ExtResource("2_onc8m")
+texture = ExtResource("2_cd4je")
 region_rect = Rect2(837, 100, 22, 24)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u4etj"]
-texture = ExtResource("2_onc8m")
+texture = ExtResource("2_cd4je")
 region_rect = Rect2(869, 102, 22, 22)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pabwj"]
-texture = ExtResource("2_onc8m")
+texture = ExtResource("2_cd4je")
 region_rect = Rect2(838, 101, 20, 22)
 
 [node name="PauseUI" type="Control" unique_id=999760388]
@@ -90,7 +89,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_cwbuu")
+script = ExtResource("1_5w4hl")
 menu_screen = NodePath("PauseMenuContainer")
 settings_menu_screen = NodePath("SettingsMenuContainer")
 help_menu_screen = NodePath("HelpMenuContainer")
@@ -110,7 +109,7 @@ size_flags_vertical = 4
 [node name="NinePatchRect" type="NinePatchRect" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen" unique_id=579233375]
 custom_minimum_size = Vector2(350, 170)
 layout_mode = 2
-texture = ExtResource("2_onc8m")
+texture = ExtResource("2_cd4je")
 region_rect = Rect2(59, 107, 26, 26)
 patch_margin_left = 4
 patch_margin_top = 4
@@ -184,7 +183,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_constants/separation = 30
-script = ExtResource("2_e6quo")
+script = ExtResource("3_tce7n")
 
 [node name="CurrencyDisplay" type="Label" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/StatDisplayContainer" unique_id=893723660]
 layout_mode = 2
@@ -218,7 +217,7 @@ custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("2_onc8m")
+texture = ExtResource("2_cd4je")
 region_rect = Rect2(741, 38, 22, 22)
 patch_margin_left = 5
 patch_margin_top = 5
@@ -300,7 +299,7 @@ custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("2_onc8m")
+texture = ExtResource("2_cd4je")
 region_rect = Rect2(741, 38, 22, 22)
 patch_margin_left = 5
 patch_margin_top = 5
@@ -375,7 +374,7 @@ custom_minimum_size = Vector2(800, 400)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("2_onc8m")
+texture = ExtResource("2_cd4je")
 region_rect = Rect2(741, 38, 22, 22)
 patch_margin_left = 5
 patch_margin_top = 5
@@ -459,83 +458,6 @@ size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_nw3uw")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_u4etj")
 theme_override_styles/hover = SubResource("StyleBoxTexture_pabwj")
-
-[node name="Inventory" type="MarginContainer" parent="." unique_id=705806847]
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -250.0
-offset_right = 250.0
-offset_bottom = 400.0
-grow_horizontal = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_constants/margin_top = 150
-
-[node name="NinePatchRect" type="NinePatchRect" parent="Inventory" unique_id=181349729]
-layout_mode = 2
-texture = ExtResource("2_onc8m")
-region_rect = Rect2(107, 107, 26, 26)
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
-
-[node name="MarginContainer" type="MarginContainer" parent="Inventory/NinePatchRect" unique_id=2094788426]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -252.0
-offset_top = -94.0
-offset_bottom = 94.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_constants/margin_right = 25
-
-[node name="GridContainer" type="GridContainer" parent="Inventory/NinePatchRect/MarginContainer" unique_id=515683100]
-layout_mode = 2
-columns = 4
-
-[node name="InvSlot1" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=1052993475 instance=ExtResource("6_0qsvx")]
-layout_mode = 2
-
-[node name="InvSlot2" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=1457574392 instance=ExtResource("6_0qsvx")]
-layout_mode = 2
-
-[node name="InvSlot3" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=403702287 instance=ExtResource("6_0qsvx")]
-layout_mode = 2
-
-[node name="InvSlot4" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=711103614 instance=ExtResource("6_0qsvx")]
-layout_mode = 2
-
-[node name="InvSlot5" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=943734706 instance=ExtResource("6_0qsvx")]
-layout_mode = 2
-
-[node name="InvSlot6" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=1396815797 instance=ExtResource("6_0qsvx")]
-layout_mode = 2
-
-[node name="InvSlot7" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=1128622914 instance=ExtResource("6_0qsvx")]
-layout_mode = 2
-
-[node name="InvSlot8" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=1951061601 instance=ExtResource("6_0qsvx")]
-layout_mode = 2
-
-[node name="InvSlot9" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=463418785 instance=ExtResource("6_0qsvx")]
-layout_mode = 2
-
-[node name="InvSlot10" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=143803148 instance=ExtResource("6_0qsvx")]
-layout_mode = 2
-
-[node name="InvSlot11" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=402071638 instance=ExtResource("6_0qsvx")]
-layout_mode = 2
-
-[node name="InvSlot12" parent="Inventory/NinePatchRect/MarginContainer/GridContainer" unique_id=638660573 instance=ExtResource("6_0qsvx")]
-layout_mode = 2
 
 [connection signal="pressed" from="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer/ToggleHelpMenuButton" to="PauseMenu" method="_on_toggle_help_menu_button_pressed"]
 [connection signal="pressed" from="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer/ToggleBestiaryMenuButton" to="PauseMenu" method="_on_toggle_bestiary_menu_button_pressed"]
