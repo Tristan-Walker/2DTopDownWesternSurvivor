@@ -5,6 +5,7 @@ extends Node3D
 
 func _ready():
 	# Giving plater inventory data
+	inventory_interface.visible = false
 	player.toggle_inventory.connect(toggle_inventory_interface)
 	inventory_interface.set_player_inventory_data(player.inventory_data)
 	
