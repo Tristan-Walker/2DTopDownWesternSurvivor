@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bvktr8tyt8h1h" path="res://character_body_3d.gd" id="1_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://lpwi414jmpl5" path="res://bullet.tscn" id="2_hqtel"]
-[ext_resource type="Resource" uid="uid://b8hqysbit3348" path="res://Inventory/playerinv.tres" id="3_2hs0m"]
+[ext_resource type="PackedScene" uid="uid://5dcx8t80fw4t" path="res://UI/HealthBar3D.tscn" id="3_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://db4kkdcg616wq" path="res://GameWithTristan/Jebidiah Levideous.jpg" id="3_sweqy"]
 [ext_resource type="Script" uid="uid://dqqf38occa0jr" path="res://bullet_pool.gd" id="5_1jxqw"]
 
@@ -12,27 +12,9 @@ radius = 0.16064453
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5vw27"]
 radius = 0.17138672
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vw27"]
-bg_color = Color(0.27450982, 0.27450982, 0.27450982, 0.3137255)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kek77"]
-bg_color = Color(0.2627451, 1, 0.24705882, 0.49803922)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_4c57u"]
-viewport_path = NodePath("Player/SubViewport")
-
 [node name="Player" type="CharacterBody3D" unique_id=1362463066 groups=["player"]]
 script = ExtResource("1_i3pqv")
 bullet_scene = ExtResource("2_hqtel")
-inv = ExtResource("3_2hs0m")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1592352513]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -42,6 +24,8 @@ texture = ExtResource("3_sweqy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1630969496]
 shape = SubResource("CylinderShape3D_lquwl")
+
+[node name="HealthBar3d" parent="." unique_id=1964359974 instance=ExtResource("3_2hs0m")]
 
 [node name="Hurtbox" type="Area3D" parent="." unique_id=80682292]
 unique_name_in_owner = true
@@ -55,25 +39,6 @@ debug_color = Color(0.8205481, 0.106614836, 0.051989973, 0.41960785)
 [node name="Camera3D" type="Camera3D" parent="." unique_id=898087355]
 transform = Transform3D(1, 0, 0, 0, 0.8660253, 0.50000024, 0, -0.50000024, 0.8660253, 0, 5, 8)
 fov = 40.0
-
-[node name="HealthBar" type="SubViewport" parent="." unique_id=942484087]
-disable_3d = true
-transparent_bg = true
-size = Vector2i(200, 25)
-
-[node name="ProgressBar" type="ProgressBar" parent="HealthBar" unique_id=1411983278]
-unique_name_in_owner = true
-offset_right = 200.0
-offset_bottom = 25.0
-theme_override_styles/background = SubResource("StyleBoxFlat_5vw27")
-theme_override_styles/fill = SubResource("StyleBoxFlat_kek77")
-value = 100.0
-show_percentage = false
-
-[node name="HealthbarSprite3D" type="Sprite3D" parent="." unique_id=834068249]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.25, 0)
-billboard = 1
-texture = SubResource("ViewportTexture_4c57u")
 
 [node name="ShotTimer" type="Timer" parent="." unique_id=713234379]
 wait_time = 0.3
