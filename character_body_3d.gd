@@ -6,7 +6,7 @@ var speed = 5.0                  # player speed
 var current_health := 100.0      # The health that the player currently has.
 var is_invincible: bool = false  # Is the character currently invincible?
 @export var i_frame_duration: float = 0.5     # Half a second of invincibility
-@onready var health_bar = $HealthBar/ProgressBar         # Load in health bar
+
 var fire_rate := 0.3             # bullet fire rate
 var fire_timer := 0.0            # 
 var last_shoot_dir: Vector3 = Vector3.RIGHT   # Default direction
@@ -110,7 +110,7 @@ func take_damage(amount: int):
 	
 	# If not invincibile, take damage.
 	current_health -= amount
-	health_bar.value = current_health
+	SignalBus.player_health_changed.emit(current_health)
 	
 	# Did damage kill?
 	if current_health <= 0.0:
