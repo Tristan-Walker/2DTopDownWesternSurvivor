@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://lpwi414jmpl5"]
 
-[ext_resource type="Texture2D" uid="uid://dy3y4r7tn3qaj" path="res://GameWithTristan/bullet.png" id="1_v7oki"]
-[ext_resource type="Script" uid="uid://brhv6qa86lrwm" path="res://bullet.gd" id="1_v8qja"]
+[ext_resource type="Texture2D" uid="uid://dy3y4r7tn3qaj" path="res://Pictures/bullet.png" id="1_v7oki"]
+[ext_resource type="Script" uid="uid://brhv6qa86lrwm" path="res://Player/Shooting/bullet.gd" id="1_v8qja"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_v7oki"]
 radius = 0.375

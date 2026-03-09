@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://28brfg8muv1v"
-path.s3tc="res://.godot/imported/Sherif house.png-ad75031ebfd8a24fc7a6974d470d9e74.s3tc.ctex"
+uid="uid://dyn6ayech1hk4"
+path.s3tc="res://.godot/imported/Chicken.jpg-db2d2e0d0351acc3d92cc1504fe29d78.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://GameWithTristan/Sherif house.png"
-dest_files=["res://.godot/imported/Sherif house.png-ad75031ebfd8a24fc7a6974d470d9e74.s3tc.ctex"]
+source_file="res://Pictures/Chicken.jpg"
+dest_files=["res://.godot/imported/Chicken.jpg-db2d2e0d0351acc3d92cc1504fe29d78.s3tc.ctex"]
 
 [params]
 

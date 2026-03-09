@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ip106v34k67g"]
 
-[ext_resource type="Texture2D" uid="uid://bdh8jw0myldg" path="res://GameWithTristan/Hut.png" id="1_y0vf6"]
+[ext_resource type="Texture2D" uid="uid://bdh8jw0myldg" path="res://Pictures/Hut.png" id="1_y0vf6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_blsi2"]
 size = Vector3(0.96012115, 1.3182373, 0.546875)
