@@ -10,4 +10,3 @@ script = ExtResource("1_gw2cd")
 name = "Fruit Salad"
 description = "A tasty fruit salad"
 texture = SubResource("CompressedTexture2D_gw2cd")
-metadata/_custom_type_script = "uid://c4fe3ffdu1nlw"
