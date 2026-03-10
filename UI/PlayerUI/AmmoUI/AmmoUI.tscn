@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c35gnjvvqx6wb"]
+
+[ext_resource type="Script" uid="uid://bydy00ra3f6t1" path="res://UI/PlayerUI/AmmoUI/ammo_ui.gd" id="1_kd701"]
+
+[node name="AmmoUi" type="CanvasLayer" unique_id=1001661183]
+script = ExtResource("1_kd701")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1125305526]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=616227337]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=96062779]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer" unique_id=1995387475]
+layout_mode = 2

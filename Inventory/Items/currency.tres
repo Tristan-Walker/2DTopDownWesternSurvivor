@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dv0wp4va2124w"]
 
-[ext_resource type="Script" path="res://Inventory/item_data.gd" id="1_wekcu"]
+[ext_resource type="Script" uid="uid://c4fe3ffdu1nlw" path="res://Inventory/item_data.gd" id="1_wekcu"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wekcu"]
 load_path = "res://.godot/imported/currency.png-8cac8e2a73f0db465ec37b9afd2eac36.ctex"

@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ip106v34k67g" path="res://Buildings/hut_building.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://ba7cvrip8fu0q" path="res://Inventory/inventory.tscn" id="7_kek77"]
 [ext_resource type="PackedScene" uid="uid://8mu0oaj58r74" path="res://Inventory/slot.tscn" id="9_kek77"]
+[ext_resource type="PackedScene" uid="uid://c35gnjvvqx6wb" path="res://UI/PlayerUI/AmmoUI/AmmoUI.tscn" id="11_efxa6"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0xm2m"]
 
@@ -95,5 +96,7 @@ modulate = Color(1, 1, 1, 0.52156866)
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
+
+[node name="AmmoUi" parent="UI" unique_id=1001661183 instance=ExtResource("11_efxa6")]
 
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]
