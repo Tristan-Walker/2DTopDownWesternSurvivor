@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://8db3w22j44os"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwi3j"]
+bg_color = Color(0.7058824, 0.5254902, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+
+[node name="AmmoIconDefault" type="Panel" unique_id=210876844]
+custom_minimum_size = Vector2(10, 20)
+offset_right = 10.0
+offset_bottom = 20.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vwi3j")
