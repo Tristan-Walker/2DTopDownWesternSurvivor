@@ -1,12 +1,10 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://e303dhkash6w"]
 
-[ext_resource type="Script" path="res://Inventory/item_data.gd" id="1_gw2cd"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gw2cd"]
-load_path = "res://.godot/imported/ASalas2.jpg-f639c41e8cdc85e7b825063d090ae972.s3tc.ctex"
+[ext_resource type="Script" uid="uid://c4fe3ffdu1nlw" path="res://Inventory/item_data.gd" id="1_gw2cd"]
+[ext_resource type="Texture2D" uid="uid://ueemnb8v1t3k" path="res://Pictures/ASalas2.jpg" id="2_73ip7"]
 
 [resource]
 script = ExtResource("1_gw2cd")
 name = "Fruit Salad"
 description = "A tasty fruit salad"
-texture = SubResource("CompressedTexture2D_gw2cd")
+texture = ExtResource("2_73ip7")
