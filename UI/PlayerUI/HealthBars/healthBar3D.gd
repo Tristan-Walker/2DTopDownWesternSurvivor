@@ -1,8 +1,8 @@
 extends Node3D
 
-@onready var front_bar: ProgressBar = $SubViewport/VBoxContainer/HealthControl/FrontBar
-@onready var reload_bar: TextureProgressBar = $SubViewport/VBoxContainer/ReloadControl/ReloadBar
-@onready var back_bar: ProgressBar = $SubViewport/VBoxContainer/HealthControl/BackBar
+@onready var back_bar: ProgressBar = $SubViewport/MarginContainer/VBoxContainer/HealthControl/BackBar
+@onready var front_bar: ProgressBar = $SubViewport/MarginContainer/VBoxContainer/HealthControl/FrontBar
+@onready var reload_bar: TextureProgressBar = $SubViewport/MarginContainer/VBoxContainer2/ReloadControl/ReloadBar
 
 func _ready():
 	SignalBus.player_health_changed.connect(update_health)
