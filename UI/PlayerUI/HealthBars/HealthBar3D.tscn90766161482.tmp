@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://5dcx8t80fw4t"]
 
-[ext_resource type="Script" uid="uid://c3shvulrksw6g" path="res://UI/HealthBars/healthBar3D.gd" id="1_jyv3i"]
+[ext_resource type="Script" uid="uid://c3shvulrksw6g" path="res://UI/PlayerUI/HealthBars/healthBar3D.gd" id="1_jyv3i"]
+[ext_resource type="Texture2D" uid="uid://oxj7h5wc8en0" path="res://Pictures/LoadingCircle.png" id="2_ucksv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyv3i"]
 content_margin_left = 2.0
@@ -61,3 +62,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 billboard = 1
 no_depth_test = true
 texture = SubResource("ViewportTexture_4dsys")
+
+[node name="ReloadBar" type="TextureProgressBar" parent="." unique_id=344821382]
+offset_right = 69.0
+offset_bottom = 72.0
+fill_mode = 4
+texture_progress = ExtResource("2_ucksv")

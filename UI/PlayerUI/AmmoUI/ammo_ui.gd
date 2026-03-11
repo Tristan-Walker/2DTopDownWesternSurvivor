@@ -30,8 +30,10 @@ func _on_ammo_updated(current_ammo):
 		
 		if i < current_ammo:
 			_animate_icon(icon, 1.0) # Change alpha to 100%
+			icon.modulate = Color(1, 1, 0.5) # Golden yellow
 		else:
 			_animate_icon(icon, 0.2) # Change alpha to 20%
+			icon.modulate = Color(0.2, 0.2, 0.2) # Dark empty grey
 
 func _animate_icon(icon: Control, target_alpha: float):
 	var tween = create_tween()
