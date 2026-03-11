@@ -1,29 +1,43 @@
 extends CharacterBody3D
-@export var bullet_scene: PackedScene         # Import bullet scene
 
-var speed = 5.0                  # player speed
-@export var max_health: int = 100             # Maximum possible health of character.
-var current_health := 100.0      # The health that the player currently has.
-var is_invincible: bool = false  # Is the character currently invincible?
-@export var i_frame_duration: float = 0.5     # Half a second of invincibility
+# Misc stats
+@export var i_frame_duration: float = 0.5        # Half a second of invincibility
+@export var max_health: int = 100                # Maximum possible health of character.
+var current_health := 100.0                      # The health that the player currently has.
+@export var speed = 5.0                          # player speed
+var is_invincible: bool = false                  # Is the character currently invincible?
 
-var fire_rate := 0.3             # bullet fire rate
-var fire_timer := 0.0            # 
-var last_shoot_dir: Vector3 = Vector3.RIGHT   # Default direction
-@export var inventory_data: InventoryData    # Inventory data
+# Shooting
+@export var bullet_scene: PackedScene            # Import bullet scene
+@export var fire_rate := 0.3                     # bullet fire rate
+var last_shoot_dir: Vector3 = Vector3.RIGHT      # Default direction
 
+# Inventory
+@export var inventory_data: InventoryData        # Inventory data
 signal toggle_inventory()
 
 # Reloading
 @onready var pooler = get_node("./BulletPool")
-@export var max_ammo: int = 6
-var current_ammo: int = max_ammo
-var is_reloading: bool = false
+@export var max_ammo: int = 6                     # Maximum ammo amount
+var current_ammo: int = max_ammo                  # Current ammo amount
+var is_reloading: bool = false                    # Is the player currently reloading?
+var reload_time: float = 1.5
 
+
+
+func _ready():
+	await get_tree().process_frame
+	SignalBus.ammo_setup.emit(max_ammo)
+	SignalBus.ammo_updated.emit(current_ammo)
+
+# Tracking key inputs
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("inventory"):
 		toggle_inventory.emit()
+	if Input.is_action_just_pressed("reload"):
+		start_reload()
 
+# Player movement + core shooting
 func _physics_process(_delta: float) -> void:
 	
 	# PLAYER MOVEMENT
@@ -85,11 +99,13 @@ func get_mouse_world_position() -> Vector3:
 
 func start_reload():
 	is_reloading = true
-	await get_tree().create_timer(1.5).timeout # reload happens
+	SignalBus.reload_started.emit(reload_time)
+	await get_tree().create_timer(reload_time).timeout # reload happens
 	current_ammo = max_ammo
+	SignalBus.ammo_updated.emit(current_ammo)
 	is_reloading = false
 
-# Spawning the bullets
+# Spawning the bullets & updating/tracking ammo
 func shoot(dir: Vector3) -> void:
 	if is_reloading or current_ammo <= 0:
 		return
@@ -102,7 +118,6 @@ func shoot(dir: Vector3) -> void:
 		if current_ammo <= 0:
 			start_reload()
 
-# Player health
 func take_damage(amount: int):
 	# Check for invincibility
 	if is_invincible:

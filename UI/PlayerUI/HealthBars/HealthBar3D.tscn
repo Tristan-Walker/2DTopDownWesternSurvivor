@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://5dcx8t80fw4t"]
+
+[ext_resource type="Script" uid="uid://c3shvulrksw6g" path="res://UI/PlayerUI/HealthBars/healthBar3D.gd" id="1_jyv3i"]
+[ext_resource type="Texture2D" uid="uid://oxj7h5wc8en0" path="res://Pictures/LoadingCircle.png" id="2_ucksv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyv3i"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 0.2627451, 0.5019608, 0.85882354)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dsys"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0.6, 0.32156864, 0.78431374)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4dsys"]
+viewport_path = NodePath("SubViewport")
+
+[node name="HealthBar3d" type="Node3D" unique_id=1964359974]
+script = ExtResource("1_jyv3i")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1403470292]
+transparent_bg = true
+size = Vector2i(100, 20)
+
+[node name="VBoxContainer" type="HBoxContainer" parent="SubViewport" unique_id=513514827]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="HealthControl" type="Control" parent="SubViewport/VBoxContainer" unique_id=115517533]
+custom_minimum_size = Vector2(70, 20)
+layout_mode = 2
+
+[node name="BackBar" type="ProgressBar" parent="SubViewport/VBoxContainer/HealthControl" unique_id=1792797946]
+custom_minimum_size = Vector2(70, 15)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_jyv3i")
+show_percentage = false
+
+[node name="FrontBar" type="ProgressBar" parent="SubViewport/VBoxContainer/HealthControl" unique_id=2027385854]
+custom_minimum_size = Vector2(70, 15)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_4dsys")
+show_percentage = false
+
+[node name="ReloadControl" type="Control" parent="SubViewport/VBoxContainer" unique_id=1535664088]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+
+[node name="ReloadBar" type="TextureProgressBar" parent="SubViewport/VBoxContainer/ReloadControl" unique_id=344821382]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 28.0
+grow_horizontal = 2
+scale = Vector2(0.55, 0.55)
+fill_mode = 4
+texture_progress = ExtResource("2_ucksv")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=411892098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+billboard = 1
+no_depth_test = true
+texture = SubResource("ViewportTexture_4dsys")
