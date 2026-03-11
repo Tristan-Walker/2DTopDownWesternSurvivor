@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bvktr8tyt8h1h" path="res://Player/player.gd" id="1_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://lpwi414jmpl5" path="res://Player/Shooting/bullet.tscn" id="2_hqtel"]
-[ext_resource type="PackedScene" uid="uid://5dcx8t80fw4t" path="res://UI/HealthBars/HealthBar3D.tscn" id="3_2hs0m"]
+[ext_resource type="PackedScene" uid="uid://5dcx8t80fw4t" path="res://UI/PlayerUI/HealthBars/HealthBar3D.tscn" id="3_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://db4kkdcg616wq" path="res://Pictures/Jebidiah Levideous.jpg" id="3_sweqy"]
 [ext_resource type="Script" uid="uid://dqqf38occa0jr" path="res://Player/Shooting/bullet_pool.gd" id="5_1jxqw"]
 

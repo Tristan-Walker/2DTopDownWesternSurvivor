@@ -21,6 +21,7 @@ signal toggle_inventory()
 @export var max_ammo: int = 6                     # Maximum ammo amount
 var current_ammo: int = max_ammo                  # Current ammo amount
 var is_reloading: bool = false                    # Is the player currently reloading?
+var reload_time: float = 1.5
 
 
 
@@ -98,7 +99,8 @@ func get_mouse_world_position() -> Vector3:
 
 func start_reload():
 	is_reloading = true
-	await get_tree().create_timer(1.5).timeout # reload happens
+	SignalBus.reload_started.emit(reload_time)
+	await get_tree().create_timer(reload_time).timeout # reload happens
 	current_ammo = max_ammo
 	SignalBus.ammo_updated.emit(current_ammo)
 	is_reloading = false
