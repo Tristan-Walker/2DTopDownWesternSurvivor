@@ -1,14 +1,12 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dv0wp4va2124w"]
 
 [ext_resource type="Script" uid="uid://c4fe3ffdu1nlw" path="res://Inventory/item_data.gd" id="1_wekcu"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wekcu"]
-load_path = "res://.godot/imported/currency.png-8cac8e2a73f0db465ec37b9afd2eac36.ctex"
+[ext_resource type="Texture2D" uid="uid://datrimj8eha70" path="res://Pictures/currency.png" id="2_0ibne"]
 
 [resource]
 script = ExtResource("1_wekcu")
 name = "Coin "
 description = "currency to use in stores"
 stackable = true
-texture = SubResource("CompressedTexture2D_wekcu")
+texture = ExtResource("2_0ibne")
 metadata/_custom_type_script = "uid://c4fe3ffdu1nlw"
