@@ -37,23 +37,24 @@ script = ExtResource("1_jyv3i")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1403470292]
 transparent_bg = true
-size = Vector2i(100, 20)
+size = Vector2i(105, 15)
 
-[node name="VBoxContainer" type="HBoxContainer" parent="SubViewport" unique_id=513514827]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 10.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MarginContainer" type="MarginContainer" parent="SubViewport" unique_id=713800025]
+custom_minimum_size = Vector2(105, 15)
+offset_right = 105.14
+offset_bottom = 20.0
 size_flags_horizontal = 4
-theme_override_constants/separation = 10
 
-[node name="HealthControl" type="Control" parent="SubViewport/VBoxContainer" unique_id=115517533]
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/MarginContainer" unique_id=1048723496]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HealthControl" type="Control" parent="SubViewport/MarginContainer/VBoxContainer" unique_id=115517533]
 custom_minimum_size = Vector2(70, 20)
 layout_mode = 2
 
-[node name="BackBar" type="ProgressBar" parent="SubViewport/VBoxContainer/HealthControl" unique_id=1792797946]
+[node name="BackBar" type="ProgressBar" parent="SubViewport/MarginContainer/VBoxContainer/HealthControl" unique_id=1792797946]
 custom_minimum_size = Vector2(70, 15)
 layout_mode = 1
 anchors_preset = 10
@@ -63,7 +64,7 @@ grow_horizontal = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_jyv3i")
 show_percentage = false
 
-[node name="FrontBar" type="ProgressBar" parent="SubViewport/VBoxContainer/HealthControl" unique_id=2027385854]
+[node name="FrontBar" type="ProgressBar" parent="SubViewport/MarginContainer/VBoxContainer/HealthControl" unique_id=2027385854]
 custom_minimum_size = Vector2(70, 15)
 layout_mode = 1
 anchors_preset = 10
@@ -73,15 +74,22 @@ grow_horizontal = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_4dsys")
 show_percentage = false
 
-[node name="ReloadControl" type="Control" parent="SubViewport/VBoxContainer" unique_id=1535664088]
+[node name="VBoxContainer2" type="VBoxContainer" parent="SubViewport/MarginContainer" unique_id=1726275483]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ReloadControl" type="Control" parent="SubViewport/MarginContainer/VBoxContainer2" unique_id=1535664088]
 custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="ReloadBar" type="TextureProgressBar" parent="SubViewport/VBoxContainer/ReloadControl" unique_id=344821382]
+[node name="ReloadBar" type="TextureProgressBar" parent="SubViewport/MarginContainer/VBoxContainer2/ReloadControl" unique_id=344821382]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
+offset_right = 13.0
 offset_bottom = 28.0
 grow_horizontal = 2
 scale = Vector2(0.55, 0.55)
