@@ -10,6 +10,7 @@ var can_interact = true
 var inUse: bool = false
 
 func _ready():
+	SignalBus.toggle_inventory.connect(player_closed_inventory)
 	promptUI.hide()
 
 func register_area(area: InteractionArea):
@@ -45,3 +46,8 @@ func _input(event):
 			# Call interact function
 			await active_areas[0].interact.call()
 			can_interact = true
+
+func player_closed_inventory():
+	if inUse == true:
+		inUse = false
+		promptUI.show()
