@@ -2,26 +2,22 @@
 
 [ext_resource type="Script" uid="uid://m0olggqixkkn" path="res://main.gd" id="1_kek77"]
 [ext_resource type="PackedScene" uid="uid://c3w08jf7pnfj5" path="res://Player/player.tscn" id="2_7mycd"]
+[ext_resource type="PackedScene" uid="uid://c1b0yqq5rbqek" path="res://Map/Town/Town.tscn" id="2_ycdy4"]
 [ext_resource type="Resource" uid="uid://636fdf1rxu4i" path="res://Inventory/test_inv.tres" id="3_4c57u"]
 [ext_resource type="Script" uid="uid://chyybxqu7een1" path="res://Enemies/enemy_spawner.gd" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dhe3nflyaw7ig" path="res://UI/Pause/pause_ui.tscn" id="6_5vw27"]
 [ext_resource type="PackedScene" uid="uid://c7cd6i3sa71mb" path="res://Enemies/enemy.tscn" id="6_7mycd"]
 [ext_resource type="Script" uid="uid://bgg65ycncfv50" path="res://Inventory/inventory_interface.gd" id="7_5vw27"]
-[ext_resource type="PackedScene" uid="uid://ip106v34k67g" path="res://Buildings/hut_building.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://ip106v34k67g" path="res://Map/Buildings/hut_building.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://ba7cvrip8fu0q" path="res://Inventory/inventory.tscn" id="7_kek77"]
 [ext_resource type="PackedScene" uid="uid://8mu0oaj58r74" path="res://Inventory/slot.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://c35gnjvvqx6wb" path="res://UI/PlayerUI/AmmoUI/AmmoUI.tscn" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://bu6hdiwresvdy" path="res://Interaction/chest.tscn" id="12_dg77c"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_0xm2m"]
-
 [node name="Main" type="Node3D" unique_id=705217086]
 script = ExtResource("1_kek77")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=185474831]
-transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0.004826069, -0.019668818, -0.0013153553)
-layers = 513
-mesh = SubResource("PlaneMesh_0xm2m")
+[node name="Town" parent="." unique_id=630110712 instance=ExtResource("2_ycdy4")]
 
 [node name="Player" parent="." unique_id=1362463066 instance=ExtResource("2_7mycd")]
 inventory_data = ExtResource("3_4c57u")
