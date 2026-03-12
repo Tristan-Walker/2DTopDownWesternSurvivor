@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bsoyqi5vwjn1e"]
+
+[ext_resource type="Script" uid="uid://6t06ncf1divy" path="res://Interaction/interaction_manager.gd" id="1_p4lj5"]
+
+[node name="InteractionManager" type="Node2D" unique_id=385110238]
+script = ExtResource("1_p4lj5")
+
+[node name="Label" type="Label" parent="." unique_id=175207718]
+z_index = 20
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.5
+offset_right = 52.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "[E] to interact"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelS" type="Sprite3D" parent="." unique_id=1280692195]
+visible = false
+billboard = 1

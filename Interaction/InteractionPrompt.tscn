@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://yy3gws81qemw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i6apa"]
+outline_size = 2
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_i6apa"]
+viewport_path = NodePath("SubViewport")
+
+[node name="InteractionPrompt" type="Node3D" unique_id=606167335]
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=935390924]
+transparent_bg = true
+size = Vector2i(150, 20)
+
+[node name="Label" type="Label" parent="SubViewport" unique_id=894345273]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_i6apa")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1739837964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_i6apa")
