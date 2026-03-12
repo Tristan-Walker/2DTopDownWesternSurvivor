@@ -24,7 +24,6 @@ var is_reloading: bool = false                    # Is the player currently relo
 var reload_time: float = 1.5
 
 
-
 func _ready():
 	await get_tree().process_frame
 	SignalBus.ammo_setup.emit(max_ammo)
