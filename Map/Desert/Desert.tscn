@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://d2ru6t6kpj6p7"]
 
+[ext_resource type="PackedScene" uid="uid://dp44h2g3cdqw6" path="res://Enemies/enemy_spawner.tscn" id="1_p8gqs"]
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_ooqm5"]
 size = Vector2(30, 30)
 
@@ -20,7 +22,9 @@ size = Vector3(0.5, 1, 30)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rpuf5"]
 size = Vector3(1, 1, 30)
 
-[node name="Town" type="Node3D" unique_id=630110712]
+[node name="Desert" type="Node3D" unique_id=630110712]
+
+[node name="EnemySpawner" parent="." unique_id=624984053 instance=ExtResource("1_p8gqs")]
 
 [node name="StaticEnv3D" type="StaticBody3D" parent="." unique_id=145219296]
 

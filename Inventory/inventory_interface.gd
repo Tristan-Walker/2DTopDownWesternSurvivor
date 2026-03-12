@@ -6,10 +6,27 @@ var external_inventory_owner
 @onready var player_inventory: PanelContainer = $PlayerInventory
 @onready var grabbed_slot: PanelContainer = $GrabbedSlot
 @onready var external_inventory: PanelContainer = $ExternalInventory
+@onready var player: CharacterBody3D = $"../../Player"
+
+func _ready():
+	SignalBus.close_chest.connect(clear_external_inventory)
+	SignalBus.open_chest.connect(open_external_inventory)
+	SignalBus.toggle_inventory.connect(toggle_inventory_interface)
+	
+	# Giving player inventory data
+	self.set_player_inventory_data(player.inventory_data)
 
 func _physics_process(_delta: float) -> void:
 	if grabbed_slot.visible:
 		grabbed_slot.global_position = get_global_mouse_position() + Vector2(5, 5)
+
+func toggle_inventory_interface() -> void:
+	self.visible = !self.visible
+
+func open_external_inventory(this_external_inventory_owner):
+	if self.visible == false:
+		self.visible = true
+	set_external_inventory(this_external_inventory_owner)
 
 func set_player_inventory_data(inventory_data: InventoryData) -> void:
 	inventory_data.inventory_interact.connect(on_inventory_interact)
