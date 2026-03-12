@@ -14,7 +14,6 @@ var last_shoot_dir: Vector3 = Vector3.RIGHT      # Default direction
 
 # Inventory
 @export var inventory_data: InventoryData        # Inventory data
-signal toggle_inventory()
 
 # Reloading
 @onready var pooler = get_node("./BulletPool")
@@ -32,7 +31,7 @@ func _ready():
 # Tracking key inputs
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("inventory"):
-		toggle_inventory.emit()
+		SignalBus.toggle_inventory.emit()
 	if Input.is_action_just_pressed("reload"):
 		start_reload()
 

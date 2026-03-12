@@ -1,9 +1,10 @@
 extends Area3D
 class_name InteractionArea
 
-@export var action_name: String = "interact"
+@export var action_name: String = ""
 
 var interact: Callable
+var player_left: Callable
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):

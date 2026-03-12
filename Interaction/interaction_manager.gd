@@ -7,6 +7,7 @@ extends Node3D
 const base_text = "[E] to "
 var active_areas = []
 var can_interact = true
+var inUse: bool = false
 
 func _ready():
 	promptUI.hide()
@@ -18,6 +19,9 @@ func register_area(area: InteractionArea):
 	promptUI.show()
 
 func unregister_area(area: InteractionArea):
+	if area.player_left.is_valid:
+		await area.player_left.call()
+	
 	var index = active_areas.find(area)
 	promptUI.hide()
 	if index != -1:
@@ -27,8 +31,15 @@ func _input(event):
 	if event.is_action_pressed("interact") and can_interact:
 		if active_areas.size() > 0:
 			can_interact = false
-			promptUI.hide()
 			
+			# Toggle label visibility
+			if inUse == false:
+				inUse = true
+				promptUI.hide()
+			else:
+				inUse = false
+				promptUI.show()
+			
+			# Call interact function
 			await active_areas[0].interact.call()
-			
 			can_interact = true
