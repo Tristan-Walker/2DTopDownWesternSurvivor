@@ -7,7 +7,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ixso0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_adsq2"]
-size = Vector3(1, 1.0377808, 1)
+size = Vector3(3, 1.038, 3)
 
 [node name="Chest" type="StaticBody3D" unique_id=588962768]
 script = ExtResource("1_mnfy7")
@@ -28,6 +28,6 @@ region_rect = Rect2(883, 209, 11, 12)
 action_name = "open"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=1138791188]
-transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_adsq2")
 debug_color = Color(0.82506704, 0.36570096, 0.42708468, 0.41960785)
