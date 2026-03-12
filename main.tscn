@@ -27,7 +27,7 @@ script = ExtResource("5_lquwl")
 enemy_scene = ExtResource("6_7mycd")
 
 [node name="Timer" type="Timer" parent="EnemySpawner" unique_id=1998902857]
-wait_time = 2.0
+wait_time = 3.0
 autostart = true
 
 [node name="HutBuilding2" parent="." unique_id=340400203 instance=ExtResource("7_272bh")]
