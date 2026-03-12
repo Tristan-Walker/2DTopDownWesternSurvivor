@@ -4,9 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c3w08jf7pnfj5" path="res://Player/player.tscn" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://c1b0yqq5rbqek" path="res://Map/Town/Town.tscn" id="2_ycdy4"]
 [ext_resource type="Resource" uid="uid://636fdf1rxu4i" path="res://Inventory/test_inv.tres" id="3_4c57u"]
-[ext_resource type="Script" uid="uid://chyybxqu7een1" path="res://Enemies/enemy_spawner.gd" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dhe3nflyaw7ig" path="res://UI/Pause/pause_ui.tscn" id="6_5vw27"]
-[ext_resource type="PackedScene" uid="uid://c7cd6i3sa71mb" path="res://Enemies/enemy.tscn" id="6_7mycd"]
 [ext_resource type="Script" uid="uid://bgg65ycncfv50" path="res://Inventory/inventory_interface.gd" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://ip106v34k67g" path="res://Map/Buildings/hut_building.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://ba7cvrip8fu0q" path="res://Inventory/inventory.tscn" id="7_kek77"]
@@ -15,16 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://bu6hdiwresvdy" path="res://Interaction/chest.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://ps76he345s8n" path="res://Inventory/inventory_data.gd" id="14_2cqfq"]
 [ext_resource type="Script" uid="uid://dqt8ku2c5jkf7" path="res://Inventory/slot_data.gd" id="15_yaehf"]
-[ext_resource type="Resource" uid="uid://e303dhkash6w" path="res://Inventory/Items/fruit_salad.tres" id="16_074og"]
-
-[sub_resource type="Resource" id="Resource_cegan"]
-script = ExtResource("15_yaehf")
-item_data = ExtResource("16_074og")
-metadata/_custom_type_script = "uid://dqt8ku2c5jkf7"
 
 [sub_resource type="Resource" id="Resource_82xsv"]
 script = ExtResource("14_2cqfq")
-slot_datas = Array[ExtResource("15_yaehf")]([SubResource("Resource_cegan"), null, null, null, null])
 metadata/_custom_type_script = "uid://ps76he345s8n"
 
 [node name="Main" type="Node3D" unique_id=705217086]
@@ -34,14 +25,6 @@ script = ExtResource("1_kek77")
 
 [node name="Player" parent="." unique_id=1362463066 instance=ExtResource("2_7mycd")]
 inventory_data = ExtResource("3_4c57u")
-
-[node name="EnemySpawner" type="Node3D" parent="." unique_id=1823574857]
-script = ExtResource("5_lquwl")
-enemy_scene = ExtResource("6_7mycd")
-
-[node name="Timer" type="Timer" parent="EnemySpawner" unique_id=1998902857]
-wait_time = 3.0
-autostart = true
 
 [node name="HutBuilding2" parent="." unique_id=340400203 instance=ExtResource("7_272bh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9953749, -0.02857685, -0.919672)
@@ -120,5 +103,3 @@ offset_bottom = 64.0
 [node name="Chest" parent="." unique_id=588962768 instance=ExtResource("12_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.749006, 0, -1.3989263)
 inventory_data = SubResource("Resource_82xsv")
-
-[connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]

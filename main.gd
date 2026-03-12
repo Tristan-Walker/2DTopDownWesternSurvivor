@@ -11,7 +11,8 @@ func _ready():
 	
 	for node in get_tree().get_nodes_in_group("external_inventory"):
 		node.toggle_inventory.connect(toggle_inventory_interface)
-		
+	
+	
 	# Connect the signal from the bus to a local function
 	SignalBus.player_died.connect(_on_player_health_depleted)
 	%GameOverScreen.hide() # Ensure it's hidden at start

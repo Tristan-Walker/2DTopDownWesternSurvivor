@@ -1,6 +1,6 @@
 extends Node3D
 
-# Drag your Enemy.tscn file into this slot in the Inspector
+# Slot for enemy scene
 @export var enemy_scene: PackedScene 
 
 func _on_timer_timeout() -> void:
