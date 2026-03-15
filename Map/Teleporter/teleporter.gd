@@ -4,7 +4,7 @@ extends Node3D
 @onready var interaction_area: InteractionArea = $InteractionArea
 
 func _ready():
-	# Link our specific logic to the generic interaction "socket"
+	# Link to interaction area/manager logic
 	interaction_area.interact = Callable(self, "teleport_player")
 	interaction_area.player_left = Callable(self, "player_left")
 	interaction_area.action_name = "go to Desert"
