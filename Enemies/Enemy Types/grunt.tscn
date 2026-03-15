@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c7cd6i3sa71mb"]
 
-[ext_resource type="Script" uid="uid://dkxsimqsxj842" path="res://Enemies/enemy.gd" id="1_4gyqm"]
+[ext_resource type="Script" uid="uid://dkxsimqsxj842" path="res://Enemies/Enemy Types/enemy.gd" id="1_4gyqm"]
 [ext_resource type="Texture2D" uid="uid://dysj0oadjmbwr" path="res://Pictures/ganger.png" id="1_7k104"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7xaro"]
