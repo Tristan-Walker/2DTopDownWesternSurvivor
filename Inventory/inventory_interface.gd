@@ -72,3 +72,7 @@ func update_grabbed_slot() -> void:
 		grabbed_slot.set_slot_data(grabbed_slot_data)
 	else:
 		grabbed_slot.hide()
+
+
+func _on_gui_input(event: InputEvent) -> void:
+	pass # Replace with function body.

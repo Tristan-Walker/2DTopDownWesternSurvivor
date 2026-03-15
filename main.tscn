@@ -13,7 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://bu6hdiwresvdy" path="res://Interaction/chest.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://ps76he345s8n" path="res://Inventory/Classes/inventory_data.gd" id="14_2cqfq"]
 [ext_resource type="Resource" uid="uid://e303dhkash6w" path="res://Inventory/Items/fruit_salad.tres" id="14_w48qg"]
+[ext_resource type="PackedScene" uid="uid://c5m0ar17bio6" path="res://Inventory/Pick Ups/pick_up.tscn" id="15_vivmo"]
 [ext_resource type="Script" uid="uid://dqt8ku2c5jkf7" path="res://Inventory/Classes/slot_data.gd" id="15_yaehf"]
+[ext_resource type="Resource" uid="uid://dv0wp4va2124w" path="res://Inventory/Items/currency.tres" id="16_2cqfq"]
 
 [sub_resource type="Resource" id="Resource_w48qg"]
 script = ExtResource("15_yaehf")
@@ -24,6 +26,11 @@ metadata/_custom_type_script = "uid://dqt8ku2c5jkf7"
 script = ExtResource("14_2cqfq")
 slot_datas = Array[ExtResource("15_yaehf")]([SubResource("Resource_w48qg"), null, null, null, null])
 metadata/_custom_type_script = "uid://ps76he345s8n"
+
+[sub_resource type="Resource" id="Resource_yaehf"]
+script = ExtResource("15_yaehf")
+item_data = ExtResource("16_2cqfq")
+metadata/_custom_type_script = "uid://dqt8ku2c5jkf7"
 
 [node name="Main" type="Node3D" unique_id=705217086]
 script = ExtResource("1_kek77")
@@ -36,6 +43,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 0)
 [node name="Chest" parent="Town" unique_id=588962768 instance=ExtResource("12_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.749006, 0, -1.3989263)
 inventory_data = SubResource("Resource_82xsv")
+
+[node name="PickUp" parent="Town" unique_id=65485173 instance=ExtResource("15_vivmo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.21, 1.165128, 2.469)
+slot_data = SubResource("Resource_yaehf")
 
 [node name="Player" parent="." unique_id=1362463066 instance=ExtResource("2_7mycd")]
 inventory_data = ExtResource("3_4c57u")
@@ -111,3 +122,5 @@ offset_bottom = 64.0
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=945513417]
 transform = Transform3D(1, 0, 0, 0, -0.93419826, 0.35675424, 0, -0.35675424, -0.93419826, 0, 4.5150843, 0)
 shadow_enabled = true
+
+[connection signal="gui_input" from="UI/InventoryInterface" to="UI/InventoryInterface" method="_on_gui_input"]
