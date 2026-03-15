@@ -10,6 +10,8 @@
 size = Vector3(3, 1.038, 3)
 
 [node name="Chest" type="StaticBody3D" unique_id=588962768 groups=["external_inventory"]]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_mnfy7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1649504045]
@@ -25,6 +27,7 @@ region_enabled = true
 region_rect = Rect2(883, 209, 11, 12)
 
 [node name="InteractionArea" parent="." unique_id=1003463888 instance=ExtResource("3_irjsm")]
+collision_mask = 2
 action_name = "open"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=1138791188]

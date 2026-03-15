@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c5m0ar17bio6"]
+
+[ext_resource type="Texture2D" uid="uid://cghr4ho4xs66k" path="res://Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_nvu2c"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5o3hq"]
+
+[node name="PickUp" type="RigidBody3D" unique_id=65485173]
+collision_layer = 0
+collision_mask = 0
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=476099569]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+texture_filter = 0
+texture = ExtResource("1_nvu2c")
+region_enabled = true
+region_rect = Rect2(627, 209, 10, 14)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1219548780]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_5o3hq")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2095533794]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" unique_id=1477788599]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_5o3hq")
