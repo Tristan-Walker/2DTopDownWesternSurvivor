@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://d2ru6t6kpj6p7"]
 
 [ext_resource type="PackedScene" uid="uid://dp44h2g3cdqw6" path="res://Enemies/enemy_spawner.tscn" id="1_p8gqs"]
+[ext_resource type="PackedScene" uid="uid://rt5dmfqsucff" path="res://Map/TerrainSpawner/Terrain/Cactus.tscn" id="1_u3wpk"]
+[ext_resource type="Texture2D" uid="uid://ssqalryxbepd" path="res://Pictures/DesertTexture.png" id="2_840bi"]
+[ext_resource type="PackedScene" uid="uid://b7arse4vinl" path="res://Map/TerrainSpawner/TerrainSpawner.tscn" id="3_u3wpk"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ooqm5"]
 size = Vector2(30, 30)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3wpk"]
+albedo_texture = ExtResource("2_840bi")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bd0s5"]
 size = Vector3(30, 0.1, 30)
@@ -32,6 +38,7 @@ size = Vector3(1, 1, 30)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012114048, 0, 0.0024219751)
 layers = 513
 mesh = SubResource("PlaneMesh_ooqm5")
+surface_material_override/0 = SubResource("StandardMaterial3D_u3wpk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticEnv3D" unique_id=1684592530]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01373291, 0, 0.0048828125)
@@ -82,3 +89,6 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Wall_W" unique_id=550794823]
 shape = SubResource("BoxShape3D_rpuf5")
+
+[node name="TerrainSpawner" parent="." unique_id=965152352 instance=ExtResource("3_u3wpk")]
+terrain_scene = ExtResource("1_u3wpk")

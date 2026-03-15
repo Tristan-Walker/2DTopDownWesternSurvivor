@@ -38,6 +38,7 @@ window/stretch/aspect="expand"
 enemy=""
 player=""
 external_inventory=""
+terrain=""
 
 [input]
 

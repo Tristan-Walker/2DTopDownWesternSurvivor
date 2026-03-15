@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://rt5dmfqsucff"]
+
+[ext_resource type="Texture2D" uid="uid://crmjkf1v2cmer" path="res://Pictures/Cactus.png" id="1_i1qfx"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bxkvr"]
+
+[node name="Cactus" type="StaticBody3D" unique_id=1969248401 groups=["terrain"]]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1983487502]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+billboard = 1
+texture = ExtResource("1_i1qfx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=948420389]
+shape = SubResource("CylinderShape3D_bxkvr")
