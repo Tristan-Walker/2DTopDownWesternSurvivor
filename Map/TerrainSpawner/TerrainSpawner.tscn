@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b7arse4vinl"]
+
+[ext_resource type="Script" uid="uid://bf3nuai2k2y5s" path="res://Map/TerrainSpawner/terrain_spawner.gd" id="1_iqn6l"]
+
+[node name="TerrainSpawner" type="Node3D" unique_id=965152352]
+script = ExtResource("1_iqn6l")
+spawn_height = 0.6
