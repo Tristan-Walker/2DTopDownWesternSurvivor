@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dp44h2g3cdqw6"]
 
 [ext_resource type="Script" uid="uid://chyybxqu7een1" path="res://Enemies/enemy_spawner.gd" id="1_00s5r"]
-[ext_resource type="PackedScene" uid="uid://c7cd6i3sa71mb" path="res://Enemies/enemy.tscn" id="2_63vqd"]
+[ext_resource type="PackedScene" uid="uid://c7cd6i3sa71mb" path="res://Enemies/Enemy Types/grunt.tscn" id="2_63vqd"]
 
 [node name="EnemySpawner" type="Node3D" unique_id=624984053]
 script = ExtResource("1_00s5r")
