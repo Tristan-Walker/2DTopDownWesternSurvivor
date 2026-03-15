@@ -5,15 +5,18 @@ extends Node3D
 
 func _ready():
 	# Link to interaction area/manager logic
-	interaction_area.interact = Callable(self, "teleport_player")
+	interaction_area.interact = Callable(self, "open_map")
 	interaction_area.player_left = Callable(self, "player_left")
-	interaction_area.action_name = "go to Desert"
+	interaction_area.action_name = "teleport"
 
-func teleport_player():
+func open_map():
+	teleport_player(desert)
+	print("map opened")
+
+func teleport_player(new_map: String):
 	var main_node = get_tree().root.find_child("Main", true, false)
 	if main_node and main_node.has_method("change_level"):
-		print("Has")
-		main_node.change_level(desert)
+		main_node.change_level(new_map)
 	else:
 		print("Could not find Main or method missing. Found: ", main_node.name if main_node else "null")
 

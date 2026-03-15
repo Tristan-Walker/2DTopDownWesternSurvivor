@@ -14,8 +14,8 @@ func _on_player_health_depleted() -> void:
 
 func change_level(new_scene_path: String):
 	# Remove old map
-	var old_scene = $Town
-	old_scene.queue_free()
+	for level in get_tree().get_nodes_in_group("level"):
+		level.queue_free()
 	
 	# Load new map
 	var new_scene = load(new_scene_path)
