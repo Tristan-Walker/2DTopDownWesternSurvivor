@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://2rawq5fpau43"]
+
+[ext_resource type="Script" uid="uid://cus03i2ha1v4" path="res://Map/Teleporter/teleporter.gd" id="1_7q7uv"]
+[ext_resource type="PackedScene" uid="uid://cqlpjo683gqxw" path="res://Interaction/Interaction Area/Interaction_Area.tscn" id="1_xw2ht"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7q7uv"]
+
+[node name="Teleporter" type="Node3D" unique_id=857823175]
+script = ExtResource("1_7q7uv")
+desert = "uid://d2ru6t6kpj6p7"
+
+[node name="InteractionArea" parent="." unique_id=1003463888 instance=ExtResource("1_xw2ht")]
+action_name = "Teleport"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=859664260]
+shape = SubResource("CylinderShape3D_7q7uv")
