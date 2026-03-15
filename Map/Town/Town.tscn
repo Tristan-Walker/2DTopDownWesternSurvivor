@@ -20,7 +20,7 @@ size = Vector3(0.5, 1, 30)
 [sub_resource type="BoxShape3D" id="BoxShape3D_rpuf5"]
 size = Vector3(1, 1, 30)
 
-[node name="Town" type="Node3D" unique_id=630110712]
+[node name="Town" type="Node3D" unique_id=630110712 groups=["level"]]
 
 [node name="StaticEnv3D" type="StaticBody3D" parent="." unique_id=145219296]
 

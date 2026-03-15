@@ -39,6 +39,7 @@ enemy=""
 player=""
 external_inventory=""
 terrain=""
+level=""
 
 [input]
 
