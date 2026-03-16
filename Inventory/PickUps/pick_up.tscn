@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c5m0ar17bio6"]
 
-[ext_resource type="Script" uid="uid://cq5n857d2wf85" path="res://Inventory/Pick Ups/pick_up.gd" id="1_5o3hq"]
+[ext_resource type="Script" uid="uid://cq5n857d2wf85" path="res://Inventory/PickUps/pick_up.gd" id="1_5o3hq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5o3hq"]
 
