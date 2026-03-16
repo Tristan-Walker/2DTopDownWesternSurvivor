@@ -4,6 +4,7 @@ const PickUp = preload("res://Inventory/PickUps/pick_up.tscn")
 
 var grabbed_slot_data: SlotData
 var external_inventory_owner
+#var level = get_tree().get_nodes_in_group("level")
 
 @onready var player_inventory: PanelContainer = $PlayerInventory
 @onready var grabbed_slot: PanelContainer = $GrabbedSlot
@@ -83,7 +84,7 @@ func drop_item_to_world(slot_data: SlotData):
 	var forward = player.global_transform.basis.z
 	var drop_position = player.global_position + forward * 0.75 + Vector3.UP
 	
-	player.get_parent().add_child(pick_up)
+	get_tree().current_scene.add_child(pick_up)
 	pick_up.global_position = drop_position
 	
 	# throw force (forward: distance, Vector3.UP: hight)
