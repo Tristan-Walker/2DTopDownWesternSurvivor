@@ -1,5 +1,7 @@
 extends Control
 
+const PickUp = preload("res://Inventory/PickUps/pick_up.tscn")
+
 var grabbed_slot_data: SlotData
 var external_inventory_owner
 
@@ -12,7 +14,8 @@ func _ready():
 	SignalBus.close_chest.connect(clear_external_inventory)
 	SignalBus.open_chest.connect(open_external_inventory)
 	SignalBus.toggle_inventory.connect(toggle_inventory_interface)
-	
+	SignalBus.drop_slot_data.connect(drop_item_to_world)
+
 	# Giving player inventory data
 	self.set_player_inventory_data(player.inventory_data)
 
@@ -73,6 +76,38 @@ func update_grabbed_slot() -> void:
 	else:
 		grabbed_slot.hide()
 
+func drop_item_to_world(slot_data: SlotData):
+	var pick_up = PickUp.instantiate()
+	pick_up.slot_data = slot_data
+	
+	var forward = player.global_transform.basis.z
+	var drop_position = player.global_position + forward * 0.75 + Vector3.UP
+	
+	player.get_parent().add_child(pick_up)
+	pick_up.global_position = drop_position
+	
+	# throw force (forward: distance, Vector3.UP: hight)
+	pick_up.apply_impulse(forward * 2.5 + Vector3.UP * 2.0)
 
 func _on_gui_input(event: InputEvent) -> void:
-	pass # Replace with function body.
+	if event is InputEventMouseButton \
+			and event.is_pressed() \
+			and grabbed_slot_data:
+			
+		match event.button_index:
+			MOUSE_BUTTON_LEFT:
+				SignalBus.drop_slot_data.emit(grabbed_slot_data)
+				grabbed_slot_data = null
+			MOUSE_BUTTON_RIGHT:
+				SignalBus.drop_slot_data.emit(grabbed_slot_data.create_single_slot_data())
+				
+				if grabbed_slot_data.quantity <= 0:
+					grabbed_slot_data = null
+					
+	update_grabbed_slot()
+
+func _on_visibility_changed() -> void:
+	if not visible and grabbed_slot_data:
+		SignalBus.drop_slot_data.emit(grabbed_slot_data)
+		grabbed_slot_data = null
+		update_grabbed_slot()

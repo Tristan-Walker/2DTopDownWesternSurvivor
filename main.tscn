@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bu6hdiwresvdy" path="res://Interaction/chest.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://ps76he345s8n" path="res://Inventory/Classes/inventory_data.gd" id="14_2cqfq"]
 [ext_resource type="Resource" uid="uid://e303dhkash6w" path="res://Inventory/Items/fruit_salad.tres" id="14_w48qg"]
-[ext_resource type="PackedScene" uid="uid://c5m0ar17bio6" path="res://Inventory/Pick Ups/pick_up.tscn" id="15_vivmo"]
+[ext_resource type="PackedScene" uid="uid://c5m0ar17bio6" path="res://Inventory/PickUps/pick_up.tscn" id="15_vivmo"]
 [ext_resource type="Script" uid="uid://dqt8ku2c5jkf7" path="res://Inventory/Classes/slot_data.gd" id="15_yaehf"]
 [ext_resource type="Resource" uid="uid://dv0wp4va2124w" path="res://Inventory/Items/currency.tres" id="16_2cqfq"]
 
@@ -124,3 +124,4 @@ transform = Transform3D(1, 0, 0, 0, -0.93419826, 0.35675424, 0, -0.35675424, -0.
 shadow_enabled = true
 
 [connection signal="gui_input" from="UI/InventoryInterface" to="UI/InventoryInterface" method="_on_gui_input"]
+[connection signal="visibility_changed" from="UI/InventoryInterface" to="UI/InventoryInterface" method="_on_visibility_changed"]

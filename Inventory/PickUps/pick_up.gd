@@ -1,8 +1,8 @@
 extends RigidBody3D
 
 @export var slot_data: SlotData
-
 @onready var sprite_3d: Sprite3D = $Sprite3D
+var velocity: Vector3 = Vector3.ZERO
 
 #Make sure png size for the item (.tres) are consistant 64X64 pixels
 
