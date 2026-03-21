@@ -27,6 +27,8 @@ func _ready():
 	await get_tree().process_frame
 	SignalBus.ammo_setup.emit(max_ammo)
 	SignalBus.ammo_updated.emit(current_ammo)
+	
+	PlayerManager.player = self
 
 # Tracking key inputs
 func _unhandled_input(_event: InputEvent) -> void:
@@ -142,3 +144,7 @@ func start_i_frames():
 		await get_tree().create_timer(0.05).timeout
 	
 	is_invincible = false
+
+func heal(heal_value: int) -> void:
+	current_health += heal_value
+	SignalBus.player_health_changed.emit(current_health)

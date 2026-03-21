@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemDataConsumable" format=3 uid="uid://db4fkgfqfv7s5"]
+
+[ext_resource type="Script" uid="uid://dl34fdkc8tgm" path="res://Inventory/Classes/item_data_consumable.gd" id="1_knbuc"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_knbuc"]
+load_path = "res://.godot/imported/ASalas2.jpg-5866d3a16689346cba0a10f78ce05065.s3tc.ctex"
+
+[resource]
+script = ExtResource("1_knbuc")
+heal_value = 20
+name = "Healing Salad"
+description = "A very nutritious fruit salad, heals you."
+stackable = true
+texture = SubResource("CompressedTexture2D_knbuc")
+metadata/_custom_type_script = "uid://dl34fdkc8tgm"

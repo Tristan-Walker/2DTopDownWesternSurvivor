@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 SignalBus="*uid://byvvy8pyb3u5y"
 InteractionManager="*uid://bsoyqi5vwjn1e"
+PlayerManager="*uid://ro4gm034jil0"
 
 [debug]
 
