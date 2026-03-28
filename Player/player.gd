@@ -146,5 +146,6 @@ func start_i_frames():
 	is_invincible = false
 
 func heal(heal_value: int) -> void:
-	current_health += heal_value
-	SignalBus.player_health_changed.emit(current_health)
+	if current_health < max_health:
+		current_health += heal_value
+		SignalBus.player_health_changed.emit(current_health)
