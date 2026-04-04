@@ -39,7 +39,12 @@ func open_external_inventory(this_external_inventory_owner):
 	if self.visible == false:
 		self.visible = true
 	set_external_inventory(this_external_inventory_owner)
-
+	
+	if inventory_interface.visible:
+		hot_bar_inventory.hide()
+	else:
+		hot_bar_inventory.show()
+		
 func set_player_inventory_data(inventory_data: InventoryData) -> void:
 	inventory_data.inventory_interact.connect(on_inventory_interact)
 	player_inventory.set_inventory_data(inventory_data)
