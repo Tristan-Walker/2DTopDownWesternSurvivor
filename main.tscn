@@ -36,7 +36,7 @@ metadata/_custom_type_script = "uid://dqt8ku2c5jkf7"
 
 [sub_resource type="Resource" id="Resource_cegan"]
 script = ExtResource("12_074og")
-slot_datas = Array[ExtResource("15_yaehf")]([null])
+slot_datas = Array[ExtResource("15_yaehf")]([null, null, null, null])
 metadata/_custom_type_script = "uid://r2e0poq7hwpm"
 
 [node name="Main" type="Node3D" unique_id=705217086]

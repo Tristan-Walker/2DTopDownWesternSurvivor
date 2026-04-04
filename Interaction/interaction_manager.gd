@@ -11,6 +11,8 @@ var inUse: bool = false
 
 func _ready():
 	SignalBus.toggle_inventory.connect(player_closed_inventory)
+	SignalBus.close_inventory.connect(player_closed_inventory)
+
 	promptUI.hide()
 
 func register_area(area: InteractionArea):

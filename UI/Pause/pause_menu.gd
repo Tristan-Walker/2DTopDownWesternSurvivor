@@ -5,7 +5,6 @@ extends MarginContainer
 @export var help_menu_screen: MarginContainer
 @export var bestiary_menu_screen: MarginContainer
 
-
 func _ready():
 	menu_screen.visible = false
 	help_menu_screen.visible = false
@@ -23,15 +22,18 @@ func handle_pause_pressed():
 		menu_screen.visible = true
 		return
 # If settings open: close it
-	if settings_menu_screen.visible:
+	elif settings_menu_screen.visible:
 		settings_menu_screen.visible = false
 		menu_screen.visible = true
 		return
 # If bestiary open: close it
-	if bestiary_menu_screen.visible:
+	elif bestiary_menu_screen.visible:
 		bestiary_menu_screen.visible = false
 		menu_screen.visible = true
 		return
+
+	SignalBus.close_inventory.emit()
+
 # else toggle main pause menu
 	menu_screen.visible = !menu_screen.visible
 	get_tree().paused = menu_screen.visible #comment out for in scene testing

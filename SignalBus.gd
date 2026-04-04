@@ -11,5 +11,8 @@ signal close_chest()
 signal open_chest(external_inventory_owner)
 signal toggle_inventory()
 signal drop_slot_data(slot_data: SlotData)
+signal isOpen(isOpen: bool)
+signal close_inventory()
+signal open_inventory()
 
 # signal enemy_defeated(points)
