@@ -6,7 +6,6 @@ const PickUp = preload("res://Inventory/PickUps/pick_up.tscn")
 
 var grabbed_slot_data: SlotData
 var external_inventory_owner
-#var level = get_tree().get_nodes_in_group("level")
 
 @onready var player_inventory: PanelContainer = $PlayerInventory
 @onready var grabbed_slot: PanelContainer = $GrabbedSlot
@@ -21,7 +20,9 @@ func _ready():
 	SignalBus.open_chest.connect(open_external_inventory)
 	SignalBus.toggle_inventory.connect(toggle_inventory_interface)
 	SignalBus.drop_slot_data.connect(drop_item_to_world)
-	
+	SignalBus.close_inventory.connect(close_inventory_interface)
+	SignalBus.open_inventory.connect(open_inventory_interface)
+
 	# Giving player inventory data
 	self.set_player_inventory_data(player.inventory_data)
 	self.set_equip_inventory_data(player.equip_inventory_data)
@@ -33,16 +34,26 @@ func _physics_process(_delta: float) -> void:
 func toggle_inventory_interface() -> void:
 	self.visible = !self.visible
 	
-	#Toggle horbar visibility when player inventory is open
+	#Toggle hotbar visibility when player inventory is open
 	if inventory_interface.visible:
 		hot_bar_inventory.hide()
 	else:
 		hot_bar_inventory.show()
-		
+
+func close_inventory_interface():
+	self.visible = false
+	hot_bar_inventory.show()
+
+func open_inventory_interface():
+	self.visible = true
+	hot_bar_inventory.hide()
+
 func open_external_inventory(this_external_inventory_owner):
 	if self.visible == false:
 		self.visible = true
 	set_external_inventory(this_external_inventory_owner)
+	
+	SignalBus.isOpen.emit(true)
 	
 	if inventory_interface.visible:
 		hot_bar_inventory.hide()
@@ -76,7 +87,7 @@ func clear_external_inventory() -> void:
 		#Close external inventory and player inventory when walking away
 		external_inventory.hide()
 		external_inventory_owner = null
-		toggle_inventory_interface()
+		
 
 func on_inventory_interact(inventory_data: InventoryData, 
 		index: int, button: int) -> void:
