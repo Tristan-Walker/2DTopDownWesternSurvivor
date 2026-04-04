@@ -2,11 +2,14 @@ extends Node3D
 
 @onready var player: CharacterBody3D = $Player
 @onready var inventory_interface: Control = $UI/InventoryInterface
+@onready var hot_bar_inventory: PanelContainer = $UI/HotBarInventory
 
 func _ready():
 	# Connect the signal from the bus to a local function
 	SignalBus.player_died.connect(_on_player_health_depleted)
 	%GameOverScreen.hide() # Ensure it's hidden at start
+	#hotbar cant be in inventory interface sorry
+	hot_bar_inventory.set_inventory_data(player.inventory_data)
 
 func _on_player_health_depleted() -> void:
 	%GameOverScreen.visible = true

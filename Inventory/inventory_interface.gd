@@ -10,6 +10,8 @@ var external_inventory_owner
 @onready var grabbed_slot: PanelContainer = $GrabbedSlot
 @onready var external_inventory: PanelContainer = $ExternalInventory
 @onready var player: CharacterBody3D = $"../../Player"
+@onready var hot_bar_inventory: PanelContainer = $"../HotBarInventory"
+@onready var inventory_interface: Control = $"."
 
 func _ready():
 	SignalBus.close_chest.connect(clear_external_inventory)
@@ -26,7 +28,13 @@ func _physics_process(_delta: float) -> void:
 
 func toggle_inventory_interface() -> void:
 	self.visible = !self.visible
-
+	
+	#Toggle horbar visibility when player inventory is open
+	if inventory_interface.visible:
+		hot_bar_inventory.hide()
+	else:
+		hot_bar_inventory.show()
+		
 func open_external_inventory(this_external_inventory_owner):
 	if self.visible == false:
 		self.visible = true
