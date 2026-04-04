@@ -1,5 +1,7 @@
 extends Control
 
+signal force_close
+
 const PickUp = preload("res://Inventory/PickUps/pick_up.tscn")
 
 var grabbed_slot_data: SlotData
@@ -12,15 +14,17 @@ var external_inventory_owner
 @onready var player: CharacterBody3D = $"../../Player"
 @onready var hot_bar_inventory: PanelContainer = $"../HotBarInventory"
 @onready var inventory_interface: Control = $"."
+@onready var equip_inventory: PanelContainer = $EquipInventory
 
 func _ready():
 	SignalBus.close_chest.connect(clear_external_inventory)
 	SignalBus.open_chest.connect(open_external_inventory)
 	SignalBus.toggle_inventory.connect(toggle_inventory_interface)
 	SignalBus.drop_slot_data.connect(drop_item_to_world)
-
+	
 	# Giving player inventory data
 	self.set_player_inventory_data(player.inventory_data)
+	self.set_equip_inventory_data(player.equip_inventory_data)
 
 func _physics_process(_delta: float) -> void:
 	if grabbed_slot.visible:
@@ -49,6 +53,10 @@ func set_player_inventory_data(inventory_data: InventoryData) -> void:
 	inventory_data.inventory_interact.connect(on_inventory_interact)
 	player_inventory.set_inventory_data(inventory_data)
 
+func set_equip_inventory_data(inventory_data: InventoryData) -> void:
+	inventory_data.inventory_interact.connect(on_inventory_interact)
+	equip_inventory.set_inventory_data(inventory_data)
+
 func set_external_inventory(_external_inventory_owner) -> void:
 	external_inventory_owner = _external_inventory_owner
 	var inventory_data = external_inventory_owner.inventory_data
@@ -65,8 +73,10 @@ func clear_external_inventory() -> void:
 		inventory_data.inventory_interact.disconnect(on_inventory_interact)
 		external_inventory.clear_inventory_data(inventory_data)
 		
+		#Close external inventory and player inventory when walking away
 		external_inventory.hide()
 		external_inventory_owner = null
+		toggle_inventory_interface()
 
 func on_inventory_interact(inventory_data: InventoryData, 
 		index: int, button: int) -> void:

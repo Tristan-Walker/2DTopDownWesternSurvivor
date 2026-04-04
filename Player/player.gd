@@ -14,6 +14,7 @@ var last_shoot_dir: Vector3 = Vector3.RIGHT      # Default direction
 
 # Inventory
 @export var inventory_data: InventoryData        # Inventory data
+@export var equip_inventory_data: InventoryDataEquip  # Equip inventory data
 
 # Reloading
 @onready var pooler = get_node("./BulletPool")

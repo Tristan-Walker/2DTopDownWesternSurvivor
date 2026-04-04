@@ -8,5 +8,5 @@ class_name ItemData
 @export var texture: Texture2D
 @export var effect: String = ""
 
-func use(target) -> void:
+func use(_target) -> void:
 	pass

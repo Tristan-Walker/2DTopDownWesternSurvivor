@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ps76he345s8n" path="res://Inventory/Classes/inventory_data.gd" id="1_g5g3k"]
 [ext_resource type="Script" uid="uid://dqt8ku2c5jkf7" path="res://Inventory/Classes/slot_data.gd" id="2_7nm7m"]
 [ext_resource type="Resource" uid="uid://dv0wp4va2124w" path="res://Inventory/Items/currency.tres" id="3_ghyoh"]
+[ext_resource type="Resource" uid="uid://bu8o10ippohkn" path="res://Inventory/Items/ragged_vest.tres" id="4_28igi"]
 [ext_resource type="Resource" uid="uid://e303dhkash6w" path="res://Inventory/Items/fruit_salad.tres" id="4_d3a5g"]
 [ext_resource type="Resource" uid="uid://db4fkgfqfv7s5" path="res://Inventory/Items/health_potion.tres" id="5_j36rg"]
 
@@ -10,6 +11,11 @@
 script = ExtResource("2_7nm7m")
 item_data = ExtResource("3_ghyoh")
 quantity = 10
+
+[sub_resource type="Resource" id="Resource_ewp5x"]
+script = ExtResource("2_7nm7m")
+item_data = ExtResource("4_28igi")
+metadata/_custom_type_script = "uid://dqt8ku2c5jkf7"
 
 [sub_resource type="Resource" id="Resource_ghyoh"]
 script = ExtResource("2_7nm7m")
@@ -27,4 +33,4 @@ metadata/_custom_type_script = "uid://dqt8ku2c5jkf7"
 
 [resource]
 script = ExtResource("1_g5g3k")
-slot_datas = Array[ExtResource("2_7nm7m")]([SubResource("Resource_nb6ky"), null, null, null, null, SubResource("Resource_ghyoh"), SubResource("Resource_d3a5g"), null, null, null, null, null, SubResource("Resource_28igi"), null, null, null, null, null])
+slot_datas = Array[ExtResource("2_7nm7m")]([SubResource("Resource_nb6ky"), SubResource("Resource_ewp5x"), null, null, null, SubResource("Resource_ghyoh"), SubResource("Resource_d3a5g"), null, null, null, null, null, SubResource("Resource_28igi"), null, null, null, null, null])
