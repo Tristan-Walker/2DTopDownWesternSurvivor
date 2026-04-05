@@ -1,8 +1,12 @@
 [gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://cyck50230nfua"]
 
 [ext_resource type="Script" uid="uid://hsejir52tg3b" path="res://Player/Weapons/WeaponData.gd" id="1_vnslj"]
+[ext_resource type="PackedScene" uid="uid://c7v6s5dl7bput" path="res://Player/Weapons/Pistol/pistol_bullet.tscn" id="1_yjx1n"]
 
 [resource]
 script = ExtResource("1_vnslj")
 name = "Pistol"
+ammo_capacity = 8
+pool_size = 24
+bullet_scene = ExtResource("1_yjx1n")
 metadata/_custom_type_script = "uid://hsejir52tg3b"

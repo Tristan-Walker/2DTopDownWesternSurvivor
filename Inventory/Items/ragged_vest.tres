@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemDataEquip" format=3 uid="uid://bu8o10ippohkn"]
 
-[ext_resource type="Script" uid="uid://hvispl01abiq" path="res://Inventory/Classes/item_data_equip.gd" id="1_ejupq"]
+[ext_resource type="Script" path="res://Inventory/Classes/item_data_equip.gd" id="1_ejupq"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ejupq"]
 load_path = "res://.godot/imported/Ragged Vest.png-5c24f4f002b22019834db15f85a451f3.ctex"

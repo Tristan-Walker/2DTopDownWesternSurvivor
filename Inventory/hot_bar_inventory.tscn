@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://b5spdvilmkmpa"]
+[gd_scene format=3 uid="uid://i0evhvwxp3hv"]
 
-[ext_resource type="Script" uid="uid://bxl4pyw55nu4j" path="res://Inventory/hot_bar_inventory.gd" id="1_yyss4"]
+[ext_resource type="Script" path="res://Inventory/hot_bar_inventory.gd" id="1_yyss4"]
 
 [node name="HotBarInventory" type="PanelContainer" unique_id=974804869]
 custom_minimum_size = Vector2(420, 80)

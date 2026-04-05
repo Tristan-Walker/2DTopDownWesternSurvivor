@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://db4kkdcg616wq" path="res://Pictures/Jebidiah Levideous.jpg" id="3_sweqy"]
 [ext_resource type="Script" uid="uid://dqqf38occa0jr" path="res://Player/Shooting/bullet_pool.gd" id="5_1jxqw"]
 [ext_resource type="PackedScene" uid="uid://csa01524bxfv4" path="res://Player/Weapons/WeaponManager.tscn" id="6_fhl08"]
+[ext_resource type="Script" uid="uid://hsejir52tg3b" path="res://Player/Weapons/WeaponData.gd" id="7_00tjw"]
+[ext_resource type="Resource" uid="uid://cyck50230nfua" path="res://Player/Weapons/Pistol/Pistol.tres" id="8_x3vf3"]
+[ext_resource type="Resource" uid="uid://t8dxd46i2xlj" path="res://Player/Weapons/Rifle/Rifle.tres" id="9_apopc"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_lquwl"]
 height = 1.0
@@ -56,3 +59,4 @@ script = ExtResource("5_1jxqw")
 bullet_scene = ExtResource("2_hqtel")
 
 [node name="WeaponManager" parent="." unique_id=309252030 instance=ExtResource("6_fhl08")]
+loadout = Array[ExtResource("7_00tjw")]([ExtResource("8_x3vf3"), ExtResource("9_apopc")])
