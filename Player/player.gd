@@ -28,8 +28,6 @@ func _ready():
 	await get_tree().process_frame
 	SignalBus.ammo_setup.emit(max_ammo)
 	SignalBus.ammo_updated.emit(current_ammo)
-	
-	PlayerManager.player = self
 
 # Tracking key inputs
 func _unhandled_input(_event: InputEvent) -> void:

@@ -10,14 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://ba7cvrip8fu0q" path="res://Inventory/inventory.tscn" id="7_kek77"]
 [ext_resource type="PackedScene" uid="uid://8mu0oaj58r74" path="res://Inventory/slot.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://c35gnjvvqx6wb" path="res://UI/PlayerUI/AmmoUI/AmmoUI.tscn" id="11_efxa6"]
-[ext_resource type="Script" uid="uid://r2e0poq7hwpm" path="res://Inventory/Classes/inventory_data_equip.gd" id="12_074og"]
+[ext_resource type="Script" path="res://Inventory/Classes/inventory_data_equip.gd" id="12_074og"]
 [ext_resource type="PackedScene" uid="uid://bu6hdiwresvdy" path="res://Interaction/chest.tscn" id="12_dg77c"]
 [ext_resource type="Script" uid="uid://ps76he345s8n" path="res://Inventory/Classes/inventory_data.gd" id="14_2cqfq"]
 [ext_resource type="Resource" uid="uid://e303dhkash6w" path="res://Inventory/Items/fruit_salad.tres" id="14_w48qg"]
 [ext_resource type="PackedScene" uid="uid://c5m0ar17bio6" path="res://Inventory/PickUps/pick_up.tscn" id="15_vivmo"]
 [ext_resource type="Script" uid="uid://dqt8ku2c5jkf7" path="res://Inventory/Classes/slot_data.gd" id="15_yaehf"]
 [ext_resource type="Resource" uid="uid://dv0wp4va2124w" path="res://Inventory/Items/currency.tres" id="16_2cqfq"]
-[ext_resource type="PackedScene" uid="uid://b5spdvilmkmpa" path="res://Inventory/hot_bar_inventory.tscn" id="16_yaehf"]
+[ext_resource type="PackedScene" uid="uid://i0evhvwxp3hv" path="res://Inventory/hot_bar_inventory.tscn" id="16_yaehf"]
 
 [sub_resource type="Resource" id="Resource_w48qg"]
 script = ExtResource("15_yaehf")
@@ -37,7 +37,6 @@ metadata/_custom_type_script = "uid://dqt8ku2c5jkf7"
 [sub_resource type="Resource" id="Resource_cegan"]
 script = ExtResource("12_074og")
 slot_datas = Array[ExtResource("15_yaehf")]([null, null, null, null])
-metadata/_custom_type_script = "uid://r2e0poq7hwpm"
 
 [node name="Main" type="Node3D" unique_id=705217086]
 script = ExtResource("1_kek77")

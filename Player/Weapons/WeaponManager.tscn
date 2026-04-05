@@ -1,11 +1,6 @@
 [gd_scene format=3 uid="uid://csa01524bxfv4"]
 
 [ext_resource type="Script" uid="uid://dxfecuoh8mi46" path="res://Player/Weapons/weapon_manager.gd" id="1_58skl"]
-[ext_resource type="Script" uid="uid://hsejir52tg3b" path="res://Player/Weapons/WeaponData.gd" id="2_whepd"]
-[ext_resource type="Resource" uid="uid://cyck50230nfua" path="res://Player/Weapons/Pistol/Pistol.tres" id="3_xwath"]
-[ext_resource type="Resource" uid="uid://t8dxd46i2xlj" path="res://Player/Weapons/Rifle/Rifle.tres" id="4_kcpnr"]
-[ext_resource type="Resource" uid="uid://dm34hm6u6e7ay" path="res://Player/Weapons/Shotgun/Shotgun.tres" id="5_srptj"]
 
 [node name="WeaponManager" type="Node3D" unique_id=309252030]
 script = ExtResource("1_58skl")
-available_weapons = Array[ExtResource("2_whepd")]([ExtResource("3_xwath"), ExtResource("4_kcpnr"), ExtResource("5_srptj")])

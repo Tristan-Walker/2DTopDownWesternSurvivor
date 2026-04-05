@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c7v6s5dl7bput"]
+
+[ext_resource type="Script" uid="uid://c2fw82j0lwqs4" path="res://Player/Weapons/Pistol/pistol_bullet.gd" id="1_c7efg"]
+[ext_resource type="Texture2D" uid="uid://c0xkrith2cb2j" path="res://Pictures/bullet_blue.png" id="2_j3mqd"]
+
+[node name="PistolBullet" type="Node3D" unique_id=229420362]
+script = ExtResource("1_c7efg")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1751499537]
+billboard = 1
+texture = ExtResource("2_j3mqd")

@@ -1,8 +1,11 @@
 [gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://t8dxd46i2xlj"]
 
+[ext_resource type="PackedScene" uid="uid://bnrmnl7xycvn8" path="res://Player/Weapons/Rifle/rifle_bullet.tscn" id="1_4i7ej"]
 [ext_resource type="Script" uid="uid://hsejir52tg3b" path="res://Player/Weapons/WeaponData.gd" id="1_wodjh"]
 
 [resource]
 script = ExtResource("1_wodjh")
-name = "Shotgun"
+name = "Rifle"
+fire_rate = 3.0
+bullet_scene = ExtResource("1_4i7ej")
 metadata/_custom_type_script = "uid://hsejir52tg3b"
