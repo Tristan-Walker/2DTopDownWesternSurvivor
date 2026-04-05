@@ -33,4 +33,4 @@ metadata/_custom_type_script = "uid://dqt8ku2c5jkf7"
 
 [resource]
 script = ExtResource("1_g5g3k")
-slot_datas = Array[ExtResource("2_7nm7m")]([SubResource("Resource_nb6ky"), SubResource("Resource_ewp5x"), null, null, null, SubResource("Resource_ghyoh"), SubResource("Resource_d3a5g"), null, null, null, null, null, SubResource("Resource_28igi"), null, null, null, null, null])
+slot_datas = Array[ExtResource("2_7nm7m")]([SubResource("Resource_nb6ky"), SubResource("Resource_ewp5x"), null, null, null, SubResource("Resource_ghyoh"), SubResource("Resource_d3a5g"), null, null, null, null, null, SubResource("Resource_28igi"), null, null, null, null, null, null, null, null, null, null, null])
