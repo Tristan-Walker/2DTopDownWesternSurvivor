@@ -111,10 +111,10 @@ custom_minimum_size = Vector2(350, 170)
 layout_mode = 2
 texture = ExtResource("2_cd4je")
 region_rect = Rect2(59, 107, 26, 26)
-patch_margin_left = 4
-patch_margin_top = 4
-patch_margin_right = 4
-patch_margin_bottom = 4
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
 
 [node name="MenuScreen" type="MarginContainer" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect" unique_id=2122245891]
 layout_mode = 1
@@ -138,7 +138,7 @@ theme_override_constants/separation = 6
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="ToggleHelpMenuButton" type="Button" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer" unique_id=214785672]
+[node name="HelpButton" type="Button" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer" unique_id=214785672]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -147,7 +147,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_e6quo")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_cwbuu")
 theme_override_styles/hover = SubResource("StyleBoxTexture_onc8m")
 
-[node name="ToggleBestiaryMenuButton" type="Button" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer" unique_id=1430015320]
+[node name="BestiaryButton" type="Button" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer" unique_id=1430015320]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -160,7 +160,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_tjjbm")
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="ToggleSettingsMenuButton" type="Button" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/BottomButtonContainer" unique_id=2098322841]
+[node name="SettingsButton" type="Button" parent="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/BottomButtonContainer" unique_id=2098322841]
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -279,7 +279,7 @@ size_flags_vertical = 0
 theme_override_constants/margin_top = 7
 theme_override_constants/margin_right = 7
 
-[node name="ToggleSettingsMenuButton" type="Button" parent="PauseMenu/SettingsMenuContainer/ExitButton/ExitButton" unique_id=1249989598]
+[node name="SettingsButton" type="Button" parent="PauseMenu/SettingsMenuContainer/ExitButton/ExitButton" unique_id=1249989598]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -354,7 +354,7 @@ size_flags_vertical = 0
 theme_override_constants/margin_top = 7
 theme_override_constants/margin_right = 7
 
-[node name="ToggleHelpMenuButton" type="Button" parent="PauseMenu/HelpMenuContainer/ExitButton/ExitButton" unique_id=1327683891]
+[node name="HelpButton" type="Button" parent="PauseMenu/HelpMenuContainer/ExitButton/ExitButton" unique_id=1327683891]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -450,7 +450,7 @@ size_flags_vertical = 0
 theme_override_constants/margin_top = 7
 theme_override_constants/margin_right = 7
 
-[node name="ToggleBestiaryMenuButton" type="Button" parent="PauseMenu/BestiaryContainer/ExitButton/ExitButton" unique_id=1300493855]
+[node name="BestiaryButton" type="Button" parent="PauseMenu/BestiaryContainer/ExitButton/ExitButton" unique_id=1300493855]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -459,9 +459,10 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_nw3uw")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_u4etj")
 theme_override_styles/hover = SubResource("StyleBoxTexture_pabwj")
 
-[connection signal="pressed" from="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer/ToggleHelpMenuButton" to="PauseMenu" method="_on_toggle_help_menu_button_pressed"]
-[connection signal="pressed" from="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer/ToggleBestiaryMenuButton" to="PauseMenu" method="_on_toggle_bestiary_menu_button_pressed"]
-[connection signal="pressed" from="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/BottomButtonContainer/ToggleSettingsMenuButton" to="PauseMenu" method="_on_toggle_settings_menu_button_pressed"]
-[connection signal="pressed" from="PauseMenu/SettingsMenuContainer/ExitButton/ExitButton/ToggleSettingsMenuButton" to="PauseMenu" method="_on_toggle_settings_menu_button_pressed"]
-[connection signal="pressed" from="PauseMenu/HelpMenuContainer/ExitButton/ExitButton/ToggleHelpMenuButton" to="PauseMenu" method="_on_toggle_help_menu_button_pressed"]
-[connection signal="pressed" from="PauseMenu/BestiaryContainer/ExitButton/ExitButton/ToggleBestiaryMenuButton" to="PauseMenu" method="_on_toggle_bestiary_menu_button_pressed"]
+[connection signal="pressed" from="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer/HelpButton" to="PauseMenu" method="_on_help_button_pressed"]
+[connection signal="pressed" from="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/TopButtonContainer/BestiaryButton" to="PauseMenu" method="_on_bestiary_button_pressed"]
+[connection signal="pressed" from="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/BottomButtonContainer/SettingsButton" to="PauseMenu" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PauseMenu/PauseMenuContainer/BaseMenuScreen/NinePatchRect/MenuScreen/ButtonContainer/BottomButtonContainer/QuitButton" to="PauseMenu" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="PauseMenu/SettingsMenuContainer/ExitButton/ExitButton/SettingsButton" to="PauseMenu" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PauseMenu/HelpMenuContainer/ExitButton/ExitButton/HelpButton" to="PauseMenu" method="_on_help_button_pressed"]
+[connection signal="pressed" from="PauseMenu/BestiaryContainer/ExitButton/ExitButton/BestiaryButton" to="PauseMenu" method="_on_bestiary_button_pressed"]

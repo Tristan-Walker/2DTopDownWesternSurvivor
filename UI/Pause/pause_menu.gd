@@ -41,14 +41,18 @@ func handle_pause_pressed():
 func toggle_visibility(object):
 	object.visible = !object.visible
 
-func _on_toggle_help_menu_button_pressed() -> void:
+func _on_help_button_pressed() -> void:
 	toggle_visibility(help_menu_screen)
 	toggle_visibility(menu_screen)
 
-func _on_toggle_settings_menu_button_pressed() -> void:
+func _on_bestiary_button_pressed() -> void:
+	toggle_visibility(bestiary_menu_screen)
+	toggle_visibility(menu_screen)
+	
+func _on_settings_button_pressed() -> void:
 	toggle_visibility(settings_menu_screen)
 	toggle_visibility(menu_screen)
 
-func _on_toggle_bestiary_menu_button_pressed() -> void:
-	toggle_visibility(bestiary_menu_screen)
-	toggle_visibility(menu_screen)
+func _on_quit_button_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://UI/main_menu.tscn")
