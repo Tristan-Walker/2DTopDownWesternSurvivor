@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c4mbeuipv3tbi"]
+
+[ext_resource type="Script" uid="uid://bwpflfifg4f6g" path="res://Map/level.gd" id="1_bllo7"]
+[ext_resource type="Texture2D" uid="uid://ssqalryxbepd" path="res://Pictures/DesertTexture.png" id="1_ldbk5"]
+
+[node name="Level" type="Control" unique_id=202291093]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 50.0
+offset_bottom = 50.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+script = ExtResource("1_bllo7")
+
+[node name="LevelName" type="Label" parent="." unique_id=1687428278]
+layout_mode = 0
+offset_left = -158.0
+offset_top = 64.0
+offset_right = 222.0
+offset_bottom = 87.0
+text = "Level 0"
+horizontal_alignment = 1
+
+[node name="LevelIcon" type="TextureRect" parent="." unique_id=397313748]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("1_ldbk5")
+expand_mode = 1
