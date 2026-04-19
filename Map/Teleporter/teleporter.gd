@@ -11,7 +11,7 @@ func _ready():
 
 func open_map():
 	teleport_player(desert)
-	print("map opened")
+	#get_tree().change_scene_to_file("res://Map/map.tscn")
 
 func teleport_player(new_map: String):
 	var main_node = get_tree().root.find_child("Main", true, false)
