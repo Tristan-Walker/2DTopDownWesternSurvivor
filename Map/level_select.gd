@@ -1,7 +1,12 @@
-extends Control
+extends CanvasLayer
 class_name LevelSelect
 
+@export_file var desert: String # Holds the path to Desert scene
+@export_file var town: String
+
+@onready var map: LevelSelect = $"."
 @onready var current_level = $Town
+
 var move_tween: Tween
 var icon_offset := Vector2(0, -24)
 
@@ -29,10 +34,13 @@ func _input(event):
 		update_player_position()
 	
 	if event.is_action_pressed("ui_accept"):
-		print(current_level)
-	
+		teleport_player(name_converter(current_level.name))
+		map.queue_free()
+		#get_tree().paused = false
+
 	if event.is_action_pressed("ui_cancel"):
-		get_tree().change_scene_to_file("res://main.tscn")
+		map.queue_free()
+		#get_tree().paused = false
 
 func update_player_position():
 	move_tween = get_tree().create_tween()
@@ -41,3 +49,18 @@ func update_player_position():
 		+ (current_level.size / 2) \
 		- ($PlayerIcon.size / 2) \
 		+ icon_offset, 0.5).set_trans(Tween.TRANS_SINE)
+
+func teleport_player(new_map: String):
+	var main_node = get_tree().root.find_child("Main", true, false)
+	if main_node and main_node.has_method("change_level"):
+		main_node.change_level(new_map)
+	else:
+		print("Could not find Main or method missing. Found: ", \
+		main_node.name if main_node else "null")
+
+func name_converter(map_name: String):
+	if map_name == "Desert":
+		print(desert)
+		return desert
+	elif map_name == "Town":
+		return town

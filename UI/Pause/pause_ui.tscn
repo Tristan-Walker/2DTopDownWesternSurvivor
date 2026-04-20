@@ -75,6 +75,7 @@ texture = ExtResource("2_cd4je")
 region_rect = Rect2(838, 101, 20, 22)
 
 [node name="PauseUI" type="Control" unique_id=999760388]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
