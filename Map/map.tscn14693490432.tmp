@@ -4,31 +4,28 @@
 [ext_resource type="PackedScene" uid="uid://c4mbeuipv3tbi" path="res://Map/level.tscn" id="1_ro55w"]
 [ext_resource type="PackedScene" uid="uid://5idhxnyfdv5u" path="res://Map/player_icon.tscn" id="3_86j4t"]
 
-[node name="Map" type="CanvasLayer" unique_id=1401912344]
-process_mode = 3
-script = ExtResource("1_6yc6o")
-desert = "uid://d2ru6t6kpj6p7"
-town = "uid://c1b0yqq5rbqek"
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=173563315]
+[node name="Map" type="Control" unique_id=1802502741]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.38, 0.31869334, 0.2128, 1)
-metadata/_edit_use_anchors_ = true
+script = ExtResource("1_6yc6o")
+Desert = "uid://d2ru6t6kpj6p7"
+Town = "uid://c1b0yqq5rbqek"
 
 [node name="Town" parent="." unique_id=202291093 node_paths=PackedStringArray("next_level_right") instance=ExtResource("1_ro55w")]
+layout_mode = 0
 offset_left = 129.0
 offset_top = 371.0
 offset_right = 193.0
 offset_bottom = 435.0
 level_name = "Town"
 next_level_right = NodePath("../Desert")
-metadata/_edit_use_anchors_ = true
 
 [node name="Desert" parent="." unique_id=53429580 node_paths=PackedStringArray("next_level_up", "next_level_left", "next_level_right") instance=ExtResource("1_ro55w")]
+layout_mode = 0
 offset_left = 317.0
 offset_top = 342.0
 offset_right = 381.0
@@ -37,18 +34,18 @@ level_name = "Desert"
 next_level_up = NodePath("../Level3")
 next_level_left = NodePath("../Town")
 next_level_right = NodePath("../Level4")
-metadata/_edit_use_anchors_ = true
 
 [node name="Level3" parent="." unique_id=1818233943 node_paths=PackedStringArray("next_level_down") instance=ExtResource("1_ro55w")]
+layout_mode = 0
 offset_left = 338.0
 offset_top = 188.0
 offset_right = 402.0
 offset_bottom = 252.0
 level_name = "Level 3"
 next_level_down = NodePath("../Desert")
-metadata/_edit_use_anchors_ = true
 
 [node name="Level4" parent="." unique_id=1142999483 node_paths=PackedStringArray("next_level_left", "next_level_right") instance=ExtResource("1_ro55w")]
+layout_mode = 0
 offset_left = 530.0
 offset_top = 375.0
 offset_right = 594.0
@@ -56,9 +53,9 @@ offset_bottom = 439.0
 level_name = "Level 4"
 next_level_left = NodePath("../Desert")
 next_level_right = NodePath("../Level5")
-metadata/_edit_use_anchors_ = true
 
 [node name="Level5" parent="." unique_id=1980284184 node_paths=PackedStringArray("next_level_up", "next_level_down", "next_level_left", "next_level_right") instance=ExtResource("1_ro55w")]
+layout_mode = 0
 offset_left = 710.0
 offset_top = 323.0
 offset_right = 774.0
@@ -68,9 +65,9 @@ next_level_up = NodePath("../Level7")
 next_level_down = NodePath("../Level6")
 next_level_left = NodePath("../Level4")
 next_level_right = NodePath("../Level8")
-metadata/_edit_use_anchors_ = true
 
 [node name="Level6" parent="." unique_id=1140798780 node_paths=PackedStringArray("next_level_up", "next_level_left", "next_level_right") instance=ExtResource("1_ro55w")]
+layout_mode = 0
 offset_left = 849.0
 offset_top = 453.0
 offset_right = 913.0
@@ -79,9 +76,9 @@ level_name = "level 6"
 next_level_up = NodePath("../Level7")
 next_level_left = NodePath("../Level5")
 next_level_right = NodePath("../Level8")
-metadata/_edit_use_anchors_ = true
 
 [node name="Level7" parent="." unique_id=519064231 node_paths=PackedStringArray("next_level_down", "next_level_left", "next_level_right") instance=ExtResource("1_ro55w")]
+layout_mode = 0
 offset_left = 856.0
 offset_top = 197.0
 offset_right = 920.0
@@ -90,9 +87,9 @@ level_name = "level 7"
 next_level_down = NodePath("../Level6")
 next_level_left = NodePath("../Level5")
 next_level_right = NodePath("../Level8")
-metadata/_edit_use_anchors_ = true
 
 [node name="Level8" parent="." unique_id=812861883 node_paths=PackedStringArray("next_level_up", "next_level_down", "next_level_left") instance=ExtResource("1_ro55w")]
+layout_mode = 0
 offset_left = 993.0
 offset_top = 337.0
 offset_right = 1057.0
@@ -101,11 +98,10 @@ level_name = "Level 8"
 next_level_up = NodePath("../Level7")
 next_level_down = NodePath("../Level6")
 next_level_left = NodePath("../Level5")
-metadata/_edit_use_anchors_ = true
 
 [node name="PlayerIcon" parent="." unique_id=2041616080 instance=ExtResource("3_86j4t")]
+layout_mode = 0
 offset_left = 148.0
-offset_top = 357.0
+offset_top = 356.0
 offset_right = 173.0
-offset_bottom = 429.0
-metadata/_edit_use_anchors_ = true
+offset_bottom = 428.0

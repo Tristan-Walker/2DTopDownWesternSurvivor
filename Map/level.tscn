@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ssqalryxbepd" path="res://Pictures/DesertTexture.png" id="1_ldbk5"]
 
 [node name="Level" type="Control" unique_id=202291093]
+process_mode = 3
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 3
 anchors_preset = 0

@@ -1,5 +1,6 @@
 extends MarginContainer
 
+#connect the @export var in the pause menu node
 @export var menu_screen: VBoxContainer
 @export var settings_menu_screen: MarginContainer
 @export var help_menu_screen: MarginContainer
