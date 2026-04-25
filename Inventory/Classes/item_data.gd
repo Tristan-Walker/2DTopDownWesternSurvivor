@@ -8,5 +8,6 @@ class_name ItemData
 @export var texture: Texture2D
 @export var effect: String = ""
 
+#func does nothing but child classes will inherit from this class
 func use(_target) -> void:
 	pass
