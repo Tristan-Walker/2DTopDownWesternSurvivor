@@ -15,6 +15,7 @@ var last_shoot_dir: Vector3 = Vector3.RIGHT      # Default direction
 # Inventory
 @export var inventory_data: InventoryData        # Inventory data
 @export var equip_inventory_data: InventoryDataEquip  # Equip inventory data
+@onready var inventory_interface: Control = $"../UI/InventoryInterface"   
 
 # Reloading
 @onready var pooler = get_node("./BulletPool")
@@ -27,6 +28,7 @@ func _ready():
 	await get_tree().process_frame
 	SignalBus.ammo_setup.emit(max_ammo)
 	SignalBus.ammo_updated.emit(current_ammo)
+	PlayerManager.player = self                  #player reference for use items
 
 # Tracking key inputs
 func _unhandled_input(_event: InputEvent) -> void:
@@ -105,7 +107,7 @@ func start_reload():
 
 # Spawning the bullets & updating/tracking ammo
 func shoot(dir: Vector3) -> void:
-	if is_reloading or current_ammo <= 0:
+	if is_reloading or current_ammo <= 0 or inventory_interface.is_inventory_open:
 		return
 	var bullet = pooler.get_bullet()
 	if bullet:

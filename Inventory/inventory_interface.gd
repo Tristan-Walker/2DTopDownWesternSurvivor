@@ -1,11 +1,12 @@
 extends Control
 
-signal force_close
+#signal force_close
 
 const PickUp = preload("res://Inventory/PickUps/pick_up.tscn")
 
 var grabbed_slot_data: SlotData
 var external_inventory_owner
+var is_inventory_open: bool = false
 
 @onready var player_inventory: PanelContainer = $PlayerInventory
 @onready var grabbed_slot: PanelContainer = $GrabbedSlot
@@ -33,6 +34,7 @@ func _physics_process(_delta: float) -> void:
 
 func toggle_inventory_interface() -> void:
 	self.visible = !self.visible
+	is_inventory_open = self.visible
 	
 	#Toggle hotbar visibility when player inventory is open
 	if inventory_interface.visible:
@@ -43,16 +45,19 @@ func toggle_inventory_interface() -> void:
 func close_inventory_interface():
 	self.visible = false
 	hot_bar_inventory.show()
+	is_inventory_open = false
 
 func open_inventory_interface():
 	self.visible = true
 	hot_bar_inventory.hide()
+	is_inventory_open = true
 
 func open_external_inventory(this_external_inventory_owner):
 	if self.visible == false:
 		self.visible = true
 	set_external_inventory(this_external_inventory_owner)
 	
+	is_inventory_open = true
 	SignalBus.isOpen.emit(true)
 	
 	if inventory_interface.visible:
@@ -88,6 +93,7 @@ func clear_external_inventory() -> void:
 		external_inventory.hide()
 		external_inventory_owner = null
 		
+		is_inventory_open = self.visible    #Sync bool with player inventory visibility
 
 func on_inventory_interact(inventory_data: InventoryData, 
 		index: int, button: int) -> void:
