@@ -32,6 +32,8 @@ func _ready():
 
 # Tracking key inputs
 func _unhandled_input(_event: InputEvent) -> void:
+	if PlayerManager.is_level_select_open:
+		return   # If map is open do nothing
 	if Input.is_action_just_pressed("inventory"):
 		SignalBus.toggle_inventory.emit()
 	if Input.is_action_just_pressed("reload"):
@@ -39,7 +41,9 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 # Player movement + core shooting
 func _physics_process(_delta: float) -> void:
-	
+	if PlayerManager.is_level_select_open:
+		return   # If map is open do nothing
+		
 	# PLAYER MOVEMENT
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	

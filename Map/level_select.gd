@@ -11,6 +11,7 @@ var move_tween: Tween
 var icon_offset := Vector2(0, -24)
 
 func _ready() -> void:
+	PlayerManager.is_level_select_open = true
 	update_player_position()
 
 func _input(event):
@@ -34,13 +35,18 @@ func _input(event):
 		update_player_position()
 	
 	if event.is_action_pressed("ui_accept"):
+		PlayerManager.is_level_select_open = false
 		teleport_player(name_converter(current_level.name))
+		SignalBus.close_level_select.emit()
 		map.queue_free()
-		#get_tree().paused = false
 
 	if event.is_action_pressed("ui_cancel"):
+		PlayerManager.is_level_select_open = false
+		SignalBus.close_level_select.emit()
+		
+		get_viewport().set_input_as_handled()   # Prevents pause menu from opening after
+		
 		map.queue_free()
-		#get_tree().paused = false
 
 func update_player_position():
 	move_tween = get_tree().create_tween()

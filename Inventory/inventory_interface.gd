@@ -1,7 +1,5 @@
 extends Control
 
-#signal force_close
-
 const PickUp = preload("res://Inventory/PickUps/pick_up.tscn")
 
 var grabbed_slot_data: SlotData
@@ -34,7 +32,8 @@ func _physics_process(_delta: float) -> void:
 
 func toggle_inventory_interface() -> void:
 	self.visible = !self.visible
-	is_inventory_open = self.visible
+	is_inventory_open = self.visible   # Update bool in current script
+	PlayerManager.is_inventory_open = self.visible   # Update bool in PlayerManager
 	
 	#Toggle hotbar visibility when player inventory is open
 	if inventory_interface.visible:
@@ -43,21 +42,26 @@ func toggle_inventory_interface() -> void:
 		hot_bar_inventory.show()
 
 func close_inventory_interface():
+	if not visible:
+		return
 	self.visible = false
 	hot_bar_inventory.show()
-	is_inventory_open = false
+	is_inventory_open = false                 # Update bool in current script
+	PlayerManager.is_inventory_open = false   # Update bool in PlayerManager
 
 func open_inventory_interface():
 	self.visible = true
 	hot_bar_inventory.hide()
-	is_inventory_open = true
+	is_inventory_open = true   # Update bool in current script
+	PlayerManager.is_inventory_open = true   # Update bool in PlayerManager
 
 func open_external_inventory(this_external_inventory_owner):
 	if self.visible == false:
 		self.visible = true
 	set_external_inventory(this_external_inventory_owner)
 	
-	is_inventory_open = true
+	is_inventory_open = true   # Update bool in current script
+	PlayerManager.is_inventory_open = false   # Update bool in PlayerManager
 	SignalBus.isOpen.emit(true)
 	
 	if inventory_interface.visible:
@@ -94,7 +98,8 @@ func clear_external_inventory() -> void:
 		external_inventory_owner = null
 		
 		is_inventory_open = self.visible    #Sync bool with player inventory visibility
-
+		PlayerManager.is_inventory_open = self.visible   # Update bool in PlayerManager
+		
 func on_inventory_interact(inventory_data: InventoryData, 
 		index: int, button: int) -> void:
 	
