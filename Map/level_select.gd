@@ -36,9 +36,16 @@ func _input(event):
 	
 	if event.is_action_pressed("ui_accept"):
 		PlayerManager.is_level_select_open = false
+		PlayerManager.block_shooting = true  # Prevent shooting right after loading into level
+		
 		teleport_player(name_converter(current_level.name))
 		SignalBus.close_level_select.emit()
+		
+		await get_tree().create_timer(0.2).timeout   # Allow shooting after delay
+		PlayerManager.block_shooting = false
+
 		map.queue_free()
+
 
 	if event.is_action_pressed("ui_cancel"):
 		PlayerManager.is_level_select_open = false

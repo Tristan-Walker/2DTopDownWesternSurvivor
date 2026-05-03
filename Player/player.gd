@@ -28,7 +28,7 @@ func _ready():
 	await get_tree().process_frame
 	SignalBus.ammo_setup.emit(max_ammo)
 	SignalBus.ammo_updated.emit(current_ammo)
-	PlayerManager.player = self                  #player reference for use items
+	PlayerManager.player = self                  # Player reference for use items
 
 # Tracking key inputs
 func _unhandled_input(_event: InputEvent) -> void:
@@ -41,8 +41,8 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 # Player movement + core shooting
 func _physics_process(_delta: float) -> void:
-	if PlayerManager.is_level_select_open:
-		return   # If map is open do nothing
+	if PlayerManager.is_level_select_open or PlayerManager.block_shooting:
+		return   # If map is open or just closed do nothing
 		
 	# PLAYER MOVEMENT
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")

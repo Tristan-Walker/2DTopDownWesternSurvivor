@@ -6,6 +6,7 @@ var is_inventory_open := false
 var is_chest_open := false
 var is_level_select_open := false
 var is_game_over := false
+var block_shooting := false
 
 func _ready() -> void:
 	player = get_tree().root.find_child("Player", true, false)

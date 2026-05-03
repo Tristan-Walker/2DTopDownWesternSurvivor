@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dwxxw8muwk5k3" path="res://Map/level_select.gd" id="1_6yc6o"]
 [ext_resource type="PackedScene" uid="uid://c4mbeuipv3tbi" path="res://Map/level.tscn" id="1_ro55w"]
-[ext_resource type="PackedScene" uid="uid://5idhxnyfdv5u" path="res://Map/player_icon.tscn" id="3_86j4t"]
+[ext_resource type="Texture2D" uid="uid://db4kkdcg616wq" path="res://Pictures/Jebidiah Levideous.jpg" id="4_86j4t"]
 
 [node name="Map" type="CanvasLayer" unique_id=1401912344]
 process_mode = 3
@@ -103,9 +103,15 @@ next_level_down = NodePath("../Level6")
 next_level_left = NodePath("../Level5")
 metadata/_edit_use_anchors_ = true
 
-[node name="PlayerIcon" parent="." unique_id=2041616080 instance=ExtResource("3_86j4t")]
-offset_left = 148.0
-offset_top = 357.0
-offset_right = 173.0
-offset_bottom = 429.0
-metadata/_edit_use_anchors_ = true
+[node name="PlayerIcon" type="TextureRect" parent="." unique_id=1240747454]
+custom_minimum_size = Vector2(24, 72)
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -427.0
+offset_top = 362.0
+offset_right = -403.0
+offset_bottom = 434.0
+pivot_offset_ratio = Vector2(0.5, 0.66)
+texture = ExtResource("4_86j4t")
+expand_mode = 1
