@@ -14,6 +14,18 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("pause"):
+		
+		# Block pause if game over
+		if PlayerManager.is_game_over:
+			return
+		
+		# If inventory or chest is open, close it instead
+		if PlayerManager.is_any_ui_open():
+			SignalBus.close_inventory.emit()
+			SignalBus.close_chest.emit()
+			return
+		
+		# Else run pause pressed func
 		handle_pause_pressed()
 
 func handle_pause_pressed():
@@ -33,10 +45,8 @@ func handle_pause_pressed():
 		menu_screen.visible = true
 		return
 
-	SignalBus.close_inventory.emit()
-
-# else toggle main pause menu
-	menu_screen.visible = !menu_screen.visible
+# Else toggle pause menu
+	toggle_visibility(menu_screen)
 	get_tree().paused = menu_screen.visible #comment out for in scene testing
 
 func toggle_visibility(object):

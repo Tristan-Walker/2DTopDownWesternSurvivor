@@ -12,6 +12,7 @@ var inUse: bool = false
 func _ready():
 	SignalBus.toggle_inventory.connect(player_closed_inventory)
 	SignalBus.close_inventory.connect(player_closed_inventory)
+	SignalBus.close_level_select.connect(_on_level_select_closed)
 
 	promptUI.hide()
 
@@ -48,6 +49,11 @@ func _input(event):
 			# Call interact function
 			await active_areas[0].interact.call()
 			can_interact = true
+
+func _on_level_select_closed():
+	inUse = false
+	promptUI.show()
+	can_interact = true
 
 func player_closed_inventory():
 	if inUse == true:

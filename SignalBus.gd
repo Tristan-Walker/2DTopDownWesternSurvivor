@@ -15,4 +15,6 @@ signal isOpen(isOpen: bool)
 signal close_inventory()
 signal open_inventory()
 
+# Level Select
+signal close_level_select()
 # signal enemy_defeated(points)
