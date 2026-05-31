@@ -291,6 +291,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_pabwj")
 
 [node name="HelpMenuContainer" type="MarginContainer" parent="PauseMenu" unique_id=1401157958]
 visible = false
+custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -335,14 +336,48 @@ theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="Text" type="RichTextLabel" parent="PauseMenu/HelpMenuContainer/BodyText" unique_id=404456694]
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/HelpMenuContainer/BodyText" unique_id=1081279779]
 layout_mode = 2
+
+[node name="Options" type="RichTextLabel" parent="PauseMenu/HelpMenuContainer/BodyText/HBoxContainer" unique_id=404456694]
+custom_minimum_size = Vector2(132, 0)
+layout_mode = 2
+focus_mode = 2
 theme_override_fonts/normal_font = SubResource("FontVariation_e6quo")
-text = "Movement (WASD)
+text = "___________________
+|  Movement  |
+|     Shoot     |
+|    Reload    |
+|  Interact  |
+| Inventory |
+|    Hotbar    |
+|    Accept    |
+|      Menu      |
+___________________
+"
+horizontal_alignment = 1
+vertical_alignment = 3
+selection_enabled = true
 
-Shoot (Arrow Keys)
-
-Menu (ESC)"
+[node name="Controls" type="RichTextLabel" parent="PauseMenu/HelpMenuContainer/BodyText/HBoxContainer" unique_id=665288246]
+custom_minimum_size = Vector2(132, 0)
+layout_mode = 2
+focus_mode = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_e6quo")
+text = "__________________
+[ W ] [ A ] [ S ] [ D ]
+[LMB]  / [Space]
+[ R ]
+[ E ]
+[ Tab ]
+[1] [2] [3] [4] [5] [6]
+[Space] / [Enter]
+[ Esc ]
+___________________
+"
+horizontal_alignment = 1
+vertical_alignment = 3
+selection_enabled = true
 
 [node name="ExitButton" type="VBoxContainer" parent="PauseMenu/HelpMenuContainer" unique_id=705286154]
 layout_mode = 2
