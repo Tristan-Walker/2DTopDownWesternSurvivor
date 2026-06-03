@@ -29,7 +29,7 @@ func _physics_process(_delta: float) -> void:
 func take_damage(damage: float):
 	health -= damage
 	
-	if health == 0:
+	if health <= 0:
 		queue_free()
 
 func _on_attack_area_body_entered(body: Node3D) -> void:

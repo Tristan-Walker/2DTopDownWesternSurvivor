@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://csa01524bxfv4"]
+
+[ext_resource type="Script" uid="uid://dxfecuoh8mi46" path="res://Player/Weapons/Base/weapon_manager.gd" id="1_qdam8"]
+[ext_resource type="Script" uid="uid://dep63704dhsbe" path="res://Player/Weapons/Pistol/Pistol.gd" id="2_3lsul"]
+
+[node name="WeaponManager" type="Node3D" unique_id=309252030]
+script = ExtResource("1_qdam8")
+loadout = Array[GDScript]([ExtResource("2_3lsul")])
+
+[node name="ShotTimer" type="Timer" parent="." unique_id=655770248]
+wait_time = 0.3
+one_shot = true
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1420377055]
