@@ -15,20 +15,25 @@ var last_shoot_dir: Vector3 = Vector3.RIGHT      # Default direction
 # Inventory
 @export var inventory_data: InventoryData        # Inventory data
 @export var equip_inventory_data: InventoryDataEquip  # Equip inventory data
-
+@onready var inventory_interface: Control = $"../UI/InventoryInterface"   
 
 
 func _ready():
 	await get_tree().process_frame
+	PlayerManager.player = self                  # Player reference for use items
 
 # Tracking key inputs
 func _unhandled_input(_event: InputEvent) -> void:
+	if PlayerManager.is_level_select_open:
+		return   # If map is open do nothing
 	if Input.is_action_just_pressed("inventory"):
 		SignalBus.toggle_inventory.emit()
 
 # Player movement + core shooting
 func _physics_process(_delta: float) -> void:
-	
+	if PlayerManager.is_level_select_open or PlayerManager.block_shooting:
+		return   # If map is open or just closed do nothing
+		
 	# PLAYER MOVEMENT
 	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	

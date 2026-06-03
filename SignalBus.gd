@@ -1,5 +1,6 @@
 extends Node
 
+# Player
 signal player_health_changed(new_health)
 signal player_died()
 signal ammo_updated(currrent_ammo)
@@ -15,4 +16,6 @@ signal isOpen(isOpen: bool)
 signal close_inventory()
 signal open_inventory()
 
+# Level Select
+signal close_level_select()
 # signal enemy_defeated(points)

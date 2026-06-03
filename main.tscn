@@ -10,14 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://ba7cvrip8fu0q" path="res://Inventory/inventory.tscn" id="7_kek77"]
 [ext_resource type="PackedScene" uid="uid://8mu0oaj58r74" path="res://Inventory/slot.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://c35gnjvvqx6wb" path="res://UI/PlayerUI/AmmoUI/AmmoUI.tscn" id="11_efxa6"]
-[ext_resource type="Script" path="res://Inventory/Classes/inventory_data_equip.gd" id="12_074og"]
+[ext_resource type="Script" uid="uid://r2e0poq7hwpm" path="res://Inventory/Classes/inventory_data_equip.gd" id="12_074og"]
 [ext_resource type="PackedScene" uid="uid://bu6hdiwresvdy" path="res://Interaction/chest.tscn" id="12_dg77c"]
+[ext_resource type="PackedScene" uid="uid://cdv2hqpn4kjd1" path="res://UI/game_over_ui.tscn" id="13_cegan"]
 [ext_resource type="Script" uid="uid://ps76he345s8n" path="res://Inventory/Classes/inventory_data.gd" id="14_2cqfq"]
 [ext_resource type="Resource" uid="uid://e303dhkash6w" path="res://Inventory/Items/fruit_salad.tres" id="14_w48qg"]
 [ext_resource type="PackedScene" uid="uid://c5m0ar17bio6" path="res://Inventory/PickUps/pick_up.tscn" id="15_vivmo"]
 [ext_resource type="Script" uid="uid://dqt8ku2c5jkf7" path="res://Inventory/Classes/slot_data.gd" id="15_yaehf"]
 [ext_resource type="Resource" uid="uid://dv0wp4va2124w" path="res://Inventory/Items/currency.tres" id="16_2cqfq"]
-[ext_resource type="PackedScene" uid="uid://i0evhvwxp3hv" path="res://Inventory/hot_bar_inventory.tscn" id="16_yaehf"]
+[ext_resource type="PackedScene" uid="uid://b5spdvilmkmpa" path="res://Inventory/hot_bar_inventory.tscn" id="16_yaehf"]
 
 [sub_resource type="Resource" id="Resource_w48qg"]
 script = ExtResource("15_yaehf")
@@ -26,7 +27,7 @@ metadata/_custom_type_script = "uid://dqt8ku2c5jkf7"
 
 [sub_resource type="Resource" id="Resource_82xsv"]
 script = ExtResource("14_2cqfq")
-slot_datas = Array[ExtResource("15_yaehf")]([SubResource("Resource_w48qg"), null, null, null, null])
+slot_datas = Array[ExtResource("15_yaehf")]([SubResource("Resource_w48qg"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
 metadata/_custom_type_script = "uid://ps76he345s8n"
 
 [sub_resource type="Resource" id="Resource_yaehf"]
@@ -58,36 +59,7 @@ slot_data = SubResource("Resource_yaehf")
 inventory_data = ExtResource("3_4c57u")
 equip_inventory_data = SubResource("Resource_cegan")
 
-[node name="GameOverScreen" type="CanvasLayer" parent="." unique_id=2144835957]
-unique_name_in_owner = true
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="GameOverScreen" unique_id=1310418002]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.5529412)
-
-[node name="Label" type="Label" parent="GameOverScreen/ColorRect" unique_id=1025687225]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -43.5
-offset_top = -11.5
-offset_right = 43.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 156
-text = "Game Over"
-
 [node name="UI" type="CanvasLayer" parent="." unique_id=1033225146]
-process_mode = 3
 
 [node name="PauseUI" parent="UI" unique_id=999760388 instance=ExtResource("6_5vw27")]
 metadata/_edit_use_anchors_ = true
@@ -103,26 +75,28 @@ grow_vertical = 2
 script = ExtResource("7_5vw27")
 
 [node name="PlayerInventory" parent="UI/InventoryInterface" unique_id=2097941703 instance=ExtResource("7_kek77")]
+custom_minimum_size = Vector2(420, 280)
 layout_mode = 1
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 26.0
-offset_bottom = 26.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 440.0
+offset_bottom = 300.0
 
 [node name="EquipInventory" parent="UI/InventoryInterface" unique_id=678695783 instance=ExtResource("7_kek77")]
+custom_minimum_size = Vector2(280, 70)
 layout_mode = 1
-offset_left = 450.0
-offset_top = 10.0
-offset_right = 466.0
-offset_bottom = 26.0
+offset_left = 460.0
+offset_top = 20.0
+offset_right = 530.0
+offset_bottom = 90.0
 
 [node name="ExternalInventory" parent="UI/InventoryInterface" unique_id=531874006 instance=ExtResource("7_kek77")]
 visible = false
 layout_mode = 1
-offset_left = 581.0
-offset_top = 144.0
-offset_right = 597.0
-offset_bottom = 160.0
+offset_left = 530.0
+offset_top = 150.0
+offset_right = 950.0
+offset_bottom = 360.0
 
 [node name="GrabbedSlot" parent="UI/InventoryInterface" unique_id=638968086 instance=ExtResource("9_kek77")]
 visible = false
@@ -132,12 +106,15 @@ offset_right = 64.0
 offset_bottom = 64.0
 
 [node name="HotBarInventory" parent="UI" unique_id=1216216566 instance=ExtResource("16_yaehf")]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 430.0
+custom_minimum_size = Vector2(420, 70)
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 440.0
 offset_bottom = 90.0
 
 [node name="AmmoUi" parent="UI" unique_id=1001661183 instance=ExtResource("11_efxa6")]
+
+[node name="GameOverUI" parent="UI" unique_id=797024642 instance=ExtResource("13_cegan")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=945513417]
 transform = Transform3D(1, 0, 0, 0, -0.93419826, 0.35675424, 0, -0.35675424, -0.93419826, 0, 4.5150843, 0)

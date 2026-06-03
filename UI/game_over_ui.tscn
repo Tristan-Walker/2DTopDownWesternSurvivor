@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://cdv2hqpn4kjd1"]
+
+[ext_resource type="Script" uid="uid://dsyl7475j1b0w" path="res://UI/game_over_ui.gd" id="1_ji7mg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ji7mg"]
+bg_color = Color(0.19506672, 0.19506672, 0.19506669, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xu1am"]
+bg_color = Color(0.13174221, 0.13174239, 0.1317423, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwi6w"]
+bg_color = Color(0.27314222, 0.27314225, 0.27314213, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.5)
+
+[node name="GameOverUI" type="CanvasLayer" unique_id=797024642]
+process_mode = 3
+script = ExtResource("1_ji7mg")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1188442079]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5529412)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect" unique_id=1789826288]
+custom_minimum_size = Vector2(250, 184)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -41.0
+offset_right = 125.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="Label" type="Label" parent="ColorRect/VBoxContainer2" unique_id=564431852]
+layout_mode = 2
+theme_override_font_sizes/font_size = 156
+text = "Game Over"
+
+[node name="RestartButton" type="Button" parent="ColorRect/VBoxContainer2" unique_id=712130002]
+custom_minimum_size = Vector2(200, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ji7mg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xu1am")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nwi6w")
+text = "Restart"
+
+[node name="HomeButton" type="Button" parent="ColorRect/VBoxContainer2" unique_id=321940913]
+custom_minimum_size = Vector2(200, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ji7mg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xu1am")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nwi6w")
+text = "Home"
+
+[node name="MainMenuButton" type="Button" parent="ColorRect/VBoxContainer2" unique_id=1406958957]
+custom_minimum_size = Vector2(200, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ji7mg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xu1am")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nwi6w")
+text = "Main Menu"
+
+[connection signal="pressed" from="ColorRect/VBoxContainer2/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer2/HomeButton" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="ColorRect/VBoxContainer2/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

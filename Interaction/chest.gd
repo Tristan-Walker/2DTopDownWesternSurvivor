@@ -14,16 +14,20 @@ func _ready():
 func player_interact() -> void:
 	if isOpen == false:
 		isOpen = true
+		PlayerManager.is_chest_open = true
 		SignalBus.open_chest.emit(self)
 	else:
 		isOpen = false
+		PlayerManager.is_chest_open = false
 		SignalBus.close_chest.emit()
 
 func player_left() -> void:
 	isOpen = false
+	PlayerManager.is_chest_open = false
 	SignalBus.close_chest.emit()
 
 func player_closed_inventory():
 	if isOpen == true:
 		isOpen = false
+		PlayerManager.is_chest_open = false
 	SignalBus.close_chest.emit()
