@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://lpwi414jmpl5" path="res://Player/Shooting/bullet.tscn" id="2_hqtel"]
 [ext_resource type="PackedScene" uid="uid://5dcx8t80fw4t" path="res://UI/PlayerUI/HealthBars/HealthBar3D.tscn" id="3_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://db4kkdcg616wq" path="res://Pictures/Jebidiah Levideous.jpg" id="3_sweqy"]
+[ext_resource type="Script" uid="uid://dqqf38occa0jr" path="res://Player/Shooting/bullet_pool.gd" id="5_1jxqw"]
 [ext_resource type="PackedScene" uid="uid://csa01524bxfv4" path="res://Player/Weapons/Base/WeaponManager.tscn" id="6_fhl08"]
-[ext_resource type="Script" uid="uid://dep63704dhsbe" path="res://Player/Weapons/Pistol/Pistol.gd" id="7_vtle1"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_lquwl"]
 height = 1.0
@@ -47,5 +47,12 @@ debug_color = Color(0.8205481, 0.106614836, 0.051989973, 0.41960785)
 transform = Transform3D(1, 0, 0, 0, 0.8660253, 0.50000024, 0, -0.50000024, 0.8660253, 0, 5, 8)
 fov = 40.0
 
+[node name="ShotTimer" type="Timer" parent="." unique_id=713234379]
+wait_time = 0.3
+one_shot = true
+
+[node name="BulletPool" type="Node3D" parent="." unique_id=1343988770]
+script = ExtResource("5_1jxqw")
+bullet_scene = ExtResource("2_hqtel")
+
 [node name="WeaponManager" parent="." unique_id=309252030 instance=ExtResource("6_fhl08")]
-weapons = Array[GDScript]([ExtResource("7_vtle1")])
