@@ -11,6 +11,9 @@ func _ready():
 
 # Sets up initial ammo icons
 func _setup_icons(max_ammo):
+	# Clear stale icon references FIRST
+	bullet_icons.clear()
+	
 	# Clear any existing ammo portraits
 	for child in bullet_grid.get_children():
 		child.queue_free()
@@ -27,6 +30,9 @@ func _on_ammo_updated(current_ammo):
 	
 	for i in range(bullet_icons.size()):
 		var icon = bullet_icons[i]
+		
+		if not is_instance_valid(icon):  # 👈 skip freed nodes
+			continue
 		
 		if i < current_ammo:
 			_animate_icon(icon, 1.0) # Change alpha to 100%
