@@ -29,10 +29,12 @@ func _unhandled_input(event):
 func change_weapon(direction: int):
 	_current_index = posmod(_current_index + direction, _instances.size())
 	equip_weapon(_current_index)
+	current_weapon.display_ammo()
 
 # Equip weapon
 func equip_weapon(index: int):
 	current_weapon = _instances[index]
+	current_weapon.display_ammo()
 	print("Equipped: ", current_weapon.name)
 
 # Use the equipped weapon's fire function

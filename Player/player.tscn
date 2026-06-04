@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://5dcx8t80fw4t" path="res://UI/PlayerUI/HealthBars/HealthBar3D.tscn" id="3_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://db4kkdcg616wq" path="res://Pictures/Jebidiah Levideous.jpg" id="3_sweqy"]
 [ext_resource type="PackedScene" uid="uid://csa01524bxfv4" path="res://Player/Weapons/Base/WeaponManager.tscn" id="6_fhl08"]
+[ext_resource type="Script" uid="uid://cs5m12etawqy1" path="res://Player/Weapons/Rifle/Rifle.gd" id="7_od3ui"]
 [ext_resource type="Script" uid="uid://dep63704dhsbe" path="res://Player/Weapons/Pistol/Pistol.gd" id="7_vtle1"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_lquwl"]
@@ -48,4 +49,4 @@ transform = Transform3D(1, 0, 0, 0, 0.8660253, 0.50000024, 0, -0.50000024, 0.866
 fov = 40.0
 
 [node name="WeaponManager" parent="." unique_id=309252030 instance=ExtResource("6_fhl08")]
-weapons = Array[GDScript]([ExtResource("7_vtle1")])
+weapons = Array[GDScript]([ExtResource("7_vtle1"), ExtResource("7_od3ui")])

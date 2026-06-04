@@ -21,9 +21,6 @@ var current_ammo: int = ammo_capacity
 
 # Initialize bullets
 func _ready():
-	SignalBus.ammo_setup.emit.call_deferred(ammo_capacity)
-	SignalBus.ammo_updated.emit.call_deferred(current_ammo)
-	
 	for i in range(bullet_pool_size):
 		var bullet = bullet_scene.instantiate()
 		bullet.hide()
@@ -64,3 +61,7 @@ func fire(_start_pos: Vector3, _direction: Vector3) -> void:
 		
 		if current_ammo <= 0:
 			start_reload()
+
+func display_ammo() -> void:
+	SignalBus.ammo_setup.emit.call_deferred(ammo_capacity)
+	SignalBus.ammo_updated.emit.call_deferred(current_ammo)
