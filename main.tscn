@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ba7cvrip8fu0q" path="res://Inventory/inventory.tscn" id="7_kek77"]
 [ext_resource type="PackedScene" uid="uid://8mu0oaj58r74" path="res://Inventory/slot.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://c35gnjvvqx6wb" path="res://UI/PlayerUI/AmmoUI/AmmoUI.tscn" id="11_efxa6"]
-[ext_resource type="Script" uid="uid://r2e0poq7hwpm" path="res://Inventory/Classes/inventory_data_equip.gd" id="12_074og"]
+[ext_resource type="Script" path="res://Inventory/Classes/inventory_data_equip.gd" id="12_074og"]
 [ext_resource type="PackedScene" uid="uid://bu6hdiwresvdy" path="res://Interaction/chest.tscn" id="12_dg77c"]
 [ext_resource type="PackedScene" uid="uid://cdv2hqpn4kjd1" path="res://UI/game_over_ui.tscn" id="13_cegan"]
 [ext_resource type="Script" uid="uid://ps76he345s8n" path="res://Inventory/Classes/inventory_data.gd" id="14_2cqfq"]

@@ -29,9 +29,9 @@ func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("inventory"):
 		SignalBus.toggle_inventory.emit()
 
-# Player movement + core shooting
+# Player movement
 func _physics_process(_delta: float) -> void:
-	if PlayerManager.is_level_select_open or PlayerManager.block_shooting:
+	if PlayerManager.is_level_select_open:
 		return   # If map is open or just closed do nothing
 		
 	# PLAYER MOVEMENT
