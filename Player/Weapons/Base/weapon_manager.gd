@@ -37,6 +37,8 @@ func equip_weapon(index: int):
 
 # Use the equipped weapon's fire function
 func _physics_process(_delta: float) -> void:
+	if PlayerManager.is_level_select_open or PlayerManager.block_shooting:
+		return   # If map is open do nothing
 	if Input.is_action_pressed("shoot"):
 		shoot()
 

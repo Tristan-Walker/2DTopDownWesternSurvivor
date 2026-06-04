@@ -33,13 +33,14 @@ func _physics_process(_delta: float) -> void:
 func toggle_inventory_interface() -> void:
 	self.visible = !self.visible
 	is_inventory_open = self.visible   # Update bool in current script
-	PlayerManager.is_inventory_open = self.visible   # Update bool in PlayerManager
 	
 	#Toggle hotbar visibility when player inventory is open
 	if inventory_interface.visible:
 		hot_bar_inventory.hide()
+		PlayerManager.block_shooting = true
 	else:
 		hot_bar_inventory.show()
+		PlayerManager.block_shooting = false
 
 func close_inventory_interface():
 	if not visible:
@@ -47,13 +48,13 @@ func close_inventory_interface():
 	self.visible = false
 	hot_bar_inventory.show()
 	is_inventory_open = false                 # Update bool in current script
-	PlayerManager.is_inventory_open = false   # Update bool in PlayerManager
+	PlayerManager.block_shooting = true
 
 func open_inventory_interface():
 	self.visible = true
 	hot_bar_inventory.hide()
 	is_inventory_open = true   # Update bool in current script
-	PlayerManager.is_inventory_open = true   # Update bool in PlayerManager
+	PlayerManager.block_shooting = false
 
 func open_external_inventory(this_external_inventory_owner):
 	if self.visible == false:
@@ -61,13 +62,14 @@ func open_external_inventory(this_external_inventory_owner):
 	set_external_inventory(this_external_inventory_owner)
 	
 	is_inventory_open = true   # Update bool in current script
-	PlayerManager.is_inventory_open = false   # Update bool in PlayerManager
 	SignalBus.isOpen.emit(true)
 	
 	if inventory_interface.visible:
 		hot_bar_inventory.hide()
+		PlayerManager.block_shooting = true
 	else:
 		hot_bar_inventory.show()
+		PlayerManager.block_shooting = false
 		
 func set_player_inventory_data(inventory_data: InventoryData) -> void:
 	inventory_data.inventory_interact.connect(on_inventory_interact)
