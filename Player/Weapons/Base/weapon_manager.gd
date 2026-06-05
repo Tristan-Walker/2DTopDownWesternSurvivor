@@ -19,11 +19,14 @@ func _ready():
 	if _instances.size() > 0:
 		_instances[0].active = true
 		current_weapon = _instances[0]
+		current_weapon.display_ammo()
 
 # Catch player input
 func _unhandled_input(event):
 	if event.is_action_pressed("switch_weapon"):
 		change_weapon(1)
+	if event.is_action_pressed("reload"):
+		call_reload()
 
 # Parse array of weapons
 func change_weapon(direction: int):
@@ -36,6 +39,10 @@ func equip_weapon(index: int):
 	current_weapon = _instances[index]
 	current_weapon.display_ammo()
 	print("Equipped: ", current_weapon.name)
+
+# Send a message to the current weapon to reload
+func call_reload():
+	current_weapon.reload()
 
 # Use the equipped weapon's fire function
 func _physics_process(_delta: float) -> void:

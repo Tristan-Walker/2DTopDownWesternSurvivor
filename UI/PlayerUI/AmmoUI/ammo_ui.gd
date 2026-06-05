@@ -31,7 +31,7 @@ func _on_ammo_updated(current_ammo):
 	for i in range(bullet_icons.size()):
 		var icon = bullet_icons[i]
 		
-		if not is_instance_valid(icon):  # 👈 skip freed nodes
+		if not is_instance_valid(icon):   # Don't use icons previously freed
 			continue
 		
 		if i < current_ammo:
