@@ -2,6 +2,7 @@ extends BaseWeapon
 class_name RifleGun
 
 const bullet_scene = preload("res://Player/Weapons/Rifle/rifle_bullet.tscn")
+const ammo_layout: AmmoLayout = preload("res://UI/PlayerUI/AmmoUI/AmmoLayouts/ammo_layout_rifle.tres")
 
 # Gun specs
 @export var damage: int = 1
@@ -67,5 +68,5 @@ func fire(_start_pos: Vector3, _direction: Vector3) -> void:
 			start_reload()
 
 func display_ammo() -> void:
-	SignalBus.ammo_setup.emit.call_deferred(ammo_capacity)
+	SignalBus.ammo_setup.emit.call_deferred(ammo_capacity , ammo_layout)
 	SignalBus.ammo_updated.emit.call_deferred(current_ammo)
