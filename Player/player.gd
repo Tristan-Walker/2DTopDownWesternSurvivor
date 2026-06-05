@@ -7,11 +7,6 @@ var current_health := 100.0                      # The health that the player cu
 @export var speed = 5.0                          # player speed
 var is_invincible: bool = false                  # Is the character currently invincible?
 
-# Shooting
-@export var bullet_scene: PackedScene            # Import bullet scene
-@export var fire_rate := 0.3                     # bullet fire rate
-var last_shoot_dir: Vector3 = Vector3.RIGHT      # Default direction
-
 # Inventory
 @export var inventory_data: InventoryData        # Inventory data
 @export var equip_inventory_data: InventoryDataEquip  # Equip inventory data

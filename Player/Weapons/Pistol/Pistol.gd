@@ -48,6 +48,10 @@ func start_reload():
 	SignalBus.ammo_updated.emit(current_ammo)
 	is_reloading = false
 
+func reload():
+	if current_ammo != ammo_capacity:
+		start_reload()
+
 # Capture positions, find bullet, shoot bullet
 func fire(_start_pos: Vector3, _direction: Vector3) -> void:
 	if is_reloading or current_ammo <= 0 or fire_cooldown > 0:
