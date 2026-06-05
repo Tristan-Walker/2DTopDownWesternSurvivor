@@ -4,7 +4,7 @@ extends Node
 signal player_health_changed(new_health)
 signal player_died()
 signal ammo_updated(currrent_ammo)
-signal ammo_setup(max_ammo)
+signal ammo_setup(max_ammo: int, layout: AmmoLayout)
 signal reload_started(duration: float)
 
 # Inventory Commands
