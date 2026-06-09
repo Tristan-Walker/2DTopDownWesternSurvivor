@@ -16,6 +16,7 @@ var bullet_pool: Array[Node3D] = []
 var fire_cooldown: float = 0
 
 # Reloading
+var reload_tween: Tween = null   # Used for the timer till reload
 var is_reloading: bool = false
 var current_ammo: int = ammo_capacity
 @export var reload_time: float = 1.5
@@ -41,17 +42,46 @@ func get_bullet() -> Node3D:
 			return bullet
 	return null # If all bullets are in use
 
+# The actual reload mechanics
 func start_reload():
 	is_reloading = true
 	SignalBus.reload_started.emit(reload_time)
-	await get_tree().create_timer(reload_time).timeout # reload happens
+	
+	# Create and wait for tween to reload
+	reload_tween = create_tween()
+	reload_tween.tween_interval(reload_time)  
+	await reload_tween.finished     # reload happens
+	if not is_reloading:  # Guard in case cancel snuck in at the boundary
+		return
+	
+	# Post reload stuff: reset ammo - send reset ammo signal
 	current_ammo = ammo_capacity
 	SignalBus.ammo_updated.emit(current_ammo)
 	is_reloading = false
+	reload_tween = null
 
+# Block reload if ammo is full: Call reload otherwise
 func reload():
 	if current_ammo != ammo_capacity:
 		start_reload()
+
+# Cancels the tween of the reload. Will interupt reloads.
+func cancel_reload():
+	if not is_reloading: # If we aren't reloading, no need.
+		return
+	is_reloading = false
+	if reload_tween:
+		reload_tween.kill()
+		reload_tween = null
+
+# If weapon is swapped to but has no current ammo
+func switch_reload():
+	if not is_reloading: # If we aren't reloading, no need.
+		return
+	if reload_tween:
+		reload_tween.kill()
+		reload_tween = null
+	is_reloading = false
 
 # Capture positions, find bullet, shoot bullet
 func fire(_start_pos: Vector3, _direction: Vector3) -> void:
