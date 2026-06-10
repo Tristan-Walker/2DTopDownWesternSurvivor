@@ -18,8 +18,21 @@ theme_override_constants/margin_bottom = 20
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=616227337]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=96062779]
-layout_mode = 2
-
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer" unique_id=1995387475]
 layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1451958654]
+layout_mode = 2
+theme_override_constants/separation = -4
+alignment = 1
+
+[node name="CurrentAmmo" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=96062779]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=244335248]
+layout_mode = 2
+
+[node name="MaxAmmo" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1131446424]
+layout_mode = 2
+horizontal_alignment = 1

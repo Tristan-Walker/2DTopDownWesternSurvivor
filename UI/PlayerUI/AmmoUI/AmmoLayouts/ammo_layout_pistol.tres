@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="AmmoLayout" format=3 uid="uid://wfspr6pux5x6"]
 
-[ext_resource type="PackedScene" uid="uid://8db3w22j44os" path="res://UI/PlayerUI/AmmoUI/AmmoIcon_Default.tscn" id="1_0moaf"]
+[ext_resource type="PackedScene" uid="uid://8db3w22j44os" path="res://UI/PlayerUI/AmmoUI/AmmoIcons/AmmoIcon_Default.tscn" id="1_0moaf"]
 [ext_resource type="Script" uid="uid://wdmy4iovlcue" path="res://UI/PlayerUI/AmmoUI/AmmoLayout.gd" id="1_acav7"]
 
 [resource]
 script = ExtResource("1_acav7")
 icon_scene = ExtResource("1_0moaf")
 icon_size = Vector2(10, 20)
+icon_separation = Vector2(2, 1)
 metadata/_custom_type_script = "uid://wdmy4iovlcue"
