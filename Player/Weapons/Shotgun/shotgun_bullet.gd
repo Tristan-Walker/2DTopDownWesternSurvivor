@@ -7,7 +7,7 @@ var damage: float = 1
 
 # Bullet lifetime values (How long bullet exists):
 var lifetime: float = 0        # Current lifetime of a bullet
-var max_lifetime: float = 2    # Maximum life until timeout
+var max_lifetime: float = 0.5    # Maximum life until timeout
 
 func _ready():
 	hide() # Start invisible
@@ -15,6 +15,7 @@ func _ready():
 
 # Set parameters & turn on bullet
 func fire(start_pos: Vector3, direction: Vector3, bullet_speed: int, bullet_damage: int):
+	print("fired! " + str(bullet_damage))
 	damage = bullet_damage
 	global_position = start_pos
 	velocity = direction * bullet_speed
@@ -44,6 +45,7 @@ func deactivate():
 
 # Disappear on-hit & Check for damage
 func _on_body_entered(body: Node3D) -> void:
+	print("hit!")
 	deactivate()
 	if body.has_method("take_damage"):
 		body.take_damage(damage)
