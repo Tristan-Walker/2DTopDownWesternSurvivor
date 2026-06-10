@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AmmoLayout" format=3 uid="uid://c3ffdbfnbqdfo"]
+
+[ext_resource type="Script" uid="uid://wdmy4iovlcue" path="res://UI/PlayerUI/AmmoUI/AmmoLayout.gd" id="1_xmlt3"]
+[ext_resource type="PackedScene" uid="uid://cy8m8qqkf2o14" path="res://UI/PlayerUI/AmmoUI/AmmoIcons/AmmoIcon_Shotgun.tscn" id="1_yvgmp"]
+
+[resource]
+script = ExtResource("1_xmlt3")
+icon_scene = ExtResource("1_yvgmp")
+icon_size = Vector2(30, 14)
+icon_separation = Vector2(3, 3)
+active_color = Color(0.96910614, 0.9668581, 0.96402067, 1)
+metadata/_custom_type_script = "uid://wdmy4iovlcue"

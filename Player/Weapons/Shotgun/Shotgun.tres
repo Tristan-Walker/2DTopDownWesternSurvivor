@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://dm34hm6u6e7ay"]
-
-[ext_resource type="Script" uid="uid://hsejir52tg3b" path="res://Player/Weapons/Base/WeaponData.gd" id="1_l2emy"]
-
-[resource]
-script = ExtResource("1_l2emy")
-name = "Rifle"
-metadata/_custom_type_script = "uid://hsejir52tg3b"

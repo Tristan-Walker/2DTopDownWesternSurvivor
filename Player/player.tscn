@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://c3w08jf7pnfj5"]
 
 [ext_resource type="Script" uid="uid://bvktr8tyt8h1h" path="res://Player/player.gd" id="1_i3pqv"]
-[ext_resource type="PackedScene" uid="uid://lpwi414jmpl5" path="res://Player/Shooting/bullet.tscn" id="2_hqtel"]
 [ext_resource type="PackedScene" uid="uid://5dcx8t80fw4t" path="res://UI/PlayerUI/HealthBars/HealthBar3D.tscn" id="3_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://db4kkdcg616wq" path="res://Pictures/Jebidiah Levideous.jpg" id="3_sweqy"]
 [ext_resource type="PackedScene" uid="uid://csa01524bxfv4" path="res://Player/Weapons/Base/WeaponManager.tscn" id="6_fhl08"]
+[ext_resource type="Script" uid="uid://x3uf7qpfnb4j" path="res://Player/Weapons/Shotgun/Shotgun.gd" id="7_00tjw"]
 [ext_resource type="Script" uid="uid://cs5m12etawqy1" path="res://Player/Weapons/Rifle/Rifle.gd" id="7_od3ui"]
 [ext_resource type="Script" uid="uid://dep63704dhsbe" path="res://Player/Weapons/Pistol/Pistol.gd" id="7_vtle1"]
 
@@ -20,7 +20,6 @@ radius = 0.17138672
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_i3pqv")
-bullet_scene = ExtResource("2_hqtel")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1592352513]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -49,4 +48,4 @@ transform = Transform3D(1, 0, 0, 0, 0.8660253, 0.50000024, 0, -0.50000024, 0.866
 fov = 40.0
 
 [node name="WeaponManager" parent="." unique_id=309252030 instance=ExtResource("6_fhl08")]
-weapons = Array[GDScript]([ExtResource("7_vtle1"), ExtResource("7_od3ui")])
+weapons = Array[GDScript]([ExtResource("7_vtle1"), ExtResource("7_od3ui"), ExtResource("7_00tjw")])
