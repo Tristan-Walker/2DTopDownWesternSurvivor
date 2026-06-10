@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@onready var sprite = $AnimatedSprite3D
+
 # Misc stats
 @export var i_frame_duration: float = 0.5        # Half a second of invincibility
 @export var max_health: int = 100                # Maximum possible health of character.
@@ -42,9 +44,10 @@ func _physics_process(_delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, speed)
 		
 	if input_dir.x != 0:
-		$Sprite3D.flip_h = input_dir.x < 0
+		sprite.flip_h = input_dir.x < 0
 	
 	move_and_slide()
+	_update_animation(input_dir)
 
 func take_damage(amount: int):
 	# Check for invincibility
@@ -80,3 +83,17 @@ func heal(heal_value: int) -> void:
 	else:
 		current_health = max_health
 		SignalBus.player_health_changed.emit(current_health)
+
+func _update_animation(input_dir: Vector2) -> void:
+	if input_dir == Vector2.ZERO:
+		_play_animation("idle")
+		return
+
+	# Right or down = walk_forward, Left or up = walk_backward
+	var is_forward = input_dir.x > 0 or input_dir.y > 0
+	_play_animation("walk_forward" if is_forward else "walk_backward")
+
+func _play_animation(anim_name: String) -> void:
+	if sprite.animation == anim_name:
+		return  # Already playing, don't restart it
+	sprite.play(anim_name)
