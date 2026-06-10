@@ -73,6 +73,7 @@ func cancel_reload():
 	if reload_tween:
 		reload_tween.kill()
 		reload_tween = null
+	SignalBus.reload_cancelled.emit(current_ammo)
 
 # If weapon is swapped to but has no current ammo
 func switch_reload():

@@ -73,15 +73,12 @@ func cancel_reload():
 	if reload_tween:
 		reload_tween.kill()
 		reload_tween = null
+	SignalBus.reload_cancelled.emit(current_ammo)
 
 # If weapon is swapped to but has no current ammo
 func switch_reload():
-	if not is_reloading: # If we aren't reloading, no need.
-		return
-	if reload_tween:
-		reload_tween.kill()
-		reload_tween = null
-	is_reloading = false
+	if current_ammo == 0:
+		reload()
 
 # Capture positions, find bullet, shoot bullet
 func fire(_start_pos: Vector3, _direction: Vector3) -> void:

@@ -4,6 +4,8 @@ extends Node3D
 @onready var front_bar: ProgressBar = $SubViewport/MarginContainer/VBoxContainer/HealthControl/FrontBar
 @onready var reload_bar: TextureProgressBar = $SubViewport/MarginContainer/VBoxContainer2/ReloadControl/ReloadBar
 
+var reload_tween: Tween = null
+
 func _ready():
 	SignalBus.player_health_changed.connect(update_health)
 	front_bar.value = 100
@@ -11,6 +13,7 @@ func _ready():
 	
 	SignalBus.reload_started.connect(_on_reload_started)
 	reload_bar.hide()
+	SignalBus.reload_cancelled.connect(_on_reload_cancelled)
 
 func update_health(new_health: int):
 	var f_tween = get_tree().create_tween()
@@ -23,6 +26,16 @@ func _on_reload_started(duration: float):
 	reload_bar.show()
 	reload_bar.value = 0
 	
-	var tween = create_tween()
-	tween.tween_property(reload_bar, "value", 100, duration)
-	tween.finished.connect(func(): reload_bar.hide())
+	reload_tween = create_tween()
+	reload_tween.tween_property(reload_bar, "value", 100, duration)
+	reload_tween.finished.connect(func(): 
+		reload_bar.hide()
+		reload_tween = null
+	)
+
+func _on_reload_cancelled(current_ammo: int):
+	if reload_tween:
+		reload_tween.kill()
+		reload_tween = null
+		reload_bar.value = 0
+		reload_bar.hide()
