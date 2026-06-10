@@ -15,7 +15,6 @@ func _ready():
 
 # Set parameters & turn on bullet
 func fire(start_pos: Vector3, direction: Vector3, bullet_speed: int, bullet_damage: int):
-	print("fired! " + str(bullet_damage))
 	damage = bullet_damage
 	global_position = start_pos
 	velocity = direction * bullet_speed
@@ -45,7 +44,6 @@ func deactivate():
 
 # Disappear on-hit & Check for damage
 func _on_body_entered(body: Node3D) -> void:
-	print("hit!")
 	deactivate()
 	if body.has_method("take_damage"):
 		body.take_damage(damage)
