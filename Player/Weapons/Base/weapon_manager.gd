@@ -30,9 +30,12 @@ func _unhandled_input(event):
 
 # Parse array of weapons
 func change_weapon(direction: int):
-	_current_index = posmod(_current_index + direction, _instances.size())
-	equip_weapon(_current_index)
-	current_weapon.display_ammo()
+	if current_weapon and current_weapon.has_method("cancel_reload"):
+		current_weapon.cancel_reload()                                         # Cancel any ongoing reload
+	_current_index = posmod(_current_index + direction, _instances.size())   # Get next gun in list
+	equip_weapon(_current_index)                                             # Equip new gun
+	current_weapon.display_ammo()                                            # Call for ammo ui to display new gun
+	current_weapon.switch_reload()                                           # Check if gun had zero ammo & start reload if so
 
 # Equip weapon
 func equip_weapon(index: int):

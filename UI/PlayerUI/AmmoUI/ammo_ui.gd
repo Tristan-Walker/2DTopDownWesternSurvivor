@@ -9,6 +9,7 @@ var current_layout: AmmoLayout
 func _ready():
 	SignalBus.ammo_updated.connect(_on_ammo_updated)
 	SignalBus.ammo_setup.connect(_setup_icons)
+	SignalBus.reload_cancelled.connect(_reload_cancelled)
 
 # Sets up initial ammo icons
 func _setup_icons(max_ammo: int, layout: AmmoLayout):
@@ -36,6 +37,7 @@ func _setup_icons(max_ammo: int, layout: AmmoLayout):
 		bullet_grid.add_child(icon)
 		bullet_icons.append(icon)
 
+# Updates ammo icons (like when they are consumed)
 func _on_ammo_updated(current_ammo: int):
 	ammo_label.text = str(current_ammo)
 	
@@ -55,3 +57,6 @@ func _on_ammo_updated(current_ammo: int):
 func _animate_icon(icon: Control, target_alpha: float):
 	var tween = create_tween()
 	tween.tween_property(icon, "modulate:a", target_alpha, 0.2).set_trans(Tween.TRANS_SINE)
+
+func _reload_cancelled(current_ammo: int):
+	_on_ammo_updated(current_ammo)
