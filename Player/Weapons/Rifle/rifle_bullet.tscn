@@ -3,9 +3,19 @@
 [ext_resource type="Script" uid="uid://ch8mkujgtnl25" path="res://Player/Weapons/Rifle/rifle_bullet.gd" id="1_pmxqj"]
 [ext_resource type="Texture2D" uid="uid://b5llvf6pdxf5t" path="res://Pictures/bullet_green.png" id="2_r5mps"]
 
-[node name="RifleBullet" type="Node3D" unique_id=1529232128]
+[sub_resource type="SphereShape3D" id="SphereShape3D_pmxqj"]
+radius = 0.3
+
+[node name="RifleBullet" type="Area3D" unique_id=1008920986]
+collision_layer = 4
+collision_mask = 5
 script = ExtResource("1_pmxqj")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=2085921082]
 billboard = 1
 texture = ExtResource("2_r5mps")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=955017613]
+shape = SubResource("SphereShape3D_pmxqj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
