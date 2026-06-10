@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="AmmoLayout" format=3 uid="uid://bco56xvcbeqrf"]
 
 [ext_resource type="Script" uid="uid://wdmy4iovlcue" path="res://UI/PlayerUI/AmmoUI/AmmoLayout.gd" id="1_4tfie"]
-[ext_resource type="PackedScene" uid="uid://8db3w22j44os" path="res://UI/PlayerUI/AmmoUI/AmmoIcon_Default.tscn" id="1_iivf8"]
+[ext_resource type="PackedScene" uid="uid://ciy18u6tispro" path="res://UI/PlayerUI/AmmoUI/AmmoIcons/AmmoIcon_Rifle.tscn" id="1_iivf8"]
 
 [resource]
 script = ExtResource("1_4tfie")
