@@ -4,36 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://c3w08jf7pnfj5" path="res://Player/player.tscn" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://c1b0yqq5rbqek" path="res://Map/Town/Town.tscn" id="2_ycdy4"]
 [ext_resource type="Resource" uid="uid://636fdf1rxu4i" path="res://Inventory/test_inv.tres" id="3_4c57u"]
-[ext_resource type="PackedScene" uid="uid://2rawq5fpau43" path="res://Map/Teleporter/Teleporter.tscn" id="3_vivmo"]
 [ext_resource type="PackedScene" uid="uid://dhe3nflyaw7ig" path="res://UI/Pause/pause_ui.tscn" id="6_5vw27"]
 [ext_resource type="Script" uid="uid://bgg65ycncfv50" path="res://Inventory/inventory_interface.gd" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://ba7cvrip8fu0q" path="res://Inventory/inventory.tscn" id="7_kek77"]
 [ext_resource type="PackedScene" uid="uid://8mu0oaj58r74" path="res://Inventory/slot.tscn" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://c35gnjvvqx6wb" path="res://UI/PlayerUI/AmmoUI/AmmoUI.tscn" id="11_efxa6"]
-[ext_resource type="Script" path="res://Inventory/Classes/inventory_data_equip.gd" id="12_074og"]
-[ext_resource type="PackedScene" uid="uid://bu6hdiwresvdy" path="res://Interaction/chest.tscn" id="12_dg77c"]
+[ext_resource type="Script" uid="uid://r2e0poq7hwpm" path="res://Inventory/Classes/inventory_data_equip.gd" id="12_074og"]
 [ext_resource type="PackedScene" uid="uid://cdv2hqpn4kjd1" path="res://UI/game_over_ui.tscn" id="13_cegan"]
-[ext_resource type="Script" uid="uid://ps76he345s8n" path="res://Inventory/Classes/inventory_data.gd" id="14_2cqfq"]
-[ext_resource type="Resource" uid="uid://e303dhkash6w" path="res://Inventory/Items/fruit_salad.tres" id="14_w48qg"]
-[ext_resource type="PackedScene" uid="uid://c5m0ar17bio6" path="res://Inventory/PickUps/pick_up.tscn" id="15_vivmo"]
 [ext_resource type="Script" uid="uid://dqt8ku2c5jkf7" path="res://Inventory/Classes/slot_data.gd" id="15_yaehf"]
-[ext_resource type="Resource" uid="uid://dv0wp4va2124w" path="res://Inventory/Items/currency.tres" id="16_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://b5spdvilmkmpa" path="res://Inventory/hot_bar_inventory.tscn" id="16_yaehf"]
-
-[sub_resource type="Resource" id="Resource_w48qg"]
-script = ExtResource("15_yaehf")
-item_data = ExtResource("14_w48qg")
-metadata/_custom_type_script = "uid://dqt8ku2c5jkf7"
-
-[sub_resource type="Resource" id="Resource_82xsv"]
-script = ExtResource("14_2cqfq")
-slot_datas = Array[ExtResource("15_yaehf")]([SubResource("Resource_w48qg"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
-metadata/_custom_type_script = "uid://ps76he345s8n"
-
-[sub_resource type="Resource" id="Resource_yaehf"]
-script = ExtResource("15_yaehf")
-item_data = ExtResource("16_2cqfq")
-metadata/_custom_type_script = "uid://dqt8ku2c5jkf7"
 
 [sub_resource type="Resource" id="Resource_cegan"]
 script = ExtResource("12_074og")
@@ -43,17 +22,6 @@ slot_datas = Array[ExtResource("15_yaehf")]([null, null, null, null])
 script = ExtResource("1_kek77")
 
 [node name="Town" parent="." unique_id=630110712 instance=ExtResource("2_ycdy4")]
-
-[node name="Teleporter" parent="Town" unique_id=857823175 instance=ExtResource("3_vivmo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 0)
-
-[node name="Chest" parent="Town" unique_id=588962768 instance=ExtResource("12_dg77c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.749006, 0, -1.3989263)
-inventory_data = SubResource("Resource_82xsv")
-
-[node name="PickUp" parent="Town" unique_id=65485173 instance=ExtResource("15_vivmo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.21, 1.165128, 2.469)
-slot_data = SubResource("Resource_yaehf")
 
 [node name="Player" parent="." unique_id=1362463066 instance=ExtResource("2_7mycd")]
 inventory_data = ExtResource("3_4c57u")
