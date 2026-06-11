@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ciy18u6tispro"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_edk4f"]
+bg_color = Color(0.7058824, 0.5254902, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+
+[node name="AmmoIconRifle" type="Panel" unique_id=1584089618]
+theme_override_styles/panel = SubResource("StyleBoxFlat_edk4f")

@@ -7,7 +7,7 @@ var damage: float = 1
 
 # Bullet lifetime values (How long bullet exists):
 var lifetime: float = 0        # Current lifetime of a bullet
-var max_lifetime: float = 2    # Maximum life until timeout
+var max_lifetime: float = 0.5    # Maximum life until timeout
 
 func _ready():
 	hide() # Start invisible

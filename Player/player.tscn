@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://c3w08jf7pnfj5"]
 
 [ext_resource type="Script" uid="uid://bvktr8tyt8h1h" path="res://Player/player.gd" id="1_i3pqv"]
-[ext_resource type="PackedScene" uid="uid://lpwi414jmpl5" path="res://Player/Shooting/bullet.tscn" id="2_hqtel"]
 [ext_resource type="PackedScene" uid="uid://5dcx8t80fw4t" path="res://UI/PlayerUI/HealthBars/HealthBar3D.tscn" id="3_2hs0m"]
-[ext_resource type="Texture2D" uid="uid://db4kkdcg616wq" path="res://Pictures/Jebidiah Levideous.jpg" id="3_sweqy"]
 [ext_resource type="PackedScene" uid="uid://csa01524bxfv4" path="res://Player/Weapons/Base/WeaponManager.tscn" id="6_fhl08"]
+[ext_resource type="Script" uid="uid://x3uf7qpfnb4j" path="res://Player/Weapons/Shotgun/Shotgun.gd" id="7_00tjw"]
+[ext_resource type="Texture2D" uid="uid://4vs8fy20wmns" path="res://Pictures/Anims/Jebidiah_Levideous_Base.png" id="7_apopc"]
+[ext_resource type="Script" uid="uid://cs5m12etawqy1" path="res://Player/Weapons/Rifle/Rifle.gd" id="7_od3ui"]
 [ext_resource type="Script" uid="uid://dep63704dhsbe" path="res://Player/Weapons/Pistol/Pistol.gd" id="7_vtle1"]
+[ext_resource type="Texture2D" uid="uid://s4dncyyjxvx2" path="res://Pictures/Anims/Jebidiah_Levideous_Squash_1.png" id="8_5htga"]
+[ext_resource type="Texture2D" uid="uid://wannfrlh06j2" path="res://Pictures/Anims/Jebidiah_Levideous_Squash_2.png" id="9_p5o4e"]
+[ext_resource type="Texture2D" uid="uid://d0t0l5rvy7les" path="res://Pictures/Anims/Jebidiah_Levideous_LeftTilt.png" id="10_gu6f8"]
+[ext_resource type="Texture2D" uid="uid://ijlhw4jpug68" path="res://Pictures/Anims/Jebidiah_Levideous_RightTilt.png" id="11_dkpta"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_lquwl"]
 height = 1.0
@@ -15,17 +20,64 @@ radius = 0.16064453
 height = 1.0
 radius = 0.17138672
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_vtle1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_apopc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5htga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_p5o4e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5htga")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_apopc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_gu6f8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_apopc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_dkpta")
+}],
+"loop": true,
+"name": &"walk_backward",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_apopc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_gu6f8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_apopc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_dkpta")
+}],
+"loop": true,
+"name": &"walk_forward",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody3D" unique_id=1362463066 groups=["player"]]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_i3pqv")
-bullet_scene = ExtResource("2_hqtel")
-
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1592352513]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-offset = Vector2(0, 90)
-billboard = 1
-texture = ExtResource("3_sweqy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1630969496]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -48,4 +100,11 @@ transform = Transform3D(1, 0, 0, 0, 0.8660253, 0.50000024, 0, -0.50000024, 0.866
 fov = 40.0
 
 [node name="WeaponManager" parent="." unique_id=309252030 instance=ExtResource("6_fhl08")]
-weapons = Array[GDScript]([ExtResource("7_vtle1")])
+weapons = Array[GDScript]([ExtResource("7_vtle1"), ExtResource("7_od3ui"), ExtResource("7_00tjw")])
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1103152978]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+offset = Vector2(0, 90)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_vtle1")
+animation = &"idle"

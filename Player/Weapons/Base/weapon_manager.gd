@@ -19,24 +19,38 @@ func _ready():
 	if _instances.size() > 0:
 		_instances[0].active = true
 		current_weapon = _instances[0]
+		current_weapon.display_ammo()
 
 # Catch player input
 func _unhandled_input(event):
 	if event.is_action_pressed("switch_weapon"):
 		change_weapon(1)
+	if event.is_action_pressed("reload"):
+		call_reload()
 
 # Parse array of weapons
 func change_weapon(direction: int):
-	_current_index = posmod(_current_index + direction, _instances.size())
-	equip_weapon(_current_index)
+	if current_weapon and current_weapon.has_method("cancel_reload"):
+		current_weapon.cancel_reload()                                         # Cancel any ongoing reload
+	_current_index = posmod(_current_index + direction, _instances.size())   # Get next gun in list
+	equip_weapon(_current_index)                                             # Equip new gun
+	current_weapon.display_ammo()                                            # Call for ammo ui to display new gun
+	current_weapon.switch_reload()                                           # Check if gun had zero ammo & start reload if so
 
 # Equip weapon
 func equip_weapon(index: int):
 	current_weapon = _instances[index]
+	current_weapon.display_ammo()
 	print("Equipped: ", current_weapon.name)
+
+# Send a message to the current weapon to reload
+func call_reload():
+	current_weapon.reload()
 
 # Use the equipped weapon's fire function
 func _physics_process(_delta: float) -> void:
+	if PlayerManager.is_level_select_open or PlayerManager.block_shooting:
+		return   # If map is open do nothing
 	if Input.is_action_pressed("shoot"):
 		shoot()
 

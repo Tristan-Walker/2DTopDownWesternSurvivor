@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cn5io4h48lsn0"]
+
+[ext_resource type="Texture2D" uid="uid://dy3y4r7tn3qaj" path="res://Pictures/bullet.png" id="1_2vq8o"]
+[ext_resource type="Script" uid="uid://csfp1kldppomb" path="res://Player/Weapons/Shotgun/shotgun_bullet.gd" id="1_7ww7c"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2vq8o"]
+radius = 0.3
+
+[node name="ShotgunBullet" type="Area3D" unique_id=2002790249]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_7ww7c")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=850367944]
+billboard = 1
+texture = ExtResource("1_2vq8o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1158565840]
+shape = SubResource("SphereShape3D_2vq8o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

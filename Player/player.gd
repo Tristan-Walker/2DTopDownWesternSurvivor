@@ -1,16 +1,13 @@
 extends CharacterBody3D
 
+@onready var sprite = $AnimatedSprite3D
+
 # Misc stats
 @export var i_frame_duration: float = 0.5        # Half a second of invincibility
 @export var max_health: int = 100                # Maximum possible health of character.
 var current_health := 100.0                      # The health that the player currently has.
 @export var speed = 5.0                          # player speed
 var is_invincible: bool = false                  # Is the character currently invincible?
-
-# Shooting
-@export var bullet_scene: PackedScene            # Import bullet scene
-@export var fire_rate := 0.3                     # bullet fire rate
-var last_shoot_dir: Vector3 = Vector3.RIGHT      # Default direction
 
 # Inventory
 @export var inventory_data: InventoryData        # Inventory data
@@ -29,9 +26,9 @@ func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("inventory"):
 		SignalBus.toggle_inventory.emit()
 
-# Player movement + core shooting
+# Player movement
 func _physics_process(_delta: float) -> void:
-	if PlayerManager.is_level_select_open or PlayerManager.block_shooting:
+	if PlayerManager.is_level_select_open:
 		return   # If map is open or just closed do nothing
 		
 	# PLAYER MOVEMENT
@@ -47,9 +44,10 @@ func _physics_process(_delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, speed)
 		
 	if input_dir.x != 0:
-		$Sprite3D.flip_h = input_dir.x < 0
+		sprite.flip_h = input_dir.x < 0
 	
 	move_and_slide()
+	_update_animation(input_dir)
 
 func take_damage(amount: int):
 	# Check for invincibility
@@ -85,3 +83,17 @@ func heal(heal_value: int) -> void:
 	else:
 		current_health = max_health
 		SignalBus.player_health_changed.emit(current_health)
+
+func _update_animation(input_dir: Vector2) -> void:
+	if input_dir == Vector2.ZERO:
+		_play_animation("idle")
+		return
+
+	# Right or down = walk_forward, Left or up = walk_backward
+	var is_forward = input_dir.x > 0 or input_dir.y > 0
+	_play_animation("walk_forward" if is_forward else "walk_backward")
+
+func _play_animation(anim_name: String) -> void:
+	if sprite.animation == anim_name:
+		return  # Already playing, don't restart it
+	sprite.play(anim_name)

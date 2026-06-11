@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cy8m8qqkf2o14"]
+
+[ext_resource type="Script" uid="uid://b6mi8kavc2bym" path="res://UI/PlayerUI/AmmoUI/AmmoIcons/ammo_icon_shotgun.gd" id="1_oa75u"]
+
+[node name="AmmoIconShotgun" type="Control" unique_id=722332590]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_oa75u")
+
+[node name="Border" type="Polygon2D" parent="." unique_id=450529301]
+position = Vector2(0, 1.4230766)
+scale = Vector2(1, 0.9807692)
+color = Color(0.6378432, 0.6378432, 0.63784313, 1)
+
+[node name="Body" type="Polygon2D" parent="." unique_id=1712651896]
+color = Color(0.79049087, 0.2217322, 0.2438297, 1)
+
+[node name="Tip" type="Polygon2D" parent="." unique_id=396063128]
