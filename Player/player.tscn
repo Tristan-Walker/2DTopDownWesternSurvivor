@@ -4,13 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://5dcx8t80fw4t" path="res://UI/PlayerUI/HealthBars/HealthBar3D.tscn" id="3_2hs0m"]
 [ext_resource type="PackedScene" uid="uid://csa01524bxfv4" path="res://Player/Weapons/Base/WeaponManager.tscn" id="6_fhl08"]
 [ext_resource type="Script" uid="uid://x3uf7qpfnb4j" path="res://Player/Weapons/Shotgun/Shotgun.gd" id="7_00tjw"]
-[ext_resource type="Texture2D" uid="uid://4vs8fy20wmns" path="res://Pictures/Anims/Jebidiah_Levideous_Base.png" id="7_apopc"]
+[ext_resource type="Texture2D" uid="uid://dq3pv01raucpu" path="res://Pictures/Anims/Jebidiah_Levideous_Base.png" id="7_apopc"]
 [ext_resource type="Script" uid="uid://cs5m12etawqy1" path="res://Player/Weapons/Rifle/Rifle.gd" id="7_od3ui"]
 [ext_resource type="Script" uid="uid://dep63704dhsbe" path="res://Player/Weapons/Pistol/Pistol.gd" id="7_vtle1"]
-[ext_resource type="Texture2D" uid="uid://s4dncyyjxvx2" path="res://Pictures/Anims/Jebidiah_Levideous_Squash_1.png" id="8_5htga"]
-[ext_resource type="Texture2D" uid="uid://wannfrlh06j2" path="res://Pictures/Anims/Jebidiah_Levideous_Squash_2.png" id="9_p5o4e"]
-[ext_resource type="Texture2D" uid="uid://d0t0l5rvy7les" path="res://Pictures/Anims/Jebidiah_Levideous_LeftTilt.png" id="10_gu6f8"]
-[ext_resource type="Texture2D" uid="uid://ijlhw4jpug68" path="res://Pictures/Anims/Jebidiah_Levideous_RightTilt.png" id="11_dkpta"]
+[ext_resource type="Texture2D" uid="uid://btv5cp2lpeax1" path="res://Pictures/Anims/Jebidiah_Levideous_Squash_1.png" id="8_5htga"]
+[ext_resource type="Texture2D" uid="uid://djticdmx6vi28" path="res://Pictures/Anims/Jebidiah_Levideous_Squash_2.png" id="9_p5o4e"]
+[ext_resource type="Texture2D" uid="uid://l4xtqm81g0ik" path="res://Pictures/Anims/Jebidiah_Levideous_LeftTilt.png" id="10_gu6f8"]
+[ext_resource type="Texture2D" uid="uid://xp323pd7fk2v" path="res://Pictures/Anims/Jebidiah_Levideous_RightTilt.png" id="11_dkpta"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_lquwl"]
 height = 1.0
